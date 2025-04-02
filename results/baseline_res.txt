@@ -1,0 +1,6 @@
+Subset accuracy:0.147
+Macro-average precision::0.920
+Macro-average recall:0.803
+Weighted F1 score:0.970
+Macro-average F1 score:0.838
+Micro-average F1 score:0.977

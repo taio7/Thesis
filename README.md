@@ -1,1 +1,1 @@
-The baseline experiment is under scripts/train.py 
+The new scripts with parquet files are under revised.

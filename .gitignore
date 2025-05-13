@@ -1,13 +1,10 @@
 .vscode/
 *
 !.gitignore
-!new_results/
-!new_pred_output/
-!preped/
-!ready_dfs/
+!*/.keep
 !data_prep.py
 !df_prep.py
-!congif_dfs.py
+!config_dfs.py
 !eval.py
 !models_run.py
 !gap_fill_meta.py 

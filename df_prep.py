@@ -78,7 +78,7 @@ def preprocess_with_nans(train, dev, test, strategy= None, mask_ratio= 0.3, seed
     dev_top_1hot_fams= aug_with_selected_fams(dev, train, fam_cols)
     
     fams_1hot_cols= [col for col in train_1hot_fams.columns if col.startswith("fam_")]
-    topfams_1hot_cols= [col for col in train_1hot_fams.columns if col.startswith("top_")]
+    topfams_1hot_cols= [col for col in train_top_1hot_fams.columns if col.startswith("top_")]
 
 #add lost family column after one hot encoding, for checks  
     train_1hot_fams["language_family"] = train_base["language_family"]
@@ -122,11 +122,11 @@ def bool_to_cat(df, gb_columns):
         df_cat[col]= df_cat[col].fillna("unk")
     return df_cat
 
-def label_encode_df(df, lat_lon_cols):
+def label_encode_df(df, lat_lon_cols, topfams_1hot_cols):
     df_enc= df.copy()
     encoders= {}  #save each col encoder in dict to reuse 
     for col in df.columns:
-        if col in lat_lon_cols:
+        if col in lat_lon_cols or col in topfams_1hot_cols:
             continue
         le= LabelEncoder()
         df_enc[col]= le.fit_transform(df_enc[col]) #one encoder for each feat and transform vals
@@ -155,7 +155,12 @@ def preprocess_no_nans(train, dev, test, strategy="mode", mask_ratio=0.3, seed=3
     train[fam_cols] = train[fam_cols].astype("category")
     dev[fam_cols] = dev[fam_cols].astype("category")
 
-    #MAP TO CAT
+    train_base= train.copy()                               #has no nans
+    dev_base= dev.copy()                                   #has nans
+    train_top_1hot_fams= aug_with_selected_fams(train, train, fam_cols)  #adds 7 cols (top fams+other), returns full df
+    dev_top_1hot_fams= aug_with_selected_fams(dev, train, fam_cols)
+    topfams_1hot_cols= [col for col in train_top_1hot_fams.columns if col.startswith("top_")]
+    #MAP TO CAT, only gb cols
     df_train_cat = bool_to_cat(train, gb_columns)
     df_dev_cat= bool_to_cat(dev, gb_columns)
     
@@ -163,18 +168,26 @@ def preprocess_no_nans(train, dev, test, strategy="mode", mask_ratio=0.3, seed=3
 #Combine data so encoders learn all possible values and labels per columns and then split again
     unk_row = pd.DataFrame([["unk"] * len(df_train_cat.columns)], columns=df_train_cat.columns)
     combined_for_enc=pd.concat([df_train_cat, df_dev_cat, unk_row], ignore_index=True)
-#exclude lat-lon from encoding and transforming
+#exclude lat-lon and top1hotfams from encoding and transforming
 
-    all_data_enc, encoders= label_encode_df(combined_for_enc, lat_lon_cols)
+    all_data_enc, encoders= label_encode_df(combined_for_enc, lat_lon_cols, topfams_1hot_cols)
     
-    df_train_enc= all_data_enc.iloc[:len(df_train_cat)]
+    df_train_enc= all_data_enc.iloc[:len(df_train_cat)]   #all columns int except lat/lon and topfams
     df_dev_enc= all_data_enc.iloc[len(df_train_cat):-1]
+    df_dev_enc.index = dev.index
+#add bool topfam columns to encoded dfs
+    train_aug= pd.concat([df_train_enc, train_top_1hot_fams[topfams_1hot_cols]], axis=1)
+    dev_aug= pd.concat([df_dev_enc, dev_top_1hot_fams[topfams_1hot_cols]],axis=1)
+    
+#convert topfamcols to int for consistency    
+    train_aug[topfams_1hot_cols]=train_aug[topfams_1hot_cols].astype(int)
+    dev_aug[topfams_1hot_cols]=dev_aug[topfams_1hot_cols].astype(int)
 
-  
+
     masked_df, masked_positions= mask_dev(dev, gb_columns, mask_ratio=mask_ratio, seed=seed)
     masked_df_dev = bool_to_cat(masked_df, gb_columns)
     masked_df_dev_enc= transform_w_encoder(masked_df_dev, encoders)
-
+    
     #after resplitting dev from combined idx change, so realign 
     
     df_dev_enc.index = dev.index  # maintain original alignment
@@ -182,12 +195,22 @@ def preprocess_no_nans(train, dev, test, strategy="mode", mask_ratio=0.3, seed=3
     assert df_dev_enc.index.equals(masked_positions.index), "index mismatch between dev and mask"
     assert df_train_enc.index.equals(masked_df_dev_enc.index) == False, "train and masked_dev should not have same index"
     print(masked_positions.values.sum())
+#CHECK augmented 
+    masked_positions.index = dev_aug.index
+    assert dev_aug.index.equals(masked_positions.index), "index mismatch between dev and mask"
+    assert train_aug.index.equals(masked_positions.index) == False, "train and masked_dev should not have same index"
+    print(masked_positions.values.sum())
+    assert list(train_aug.columns) == list(dev_aug.columns)
+    
 
-    df_train_enc.to_parquet(NO_NAN_PATH / "train_ready.parquet")
+    train_aug.to_parquet(WITH_NAN_PATH / "train_aug_ready.parquet")
+    dev_aug.to_parquet(WITH_NAN_PATH / "dev_aug_ready.parquet")
+
+    """df_train_enc.to_parquet(NO_NAN_PATH / "train_ready.parquet")
     masked_df_dev_enc.to_parquet(NO_NAN_PATH / "masked_df_ready.parquet")
     df_dev_enc.to_parquet(NO_NAN_PATH / "dev_gold_ready.parquet")
     masked_positions.to_parquet(NO_NAN_PATH / "masked_positions_ready.parquet")
-    #test.to_parquet(NO_NAN_PATH / "test_ready.parquet")
+    #test.to_parquet(NO_NAN_PATH / "test_ready.parquet")"""
 
     print(f"Saved enc preprocessed data to {NO_NAN_PATH}")
     return encoders
@@ -223,7 +246,7 @@ def main():
     dev = pd.read_parquet(DATA_PATH / "dev_gold.parquet")
     test = pd.read_parquet(DATA_PATH / "test.parquet")
 
-    preprocess_with_nans(train, dev, test, strategy="mode", mask_ratio=0.3, seed=30)
+    #preprocess_with_nans(train, dev, test, strategy="mode", mask_ratio=0.3, seed=30)
 
     encoders= preprocess_no_nans(train, dev, test, strategy="mode", mask_ratio=0.3, seed=30)
 

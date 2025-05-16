@@ -1,5 +1,6 @@
 .vscode/
 *
+#ignore everything except: !
 !.gitignore
 !*/.keep
 !data_prep.py
@@ -8,3 +9,13 @@
 !eval.py
 !models_run.py
 !gap_fill_meta.py 
+
+!data/ 
+!data/dev.tsv
+!data/grambank.encoded.tsv
+!data/train.tsv
+!data/test.tsv 
+
+!scripts/
+!scripts/create_train_dev.py
+!scripts/find_test_lgs.py 

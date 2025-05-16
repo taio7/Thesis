@@ -1,13 +1,7 @@
 import pandas as pd
-from pathlib import Path
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.multioutput import MultiOutputClassifier
-from sklearn.ensemble import HistGradientBoostingClassifier
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.neural_network import MLPClassifier
-from sklearn.preprocessing import LabelEncoder
 import numpy as np
 from sklearn.inspection import permutation_importance
+import time 
 
 from sklearn.metrics import classification_report
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
@@ -70,6 +64,38 @@ def masked_eval(gb_columns, y_dev, y_pred_df, masked_positions, output_file):
         f.write(res)
         f.writelines(results)
     print(f"eval file saved to {output_file}")
+
+def see_feature_importance(multi_model, X_dev, y_dev, gb_columns, masked_positions):
+    """feature importance looped for each gb feature=column"""
+    start_time = time.time()
+    for i, col in enumerate(gb_columns):
+        print(f"for feature {col}")
+
+        #need to remove nan from ytrue for it to compute
+        mask = masked_positions[col]
+        X_dev_masked = X_dev[mask]
+        y_dev_masked = y_dev[col][mask]
+
+        #see if too many values are skipped 
+        if len(y_dev_masked) < 10:
+            print("skipping: too few non-nan values")
+            continue
+
+        result= permutation_importance(
+            multi_model.estimators_[i], X_dev_masked, y_dev_masked, 
+            n_repeats=5, random_state=42, n_jobs=1,scoring="accuracy"
+        )
+        importances = pd.Series(result.importances_mean, index=X_dev.columns)
+        importances = importances.sort_values(ascending=False)
+        print(importances.head(10).to_string())
+
+        fam_feat= [c for c in X_dev.columns if "fam_" in c or "top_fams_" in c or c == "language_family"]
+        for fcol in fam_feat:
+            if fcol in importances:
+                print(f"{fcol}: {importances[fcol]:.6f}")
+
+    elapsed_time = time.time() - start_time
+    print(f"Elapsed time to compute the importances: {elapsed_time:.3f} seconds")
 
 
 def eval(gb_columns, y_dev, y_pred_df, output_file):

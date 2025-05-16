@@ -14,16 +14,50 @@ DATA_PATH = BASE_PATH / "preped"
 OUTPUT_PATH= BASE_PATH/ "ready_dfs"
 WITH_NAN_PATH= OUTPUT_PATH/ "with_nans"
 NO_NAN_PATH= OUTPUT_PATH/ "no_nans"
+TEMP= BASE_PATH/ "temp"
 
 
-"""def aug_with_selected_fams():
-    returns the df with extra columns eg IE one hot encoded
-    and is then passed into preprocess"""
+def aug_with_selected_fams(df, train, fam_cols):
+    """returns the df with extra columns eg IE one hot encoded, 
+    takes 6 most populated families from train, keeps lgfam original column"""
+    df=df.copy()
+    #print(df[fam_cols])  #returns df with lgfam column, [95r,1]
+    #print(df["language_family"])  #returns series [95r]
+#take top 6 families from train
+    top_fams= train[fam_cols[0]].value_counts().nlargest(6) #6 top populated families 
+    top_fams_idx= top_fams.index.tolist() 
+
+    if "OTHER" not in df["language_family"].cat.categories:
+        df["language_family"] = df["language_family"].cat.add_categories(["OTHER"])
+    #placeholder aug df, if it meets condition return it, else fill non top with other 
+    df["augm"]=df["language_family"].apply(lambda x: x if x in top_fams_idx else "OTHER")
+    fams_1hot= pd.get_dummies(df["augm"], prefix="top_fams", dtype=bool)
+    print(fams_1hot.columns.tolist())
+    df=pd.concat([df, fams_1hot], axis=1)
+    df.drop(columns=["augm"], inplace=True)
+    return df 
+
+def one_hot_enc_all_fams(train, dev, fam_cols):
+    train_only_fams= train[fam_cols[0]].copy()  #series, idx family 
+    #hierarchical index, keys as outermost level 
+    combined= pd.concat([train, dev], keys=["train", "dev"])
+    combined_1hot_enc= pd.get_dummies(combined, columns=fam_cols, prefix="fam", dtype=bool)
+    
+    train= combined_1hot_enc.loc["train"].copy()
+    dev= combined_1hot_enc.loc["dev"].copy()
+    
+    for i, fam in train_only_fams.items():
+        fam_col= f"fam_{fam}"
+        assert fam_col in train.columns
+        assert train.at[i, fam_col]== True
+
+    return train, dev 
 
 
 def preprocess_with_nans(train, dev, test, strategy= None, mask_ratio= 0.3, seed=42):
     gb_columns = [col for col in train.columns if col.startswith("GB")]
     fam_cols = ["language_family"]
+
 
     train= fill_strat("mode", train, gb_columns)  #dont fill dev and mask eval
     assert not train[gb_columns].isnull().values.any()
@@ -31,17 +65,54 @@ def preprocess_with_nans(train, dev, test, strategy= None, mask_ratio= 0.3, seed
     dev[gb_columns] = dev[gb_columns].astype("boolean")
     train[fam_cols] = train[fam_cols].astype("category")
     dev[fam_cols] = dev[fam_cols].astype("category") 
+    #print(train.index)
+    #print(dev.index)
+    #aug_with_selected_fams(train, fam_cols)
+    #dev_top_fams=aug_with_selected_fams(dev, train, fam_cols)
+    
+    train_base= train.copy()
+    dev_base= dev.copy()
+
+    train_1hot_fams, dev_1hot_fams= one_hot_enc_all_fams(train, dev, fam_cols)
+    train_top_1hot_fams= aug_with_selected_fams(train, train, fam_cols)
+    dev_top_1hot_fams= aug_with_selected_fams(dev, train, fam_cols)
+    
+    fams_1hot_cols= [col for col in train_1hot_fams.columns if col.startswith("fam_")]
+    topfams_1hot_cols= [col for col in train_1hot_fams.columns if col.startswith("top_")]
+
+#add lost family column after one hot encoding, for checks  
+    train_1hot_fams["language_family"] = train_base["language_family"]
+    dev_1hot_fams["language_family"] = dev_base["language_family"]
+
+    train_aug = pd.concat([train, train_1hot_fams[fams_1hot_cols], train_top_1hot_fams[topfams_1hot_cols]], axis=1)
+    dev_aug = pd.concat([dev, dev_1hot_fams[fams_1hot_cols], dev_top_1hot_fams[topfams_1hot_cols]], axis=1)
+#CHECHS
+    base_cols = train_base.columns.tolist()
+    
+    new_cols = fams_1hot_cols + topfams_1hot_cols
+    
+    assert train_aug[base_cols].equals(train_base[base_cols])
+    assert dev_aug[base_cols].equals(dev_base[base_cols])
+
+    assert train_aug.index.equals(train_base.index)
+    assert dev_aug.index.equals(dev_base.index)
+#apply mask to aug and base 
 
     masked_df, masked_positions= mask_dev(dev, gb_columns, mask_ratio=mask_ratio, seed=seed)
+    masked_df_aug, masked_positions_aug= mask_dev(dev_aug, gb_columns, mask_ratio=mask_ratio, seed=seed)
+    
+    train_aug.to_parquet(WITH_NAN_PATH / "train_aug_ready.parquet")
+    masked_df_aug.to_parquet(WITH_NAN_PATH / "masked_df_aug_ready.parquet")
+    dev_aug.to_parquet(WITH_NAN_PATH / "dev_aug_ready.parquet")
+    masked_positions_aug.to_parquet(WITH_NAN_PATH / "masked_positions_aug_ready.parquet")
 
-
-    train.to_parquet(WITH_NAN_PATH / "train_ready.parquet")
+    """train.to_parquet(WITH_NAN_PATH / "train_ready.parquet")
     masked_df.to_parquet(WITH_NAN_PATH / "masked_df_ready.parquet")
     dev.to_parquet(WITH_NAN_PATH / "dev_gold_ready.parquet")
     masked_positions.to_parquet(WITH_NAN_PATH / "masked_positions_ready.parquet")
     #test.to_parquet(WITH_NAN_PATH / "test_ready.parquet")
 
-    print(f"Saved preprocessed data to {WITH_NAN_PATH}")
+    print(f"Saved preprocessed data to {WITH_NAN_PATH}")"""
 
 def bool_to_cat(df, gb_columns):
     #turns boolean to str and fills gaps with "unk"
@@ -135,10 +206,15 @@ def mask_dev(df_dev, gb_columns, mask_ratio=None, seed=None):
         use_indx= mask_df[col].dropna().index.tolist() #list of indices on non empty vals
         n_mask= int(len(use_indx)*mask_ratio) #number of indices that will be masked
         mask_indx= np.random.choice(use_indx, size=n_mask, replace=False) #randomize number of selected indices and make them Fasle 
+        #  HOW many t/f per feature is masked 
+        #original_vals = df_dev.loc[mask_indx, col]
+        #print(f"{col} - masked values: {original_vals.value_counts(dropna=False).to_dict()}")
+        
+        
         mask_df.loc[mask_indx, col]= np.nan #locate the indexed feature and replacw with 'nan
         mask_rec_for_eval.loc[mask_indx, col] = True #marking the masked positions
     print(f"all masked cells: {mask_rec_for_eval.values.sum()}")
-    print("masked_positions index :", mask_rec_for_eval.index)
+    #print("masked_positions index :", mask_rec_for_eval.index)
 
     return mask_df, mask_rec_for_eval 
 
@@ -147,7 +223,7 @@ def main():
     dev = pd.read_parquet(DATA_PATH / "dev_gold.parquet")
     test = pd.read_parquet(DATA_PATH / "test.parquet")
 
-    #preprocess_with_nans(train, dev, test, strategy="mode", mask_ratio=0.3, seed=30)
+    preprocess_with_nans(train, dev, test, strategy="mode", mask_ratio=0.3, seed=30)
 
     encoders= preprocess_no_nans(train, dev, test, strategy="mode", mask_ratio=0.3, seed=30)
 

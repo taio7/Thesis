@@ -34,6 +34,9 @@ else:
 train, masked_df, dev, masked_positions= select_dfs(with_nans=WITH_NANS)
 X_train, y_train, X_dev, y_dev= select_cols(train, masked_df, dev, use_fam=USE_FAM, use_fam_aug=USE_FAM_AUG, MODEL=MODEL)
 
+
+print(y_train.dtypes)
+
 #print(masked_positions.index)
 #mask_count = (masked_positions == True).sum().sum()
 #print("DEBUG: masked positions models.py:", mask_count)
@@ -80,7 +83,7 @@ def get_param_grid(MODEL=MODEL):
     elif MODEL== "HGB":
         param_grid= {"estimator__learning_rate": [0.05],
                      "estimator__max_iter": [200, 300],
-                     "estimator__early_stopping":[True],
+                     "estimator__warm_start":[True],
                      "estimator__min_samples_leaf": [20, 30]}
     
     return param_grid
@@ -102,7 +105,9 @@ def do_grid_search(model_name, X_train, y_train):
         n_jobs=-1,    #all CPU cores
         verbose=2    #log progress 
     )
-    assert not y_train.isnull().any().any()
+    print("NaNs in X_train", X_train.isnull().any().any())
+    print("NaNs in y_train", y_train.isnull().any().any())
+    y_train = y_train.astype('bool')
     grid.fit(X_train, y_train)
 
     print(f"best params for {model_name}: {grid.best_params_}")
@@ -144,5 +149,5 @@ def main():
     best_model, best_params, best_score = do_grid_search(MODEL, X_train, y_train)
 
 
-#if __name__=="__main__":
-    #main()
+if __name__=="__main__":
+    main()

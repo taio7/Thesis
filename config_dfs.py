@@ -12,7 +12,7 @@ models with args to select columns, controled in
 model script."""
 
 
-def select_dfs(with_nans=None):
+"""def select_dfs(with_nans=None):
     if with_nans==True:
         path= WITH_NAN_PATH
     else:
@@ -23,9 +23,9 @@ def select_dfs(with_nans=None):
     dev= pd.read_parquet(path / "dev_gold_ready.parquet")
     masked_positions= pd.read_parquet(path / "masked_positions_ready.parquet")
     
-    return train, masked_df, dev, masked_positions
+    return train, masked_df, dev, masked_positions"""
 
-""" USES AUG
+ # NEW USES AUG
 def select_dfs(with_nans=None):
     if with_nans==True:
         path= WITH_NAN_PATH
@@ -37,9 +37,9 @@ def select_dfs(with_nans=None):
     dev= pd.read_parquet(path / "dev_aug_ready.parquet")
     masked_positions= pd.read_parquet(path / "masked_positions_aug_ready.parquet")
     
-    return train, masked_df, dev, masked_positions"""
-
-"""def select_cols(train, masked_df, dev, use_fam=None, use_fam_aug=None, MODEL=None):
+    return train, masked_df, dev, masked_positions
+#NEW
+def select_cols(train, masked_df, dev, use_fam=None, use_fam_aug=None, MODEL=None):
     gb_columns = [col for col in train.columns if col.startswith("GB")]
     fams_1hot_cols= [col for col in train.columns if col.startswith("fam_")]
     topfams_1hot_cols= [col for col in train.columns if col.startswith("top_")]
@@ -49,6 +49,28 @@ def select_dfs(with_nans=None):
         fam_cols= fams_1hot_cols
     else:
         fam_cols = fam_cols
+    
+    selected= gb_columns.copy()
+
+    if use_fam==True:
+        selected+= fam_cols
+    if use_fam_aug==True:
+        selected += topfams_1hot_cols
+    else:
+        selected=selected
+    
+    X_train= train[selected]
+    y_train=train[gb_columns]
+    X_dev=masked_df[selected]
+    y_dev=dev[gb_columns]
+
+    return X_train, y_train, X_dev, y_dev
+
+
+
+"""def select_cols(train, masked_df, dev, use_fam=None, use_fam_aug=None, MODEL=None):
+    gb_columns = [col for col in train.columns if col.startswith("GB")]
+    fam_cols = ["language_family"]
     
     selected= gb_columns.copy()
 
@@ -65,24 +87,3 @@ def select_dfs(with_nans=None):
     y_dev=dev[gb_columns]
 
     return X_train, y_train, X_dev, y_dev"""
-
-
-def select_cols(train, masked_df, dev, use_fam=None, use_fam_aug=None, MODEL=None):
-    gb_columns = [col for col in train.columns if col.startswith("GB")]
-    fam_cols = ["language_family"]
-    
-    selected= gb_columns.copy()
-
-    if use_fam==True:
-        selected+= fam_cols
-    if use_fam_aug==True:
-        selected += [col for col in train.columns if col.startswith("IE_") or col.startswith("AUSTRO_")]
-    else:
-        selected=selected
-    
-    X_train= train[selected]
-    y_train=train[gb_columns]
-    X_dev=masked_df[selected]
-    y_dev=dev[gb_columns]
-
-    return X_train, y_train, X_dev, y_dev

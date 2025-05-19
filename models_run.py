@@ -10,18 +10,16 @@ from sklearn.metrics import make_scorer, f1_score
 
 from sklearn.model_selection import GridSearchCV
 from eval import masked_eval, see_feature_importance 
-import time 
 
 
-
-MODEL= "HGB"
+MODEL= "RF"
 USE_FAM= False
 USE_FAM_AUG= False
 
 BASE_PATH = Path(__file__).parent
 RES_OUTPUT_PATH = BASE_PATH / "new_results"
 PRED_OUTPUT_PATH = BASE_PATH/ "new_pred_output"
-output_file = RES_OUTPUT_PATH / f"{MODEL}_mr3_results.txt"
+output_file = RES_OUTPUT_PATH / f"{MODEL}_new_mr3_results.txt"
 
 #set model variable for base model to be fed into train pred 
 models_no_nans= ["RF", "KN", "MLP"]
@@ -34,8 +32,9 @@ else:
 train, masked_df, dev, masked_positions= select_dfs(with_nans=WITH_NANS)
 X_train, y_train, X_dev, y_dev= select_cols(train, masked_df, dev, use_fam=USE_FAM, use_fam_aug=USE_FAM_AUG, MODEL=MODEL)
 
-
-print(y_train.dtypes)
+#for col in masked_df.columns:
+    
+#    print(f"{col}: {masked_df[col].dtypes}")
 
 #print(masked_positions.index)
 #mask_count = (masked_positions == True).sum().sum()
@@ -51,27 +50,43 @@ print(len(y_dev.columns))"""
 #print("NaNs in X_train:", X_train.isnull().values.any())
 def select_model(name):
     if name== "RF":
-        return RandomForestClassifier(random_state=40)
+        return RandomForestClassifier(random_state=40,      
+                                      class_weight="balanced",
+                                      n_estimators=200,
+                                      min_samples_split=30,
+                                      max_features=0.5        #too slow?
+                                      )
     elif name== "KN":
-        return KNeighborsClassifier(algorithm="auto")
+        return KNeighborsClassifier(algorithm="auto",
+                                     metric="jaccard",
+                                     n_neighbors=3,
+                                     weights="distance"
+                                     )
     elif name== "MLP":
         return MLPClassifier(random_state=42)
     elif name== "HGB":
-        return HistGradientBoostingClassifier(random_state=42)
+        return HistGradientBoostingClassifier(random_state=42, 
+                                              l2_regularization=1.0, 
+                                              learning_rate=0.5, 
+                                              max_iter=200, 
+                                              max_leaf_nodes=15, 
+                                              min_samples_leaf=20, 
+                                              warm_start=True
+                                              )
     else:
         raise ValueError("wrong model name")
 
 def get_param_grid(MODEL=MODEL):
     #need estimator__ since models are wrapped with multioutput
     if MODEL== "RF":
-        param_grid= {"estimator__n_estimators":[50, 100],
-                     "estimator__max_depth": [None, 10, 20],
-                     #"estimator__min_samples_split": [None, 4]
-                     }
+        param_grid= {"estimator__n_estimators":[200], #n of decision trees, more prob better
+                     "estimator__max_depth": [None, 10, 20], #how deep a tree grows, small=less overfit
+                     "estimator__min_samples_split": [30], #higher= more reg
+                     "estimator__max_features": [0.5, 1.0]}
     elif MODEL== "KN":
-        param_grid= {"estimator__n_neighbors": [3, 5, 7],
-                     "estimator__weights": ["uniform", "distance"],
-                     #"estimator__metric": ["hamming", "jaccard"]
+        param_grid= {"estimator__n_neighbors": [3, 5, 7], #exp more better but wasnt 
+                     "estimator__weights": ["distance"], #distacne better
+                     "estimator__metric": ["hamming", "jaccard"]
                      }
     elif MODEL== "MLP":
         param_grid= {"estimator__hidden_layer_sizes": [100, 150],
@@ -81,10 +96,13 @@ def get_param_grid(MODEL=MODEL):
                      "estimator__max_iter": [300]
                      }
     elif MODEL== "HGB":
-        param_grid= {"estimator__learning_rate": [0.05],
-                     "estimator__max_iter": [200, 300],
+        param_grid= {"estimator__learning_rate": [0.01, 0.05],  #smaller prob better for sparse data: step size shrinkage 
+                     "estimator__max_iter": [200, 300], #higher to go with smaller lr 
+                     "estimator__max_leaf_nodes":[15, None], #tree complexity, prob better smaller: binary values,  no need for complexity
                      "estimator__warm_start":[True],
-                     "estimator__min_samples_leaf": [20, 30]}
+                     "estimator__min_samples_leaf": [20, 30], #each leaf represents more data, prob better
+                     "estimator__l2_regularization": [0.0, 1.0] #reg on leaf weights penalize large change per pred 
+                     }
     
     return param_grid
 
@@ -95,7 +113,13 @@ def do_grid_search(model_name, X_train, y_train):
     multi_model = MultiOutputClassifier(base_model)
     param_grid = get_param_grid(model_name)
  
-    scorer = make_scorer(f1_score, average="macro", zero_division=0) #custom score, for class imbalance 
+    scorer = make_scorer(f1_score, average="macro", zero_division=0) #for class imbalance, levels each feature 
+    if model_name== "KN":
+        metrics= param_grid.get("estimator__metric", [])
+        if "jaccard" in metrics:
+            print("using jaccard= bool conversion")
+            X_train = X_train.replace(-1, 0).astype(bool)
+            y_train = y_train.replace(-1, 0).astype(bool)
 
     grid = GridSearchCV(
         estimator=multi_model,
@@ -107,6 +131,8 @@ def do_grid_search(model_name, X_train, y_train):
     )
     print("NaNs in X_train", X_train.isnull().any().any())
     print("NaNs in y_train", y_train.isnull().any().any())
+    
+
     y_train = y_train.astype('bool')
     grid.fit(X_train, y_train)
 
@@ -141,12 +167,12 @@ def train_pred(X_train, y_train, X_dev, y_dev, dev):
         
 def main():
 
-    #y_pred_df, y_pred_interp, gb_columns, multi_model=train_pred(X_train, y_train, X_dev, y_dev, dev)
+    y_pred_df, y_pred_interp, gb_columns, multi_model=train_pred(X_train, y_train, X_dev, y_dev, dev)
     #see_feature_importance(multi_model, X_dev, y_dev, gb_columns, masked_positions)
-    #masked_eval(gb_columns, y_dev, y_pred_df, masked_positions, output_file)
+    masked_eval(gb_columns, y_dev, y_pred_df, masked_positions, output_file)
     
-    #y_pred_interp.to_csv(PRED_OUTPUT_PATH/ f"{MODEL}_mr3_output.csv", sep="\t", index=False)
-    best_model, best_params, best_score = do_grid_search(MODEL, X_train, y_train)
+    y_pred_interp.to_csv(PRED_OUTPUT_PATH/ f"{MODEL}_new_mr3_output.csv", sep="\t", index=False)
+    #best_model, best_params, best_score = do_grid_search(MODEL, X_train, y_train)
 
 
 if __name__=="__main__":

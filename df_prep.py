@@ -79,6 +79,7 @@ def preprocess_with_nans(train, dev, test, strategy= None, mask_ratio= 0.3, seed
     
     fams_1hot_cols= [col for col in train_1hot_fams.columns if col.startswith("fam_")]
     topfams_1hot_cols= [col for col in train_top_1hot_fams.columns if col.startswith("top_")]
+   
 
 #add lost family column after one hot encoding, for checks  
     train_1hot_fams["language_family"] = train_base["language_family"]
@@ -86,6 +87,8 @@ def preprocess_with_nans(train, dev, test, strategy= None, mask_ratio= 0.3, seed
 
     train_aug = pd.concat([train, train_1hot_fams[fams_1hot_cols], train_top_1hot_fams[topfams_1hot_cols]], axis=1)
     dev_aug = pd.concat([dev, dev_1hot_fams[fams_1hot_cols], dev_top_1hot_fams[topfams_1hot_cols]], axis=1)
+
+
 #CHECHS
     base_cols = train_base.columns.tolist()
     
@@ -188,6 +191,8 @@ def preprocess_no_nans(train, dev, test, strategy="mode", mask_ratio=0.3, seed=3
     masked_df_dev = bool_to_cat(masked_df, gb_columns)
     masked_df_dev_enc= transform_w_encoder(masked_df_dev, encoders)
     
+#make masked aug 
+    masked_df_aug_enc = pd.concat([masked_df_dev_enc, dev_top_1hot_fams[topfams_1hot_cols].astype(int)], axis=1)
     #after resplitting dev from combined idx change, so realign 
     
     df_dev_enc.index = dev.index  # maintain original alignment
@@ -203,8 +208,10 @@ def preprocess_no_nans(train, dev, test, strategy="mode", mask_ratio=0.3, seed=3
     assert list(train_aug.columns) == list(dev_aug.columns)
     
 
-    train_aug.to_parquet(WITH_NAN_PATH / "train_aug_ready.parquet")
-    dev_aug.to_parquet(WITH_NAN_PATH / "dev_aug_ready.parquet")
+    """train_aug.to_parquet(NO_NAN_PATH / "train_aug_ready.parquet")
+    dev_aug.to_parquet(NO_NAN_PATH / "dev_aug_ready.parquet")
+    masked_df_aug_enc.to_parquet(NO_NAN_PATH / "masked_df_aug_ready.parquet")
+    masked_positions.to_parquet(NO_NAN_PATH / "masked_positions_aug_ready.parquet")""" #no need to chnage them, just rename for consistency 
 
     """df_train_enc.to_parquet(NO_NAN_PATH / "train_ready.parquet")
     masked_df_dev_enc.to_parquet(NO_NAN_PATH / "masked_df_ready.parquet")
@@ -246,12 +253,12 @@ def main():
     dev = pd.read_parquet(DATA_PATH / "dev_gold.parquet")
     test = pd.read_parquet(DATA_PATH / "test.parquet")
 
-    #preprocess_with_nans(train, dev, test, strategy="mode", mask_ratio=0.3, seed=30)
+    preprocess_with_nans(train, dev, test, strategy="mode", mask_ratio=0.3, seed=30)
 
-    encoders= preprocess_no_nans(train, dev, test, strategy="mode", mask_ratio=0.3, seed=30)
+    #encoders= preprocess_no_nans(train, dev, test, strategy="mode", mask_ratio=0.3, seed=30)
 
-    with open(NO_NAN_PATH/ "label_encoders.pkl", "wb") as f:
-        pickle.dump(encoders, f)
+    #with open(NO_NAN_PATH/ "label_encoders.pkl", "wb") as f:
+        #pickle.dump(encoders, f)
 
     """read: 
     with open(NO_NAN_PATH / "label_encoders.pkl", "rb") as f:

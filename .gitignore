@@ -19,3 +19,5 @@
 !scripts/
 !scripts/create_train_dev.py
 !scripts/find_test_lgs.py 
+
+!results_overview.xlsx

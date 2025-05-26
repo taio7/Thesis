@@ -24,3 +24,5 @@
 
 !model_helper.py
 !params/
+!params/*.csv
+

@@ -6,19 +6,21 @@ from sklearn.multioutput import MultiOutputClassifier
 from sklearn.ensemble import HistGradientBoostingClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neural_network import MLPClassifier
-from model_helper import get_param_grid, do_grid_search, train_pred_chain, train_pred_indiv
+from model_helper import do_halving_search, get_param_grid_multi, do_grid_search, train_pred_chain, train_pred_indiv
 
 from eval import masked_eval, see_feature_importance 
 
 
-MODEL= "HGB"
+MODEL= "RF"
 USE_FAM= False
 USE_FAM_AUG= False
+USE_LOC= False
+USE_LOC_CLUSTERS=False
 
 BASE_PATH = Path(__file__).parent
 RES_OUTPUT_PATH = BASE_PATH / "new_results"
 PRED_OUTPUT_PATH = BASE_PATH/ "new_pred_output"
-output_file = RES_OUTPUT_PATH / f"{MODEL}ind_mr3_results.txt"
+output_file = RES_OUTPUT_PATH / f"{MODEL}_loc_mr3_results.txt"
 
 #set model variable for base model to be fed into train pred 
 models_no_nans= ["RF", "KN", "MLP"]
@@ -29,11 +31,11 @@ else:
 
 
 train, masked_df, dev, masked_positions= select_dfs(with_nans=WITH_NANS)
-X_train, y_train, X_dev, y_dev= select_cols(train, masked_df, dev, use_fam=USE_FAM, use_fam_aug=USE_FAM_AUG, MODEL=MODEL)
+X_train, y_train, X_dev, y_dev= select_cols(train, masked_df, dev, use_fam=USE_FAM, use_fam_aug=USE_FAM_AUG, use_loc=USE_LOC, use_loc_clusters=USE_LOC_CLUSTERS, MODEL=MODEL)
 
-#for col in masked_df.columns:
+#for col in X_dev.columns:
     
-#    print(f"{col}: {masked_df[col].dtypes}")
+    #print(f"{col}: {X_dev[col].dtypes}")
 
 #print(masked_positions.index)
 #mask_count = (masked_positions == True).sum().sum()
@@ -50,19 +52,27 @@ print(len(y_dev.columns))"""
 def select_model(name):
     if name== "RF":
         return RandomForestClassifier(random_state=40,      
-                                      class_weight="balanced",
-                                      n_estimators=200,
-                                      min_samples_split=30,
-                                      max_features=0.5        #too slow?
+                                      #class_weight="balanced",
+                                      #n_estimators=200,
+                                      #min_samples_split=30,
+                                      #max_features=0.5
                                       )
     elif name== "KN":
         return KNeighborsClassifier(algorithm="auto",
-                                     metric="jaccard",
-                                     n_neighbors=3,
-                                     weights="distance"
+                                     #metric="jaccard",  #turns everything to bool
+                                     #n_neighbors=3,
+                                     #weights="distance"
                                      )
     elif name== "MLP":
-        return MLPClassifier(random_state=42)
+        return MLPClassifier(random_state=42,
+                             #alpha=0.001,
+                             #early_stopping=False,
+                             #hidden_layer_sizes=100,
+                             #learning_rate="constant",
+                             #max_iter=200,
+                             #solver="lbfgs"
+                             )
+    
     elif name== "HGB":
         return HistGradientBoostingClassifier(random_state=42, 
                                               #l2_regularization=1.0, 
@@ -100,16 +110,24 @@ def train_pred_multi(X_train, y_train, X_dev, y_dev, dev):
 
         
 def main():
-
+#multioutput
     #y_pred_df, y_pred_interp, gb_columns, multi_model=train_pred_multi(X_train, y_train, X_dev, y_dev, dev)
-    #y_pred_df, y_pred_interp, gb_columns, multi_model=train_pred_chain(X_train, y_train, X_dev, y_dev, dev, select_model(MODEL))
-    y_pred_df, y_pred_interp, gb_columns, _=train_pred_indiv(X_train, y_train, X_dev, y_dev, dev, select_model(MODEL))
-    #see_feature_importance(multi_model, X_dev, y_dev, gb_columns, masked_positions)
-    masked_eval(gb_columns, y_dev, y_pred_df, masked_positions, output_file)
-    
-    y_pred_interp.to_csv(PRED_OUTPUT_PATH/ f"{MODEL}ind_mr3_output.csv", sep="\t", index=False)
-    #best_model, best_params, best_score = do_grid_search(MODEL, X_train, y_train, select_model(MODEL))
 
+#classifier chain
+    #y_pred_df, y_pred_interp, gb_columns, multi_model=train_pred_chain(X_train, y_train, X_dev, y_dev, dev, select_model(MODEL))
+
+#individual   
+    #y_pred_df, y_pred_interp, gb_columns, _=train_pred_indiv(X_train, y_train, X_dev, y_dev, dev, select_model(MODEL))
+    
+    #masked_eval(gb_columns, y_dev, y_pred_df, masked_positions, output_file)
+    
+    #y_pred_interp.to_csv(PRED_OUTPUT_PATH/ f"{MODEL}_loc_mr3_output.csv", sep="\t", index=False)
+
+#PARAM SEARCH
+    #best_model, best_params, best_score = do_grid_search(MODEL, X_train, y_train, select_model(MODEL))
+    do_halving_search(MODEL, X_train, y_train, select_model(MODEL))
+#FEATURE IMPORTANCE MULTI 
+    #see_feature_importance(multi_model, X_dev, y_dev, gb_columns, masked_positions)
 
 if __name__=="__main__":
-    main()
+    main() 

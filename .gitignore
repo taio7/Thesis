@@ -31,3 +31,10 @@
 
 !new_results/
 !new_results/*.txt 
+
+!preped/
+!preped/*.parquet 
+
+!ready_dfs/
+!ready_dfs/no_nans/*.parquet 
+!ready_dfs/with_nans/*.parquet 

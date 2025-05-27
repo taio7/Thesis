@@ -26,3 +26,8 @@
 !params/
 !params/*.csv
 
+!new_pred_output/
+!new_pred_output/*.csv
+
+!new_results/
+!new_results/*.txt 

@@ -36,5 +36,8 @@
 !preped/*.parquet 
 
 !ready_dfs/
+!ready_dfs/no_nans/
 !ready_dfs/no_nans/*.parquet 
-!ready_dfs/with_nans/*.parquet 
+!ready_dfs/no_nans/*.pkl
+!ready_dfs/with_nans/
+!ready_dfs/with_nans/*.parquet

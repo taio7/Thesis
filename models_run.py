@@ -11,7 +11,7 @@ from model_helper import do_halving_search, get_param_grid_multi, do_grid_search
 from eval import masked_eval, see_feature_importance 
 
 
-MODEL= "MLP"
+MODEL= "HGB"
 USE_FAM= False
 USE_FAM_AUG= False
 USE_LOC= False
@@ -36,7 +36,13 @@ else:
 
 
 train, masked_df, dev, masked_positions= select_dfs(with_nans=WITH_NANS)
-X_train, y_train, X_dev, y_dev= select_cols(train, masked_df, dev, use_fam=USE_FAM, use_fam_aug=USE_FAM_AUG, use_loc=USE_LOC, use_k_loc_clusters=USE_K_LOC_CLUSTERS, use_db_loc_clusters=USE_DB_LOC_CLUSTERS, use_hdb_loc_clusters=USE_HDB_LOC_CLUSTERS, MODEL=MODEL)
+X_train, y_train, X_dev, y_dev= select_cols(train, masked_df, 
+                                            dev, use_fam=USE_FAM, 
+                                            use_fam_aug=USE_FAM_AUG, 
+                                            use_loc=USE_LOC, 
+                                            use_k_loc_clusters=USE_K_LOC_CLUSTERS, 
+                                            use_db_loc_clusters=USE_DB_LOC_CLUSTERS, 
+                                            use_hdb_loc_clusters=USE_HDB_LOC_CLUSTERS, MODEL=MODEL)
 
 for col in X_train.columns:
     
@@ -68,7 +74,7 @@ def select_model(name):
                                       #max_features=0.5
                                       )
     elif name== "KN":
-        return KNeighborsClassifier(algorithm="auto",
+        return KNeighborsClassifier(algorithm="auto",  #copes withvery nonlinesr pockets of different lgs. small amount of neihgbors= loc makes good results, pockets of exceptions kn is good, adding clustering that info is destroyed 
                                      #metric="jaccard",  #turns everything to bool
                                      #n_neighbors=3,
                                      #weights="distance"

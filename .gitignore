@@ -14,7 +14,7 @@
 !data/dev.tsv
 !data/grambank.encoded.tsv
 !data/train.tsv
-!data/test.tsv 
+!data/test_gold_rand.tsv 
 
 !scripts/
 !scripts/create_train_dev.py
@@ -37,12 +37,12 @@
 !preped/
 !preped/*.parquet 
 
-!ready_dfs/
-!ready_dfs/no_nans/
-!ready_dfs/no_nans/*.parquet 
-!ready_dfs/no_nans/*.pkl
-!ready_dfs/with_nans/
-!ready_dfs/with_nans/*.parquet
+!final_dfs/
+!final_dfs/no_nans/
+!final_dfs/no_nans/*.parquet 
+!final_dfs/no_nans/*.pkl
+!final_dfs/with_nans/
+!final_dfs/with_nans/*.parquet
 
 !augment_dfs.py
 !geocluster.py 

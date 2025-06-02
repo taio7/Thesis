@@ -11,16 +11,21 @@ from model_helper import do_halving_search, get_param_grid_multi, do_grid_search
 from eval import masked_eval, see_feature_importance 
 
 
-MODEL= "RF"
+MODEL= "MLP"
 USE_FAM= False
 USE_FAM_AUG= False
 USE_LOC= False
-USE_LOC_CLUSTERS=False
+USE_K_LOC_CLUSTERS=True
+USE_DB_LOC_CLUSTERS=False
+USE_HDB_LOC_CLUSTERS=False
 
 BASE_PATH = Path(__file__).parent
 RES_OUTPUT_PATH = BASE_PATH / "new_results"
+CLUSTERS_PATH=RES_OUTPUT_PATH/ "clusters"
+
 PRED_OUTPUT_PATH = BASE_PATH/ "new_pred_output"
-output_file = RES_OUTPUT_PATH / f"{MODEL}_loc_mr3_results.txt"
+pred_file = PRED_OUTPUT_PATH/ f"{MODEL}_k_mr3_output.csv"
+output_file = CLUSTERS_PATH / f"{MODEL}_k_mr3_results.txt"
 
 #set model variable for base model to be fed into train pred 
 models_no_nans= ["RF", "KN", "MLP"]
@@ -31,11 +36,16 @@ else:
 
 
 train, masked_df, dev, masked_positions= select_dfs(with_nans=WITH_NANS)
-X_train, y_train, X_dev, y_dev= select_cols(train, masked_df, dev, use_fam=USE_FAM, use_fam_aug=USE_FAM_AUG, use_loc=USE_LOC, use_loc_clusters=USE_LOC_CLUSTERS, MODEL=MODEL)
+X_train, y_train, X_dev, y_dev= select_cols(train, masked_df, dev, use_fam=USE_FAM, use_fam_aug=USE_FAM_AUG, use_loc=USE_LOC, use_k_loc_clusters=USE_K_LOC_CLUSTERS, use_db_loc_clusters=USE_DB_LOC_CLUSTERS, use_hdb_loc_clusters=USE_HDB_LOC_CLUSTERS, MODEL=MODEL)
 
-#for col in X_dev.columns:
+for col in X_train.columns:
     
-    #print(f"{col}: {X_dev[col].dtypes}")
+    print(f"{col}: {X_train[col].dtypes}")
+
+print("NaNs in X_train", X_train.isnull().any().any())
+print("NaNs in y_train", y_train.isnull().any().any())
+print("NaNs in X_dev", X_dev.isnull().any().any())
+print("NaNs in y_dev", y_dev.isnull().any().any())
 
 #print(masked_positions.index)
 #mask_count = (masked_positions == True).sum().sum()
@@ -111,23 +121,25 @@ def train_pred_multi(X_train, y_train, X_dev, y_dev, dev):
         
 def main():
 #multioutput
-    #y_pred_df, y_pred_interp, gb_columns, multi_model=train_pred_multi(X_train, y_train, X_dev, y_dev, dev)
+    y_pred_df, y_pred_interp, gb_columns, multi_model=train_pred_multi(X_train, y_train, X_dev, y_dev, dev)
 
 #classifier chain
     #y_pred_df, y_pred_interp, gb_columns, multi_model=train_pred_chain(X_train, y_train, X_dev, y_dev, dev, select_model(MODEL))
 
 #individual   
     #y_pred_df, y_pred_interp, gb_columns, _=train_pred_indiv(X_train, y_train, X_dev, y_dev, dev, select_model(MODEL))
+
+#RUN PRED
     
-    #masked_eval(gb_columns, y_dev, y_pred_df, masked_positions, output_file)
+    masked_eval(gb_columns, y_dev, y_pred_df, masked_positions, output_file)
     
-    #y_pred_interp.to_csv(PRED_OUTPUT_PATH/ f"{MODEL}_loc_mr3_output.csv", sep="\t", index=False)
+    y_pred_interp.to_csv(pred_file, sep="\t", index=False)
 
 #PARAM SEARCH
     #best_model, best_params, best_score = do_grid_search(MODEL, X_train, y_train, select_model(MODEL))
-    do_halving_search(MODEL, X_train, y_train, select_model(MODEL))
+    #do_halving_search(MODEL, X_train, y_train, select_model(MODEL))
 #FEATURE IMPORTANCE MULTI 
     #see_feature_importance(multi_model, X_dev, y_dev, gb_columns, masked_positions)
 
 if __name__=="__main__":
-    main() 
+    main()

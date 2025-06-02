@@ -31,6 +31,8 @@
 
 !new_results/
 !new_results/*.txt 
+!new_results/clusters
+!new_results/clusters/*.txt
 
 !preped/
 !preped/*.parquet 
@@ -41,3 +43,6 @@
 !ready_dfs/no_nans/*.pkl
 !ready_dfs/with_nans/
 !ready_dfs/with_nans/*.parquet
+
+!augment_dfs.py
+!geocluster.py 

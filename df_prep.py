@@ -5,17 +5,25 @@ from pathlib import Path
 import pyarrow.parquet as pq 
 from sklearn.preprocessing import LabelEncoder
 import pickle 
+from augment_dfs import kmeans_clusters, other_clusters
+
 
 """Load data from parquet files, and save two versions:
 with nans/no nans encoded: (train, masked_dev, dev, masked_pos)
 Save encoders to later decode predictions for eval"""
 BASE_PATH = Path(__file__).parent
 DATA_PATH = BASE_PATH / "preped"
-OUTPUT_PATH= BASE_PATH/ "ready_dfs"
+OUTPUT_PATH= BASE_PATH/ "final_dfs"
 WITH_NAN_PATH= OUTPUT_PATH/ "with_nans"
 NO_NAN_PATH= OUTPUT_PATH/ "no_nans"
 TEMP= BASE_PATH/ "temp"
 
+def save_files(path, train_aug, dev_aug, masked_df_aug, masked_positions):
+    train_aug.to_parquet(path / "train_aug_ready.parquet")
+    dev_aug.to_parquet(path / "dev_aug_ready.parquet")
+    masked_df_aug.to_parquet(path / "masked_df_aug_ready.parquet")
+    masked_positions.to_parquet(path / "masked_positions_aug_ready.parquet")
+    print(f"Saved preprocessed data to {path}")
 
 def aug_with_selected_fams(df, train, fam_cols):
     """returns the df with extra columns eg IE one hot encoded, 
@@ -103,19 +111,9 @@ def preprocess_with_nans(train, dev, test, strategy= None, mask_ratio= 0.3, seed
 
     masked_df, masked_positions= mask_dev(dev, gb_columns, mask_ratio=mask_ratio, seed=seed)
     masked_df_aug, masked_positions_aug= mask_dev(dev_aug, gb_columns, mask_ratio=mask_ratio, seed=seed)
+    return train_aug, dev_aug, masked_df_aug, masked_positions_aug
     
-    train_aug.to_parquet(WITH_NAN_PATH / "train_aug_ready.parquet")
-    masked_df_aug.to_parquet(WITH_NAN_PATH / "masked_df_aug_ready.parquet")
-    dev_aug.to_parquet(WITH_NAN_PATH / "dev_aug_ready.parquet")
-    masked_positions_aug.to_parquet(WITH_NAN_PATH / "masked_positions_aug_ready.parquet")
 
-    """train.to_parquet(WITH_NAN_PATH / "train_ready.parquet")
-    masked_df.to_parquet(WITH_NAN_PATH / "masked_df_ready.parquet")
-    dev.to_parquet(WITH_NAN_PATH / "dev_gold_ready.parquet")
-    masked_positions.to_parquet(WITH_NAN_PATH / "masked_positions_ready.parquet")
-    #test.to_parquet(WITH_NAN_PATH / "test_ready.parquet")
-
-    print(f"Saved preprocessed data to {WITH_NAN_PATH}")"""
 
 def bool_to_cat(df, gb_columns):
     #turns boolean to str and fills gaps with "unk"
@@ -207,20 +205,8 @@ def preprocess_no_nans(train, dev, test, strategy="mode", mask_ratio=0.3, seed=3
     print(masked_positions.values.sum())
     assert list(train_aug.columns) == list(dev_aug.columns)
     
-
-    """train_aug.to_parquet(NO_NAN_PATH / "train_aug_ready.parquet")
-    dev_aug.to_parquet(NO_NAN_PATH / "dev_aug_ready.parquet")
-    masked_df_aug_enc.to_parquet(NO_NAN_PATH / "masked_df_aug_ready.parquet")
-    masked_positions.to_parquet(NO_NAN_PATH / "masked_positions_aug_ready.parquet")""" #no need to chnage them, just rename for consistency 
-
-    """df_train_enc.to_parquet(NO_NAN_PATH / "train_ready.parquet")
-    masked_df_dev_enc.to_parquet(NO_NAN_PATH / "masked_df_ready.parquet")
-    df_dev_enc.to_parquet(NO_NAN_PATH / "dev_gold_ready.parquet")
-    masked_positions.to_parquet(NO_NAN_PATH / "masked_positions_ready.parquet")
-    #test.to_parquet(NO_NAN_PATH / "test_ready.parquet")"""
-
-    print(f"Saved enc preprocessed data to {NO_NAN_PATH}")
-    return encoders
+    
+    return encoders, train_aug, dev_aug, masked_df_aug_enc, masked_positions
 
 def mask_dev(df_dev, gb_columns, mask_ratio=None, seed=None):
     """takes in full df_dev with Obj/float*2/obj/ cat/ GB=bools, + <NA>
@@ -248,18 +234,47 @@ def mask_dev(df_dev, gb_columns, mask_ratio=None, seed=None):
 
     return mask_df, mask_rec_for_eval 
 
+def add_clusters(train, masked_dev, k_kwargs=None, db_kwargs=None, hdb_kwargs=None):
+    train_kclustered, masked_df_kclustered=kmeans_clusters(train, masked_dev, method="kmeans", **(k_kwargs or {}))
+    train_kdb_clustered, masked_df_kdb_clustered=other_clusters(train_kclustered, masked_df_kclustered, method="dbscan", **(db_kwargs or {}))
+    train_kdbh_clustered, masked_df_kdbh_clustered=other_clusters(train_kdb_clustered, masked_df_kdb_clustered, method="hdbscan", **(hdb_kwargs or {}))
+    return train_kdbh_clustered, masked_df_kdbh_clustered
+
 def main():
     train = pd.read_parquet(DATA_PATH / "train.parquet")
     dev = pd.read_parquet(DATA_PATH / "dev_gold.parquet")
     test = pd.read_parquet(DATA_PATH / "test.parquet")
 
-    preprocess_with_nans(train, dev, test, strategy="mode", mask_ratio=0.3, seed=30)
+    wn_train_aug, wn_dev_aug, wn_masked_df_aug, wn_masked_positions_aug= preprocess_with_nans(train, dev, test, strategy="mode", mask_ratio=0.3, seed=30)
 
-    #encoders= preprocess_no_nans(train, dev, test, strategy="mode", mask_ratio=0.3, seed=30)
+    encoders, train_aug, dev_aug, masked_df_aug_enc, masked_positions= preprocess_no_nans(train, dev, test, strategy="mode", mask_ratio=0.3, seed=30)
 
-    #with open(NO_NAN_PATH/ "label_encoders.pkl", "wb") as f:
-        #pickle.dump(encoders, f)
+    with open(NO_NAN_PATH/ "label_encoders.pkl", "wb") as f:
+        pickle.dump(encoders, f)
 
+    k_kwargs= {"n_clusters":3, "random_state": 42}
+    db_kwargs= {"eps":9.2, #max neighbor radius distance
+                 "min_samples":5, #higher for denser clusters
+                 "metric":'euclidean', 
+                 "metric_params":None, 
+                 "algorithm":'auto', 
+                 "leaf_size":30, 
+                 "p":None, 
+                 "n_jobs":-1}
+    hdb_kwargs= {"min_cluster_size": 25,
+                "min_samples": None,
+                "cluster_selection_method": "eom"}
+    
+    wn_train_kdbh_clustered, wn_masked_df_kdbh_clustered=add_clusters(wn_train_aug, wn_masked_df_aug, k_kwargs=k_kwargs, db_kwargs=db_kwargs, hdb_kwargs=hdb_kwargs)
+    train_kdbh_clustered, masked_df_kdbh_clustered=add_clusters(train_aug, masked_df_aug_enc, k_kwargs=k_kwargs, db_kwargs=db_kwargs, hdb_kwargs=hdb_kwargs)
+    metadata_cols=  [col for col in train.columns if not col.startswith("GB")]
+    print(wn_train_kdbh_clustered.columns)
+    print(wn_masked_df_kdbh_clustered.columns)
+    print(train_kdbh_clustered.columns)
+    print(masked_df_kdbh_clustered.columns)
+
+    save_files(WITH_NAN_PATH, wn_train_kdbh_clustered, wn_dev_aug, wn_masked_df_kdbh_clustered, wn_masked_positions_aug)
+    save_files(NO_NAN_PATH, train_kdbh_clustered, dev_aug, masked_df_kdbh_clustered, masked_positions)
     """read: 
     with open(NO_NAN_PATH / "label_encoders.pkl", "rb") as f:
     encoders = pickle.load(f)"""

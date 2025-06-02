@@ -73,10 +73,6 @@ def get_param_grid_indiv(MODEL=None):
                      "max_iter": [200, 300],
                      "early_stopping":[True]
                      }
-        #{'estimator__alpha': 0.1, 'estimator__early_stopping': True, 'estimator__hidden_layer_sizes': 100, 'estimator__learning_rate': 'constant', 'estimator__max_iter': 200, 'estimator__solver': 'lbfgs'}
-        #89.07632954915364,0.9500657925761088,
-        #{'estimator__alpha': 0.1, 'estimator__early_stopping': True, 'estimator__hidden_layer_sizes': 70, 'estimator__learning_rate': 'constant', 'estimator__max_iter': 200, 'estimator__solver': 'lbfgs'}
-#best f1 macro 0.9511
     elif MODEL== "HGB":
         param_grid= {"learning_rate": [0.01, 0.05],  #smaller prob better for sparse data: step size shrinkage 
                      "max_iter": [200, 300], #higher to go with smaller lr 
@@ -174,7 +170,7 @@ def do_halving_search(model_name, X_train, y_train, model):
     
     print(f"halvingSearchCV for model:{model_name}")
     
-    param_grid = get_param_grid_indiv(model)
+    param_grid = get_param_grid_indiv(model_name)
  
     scorer = make_scorer(f1_score, average="macro", zero_division=0) #for class imbalance, levels each feature 
     if model_name== "KN":

@@ -1,0 +1,1409 @@
+,ID,Name,Description,ColumnSpec,Patrons,Grambank_ID_desc,Boundness,Flexivity,Gender_or_Noun_Class,Locus_of_Marking,Word_Order,Informativity
+2,GB022,Are there prenominal articles?,"## Are there prenominal articles?
+
+## Summary
+All questions concerning the order of elements aim to capture a pragmatically unmarked order. If both GB022 and GB023 are coded 1, please write a comment. Articles cover both definite or indefinite articles as defined in [GB020](https://github.com/grambank/grambank/wiki/GB020) and [GB021](https://github.com/grambank/grambank/wiki/GB021) respectively. In order to answer 1 for this feature, the markers' functions need to meet one of those definitions, so 1 should also have been answered for [GB020](https://github.com/grambank/grambank/wiki/GB020) or [GB021](https://github.com/grambank/grambank/wiki/GB021).
+
+## Procedure
+1. If there are articles, code 1 if in a pragmatically unmarked order they can precede the noun.
+2. If there is an item which occurs before the noun which may be an article but which receives ? for GB020 or GB021, then code ?.
+3. If demonstratives and articles are not well described, then code ?.
+4. If both GB022 and [GB023](https://github.com/grambank/Grambank/wiki/GB023) are coded as 1, please write a comment explaining this as we are interested in the reasons that a language may have both prenominal and postnominal articles.
+
+## Examples
+
+
+**Standard Arabic** (ISO 639-3: arb, Glottolog: stan1318) 
+
+Coded 1. The definite article is prenominal and prefixes to the noun. The indefinite article is postnominal and marked by a suffixed /-n/ sound.
+
+Definite article:
+
+```
+a. al-xubz  
+   DEF-bread  
+   ‘the bread’ (Ryding 2005: 156)
+```
+
+Indefinite article:
+
+```
+b. bayt-un
+   house-INDF
+   ‘a house’ (Ryding 2005: 156)
+```
+
+## Further reading
+
+Dryer, Matthew S. 2013. [Definite articles](https://wals.info/chapter/37). In Matthew S. Dryer & Martin Haspelmath (eds), *The world atlas of language structures online*. Leipzig: Max Planck Institute for Evolutionary Anthropology.
+
+Dryer, Matthew S. 2013. [Indefinite articles](https://wals.info/chapter/38). In Matthew S. Dryer & Martin Haspelmath (eds), *The world atlas of language structures online*. Leipzig: Max Planck Institute for Evolutionary Anthropology.
+
+## References
+
+Ryding, Karin C. 2005. *A reference grammar of Modern Standard Arabic*. Cambridge: Cambridge University Press.
+
+## Related Features
+* [GB020 Are there definite or specific articles?](https://github.com/grambank/Grambank/wiki/GB020)
+* [GB021 Do indefinite nominals commonly have indefinite articles?](https://github.com/grambank/Grambank/wiki/GB021)
+* [GB023 Are there postnominal articles?](https://github.com/grambank/Grambank/wiki/GB023)
+
+## Patron
+Jay Latarche and Jeremy Collins
+",,JLA JC,GB022 ARTPre,,,,,0.0,
+8,GB028,Is there a distinction between inclusive and exclusive?,"## Is there a distinction between inclusive and exclusive?
+
+## Summary
+Is there a pronoun or other marker that explicitly marks the inclusion of an interlocutor? This feature is not restricted to the pronominal system but includes person [indexing](https://github.com/grambank/grambank/wiki/Indexing-vs.-pronouns) as well. If inclusive is marked overtly in either the pronominal system or through verbal marking this is sufficient to trigger a 1 for this feature, even if exclusive has no overt morphological marking.
+
+## Procedure
+1. Code 1 if there is a pronoun or other marker, such as a person index, that explicitly marks the inclusion of an interlocutor in the first person plural.  
+2. Code 0 if the sections of the grammar discussing pronoun systems and person indexing on verbs describe no distinctions between inclusive and exclusive persons, and no pronominal forms or indices are found in examples glossed with grammatical information including INCL/EXCL or meanings such as ‘you and I’ or ‘we all (not you)’. Pay close attention to the non-singular forms of first person pronouns and indices. 
+3. If you are uncertain whether some pronominal or index form(s) mark(s) a clusivity distinction (e.g. a form in a single example glossed ‘you and I’ that is known to encode dual number but is not clearly described regarding inclusivity, or multiple first person pronouns whose differences are not adequately described), code ? and provide a brief comment describing the forms or descriptions that were unclear.
+
+## Examples
+
+**Southern Sierra Miwok** (ISO 639-3: skd, Glottolog: sout2985)
+
+Personal Pronominal Suffixes:
+
+|   | Series 1 | Series 2 | Series 3 | Series 4 |
+| --- | --- | --- | --- | --- |
+| 1DU.INCL |   |   | _-ti:_ | _-ti:_ |
+| 1PL | _-tti-/-mahhi:_ | _-me-_ |   |   |
+| 1PL.INCL |   |   | _-ticci:_ | _-ticci:_ |
+| 1PL.EXCL |   |   | _-mahhi:_ | _-mahhi:_ |
+
+(Broadbent 1964: 43) 
+
+Southern Sierra Miwok would be coded as 1. The lack of a first person dual exclusive form does not affect this designation, nor does the fact that the language has first person plural markers in Series 1 and 2 that do not mark clusivity.
+
+**Chalcatongo Mixtec** (ISO 639-3: mig, Glottolog: sanm1295)
+
+Pronouns
+
+| PERS | GENDER | FREE | CLITIC |
+| --- | --- | --- | --- |
+| 1 | Familiar | _r&ugrave;&#577;&ugrave;_ | _=r&iacute;_ |
+|  | Polite | _na&#577;a_ | _=na_ |
+|  | Inclusive (pl)  | _&#382;&oacute;&#577;&oacute;_ | _=&#382;&oacute;_ |
+
+(Macaulay 1996: 81)
+
+Chalcatongo Mixtec would be coded as 1. A plural pronoun that is unmarked for clusivity can be derived from the polite or familiar first person pronouns with a prefix, but the inclusive first person is inherently plural. There is no first person plural pro-form that is marked for exclusivity. The existence of an inclusive form is sufficient to trigger a 1 and the lack of an exclusive form has no impact on this.
+
+**Yongbei Zhuang** (ISO 639-3: zyb, Glottolog: yong1276)
+
+First person
+
+| Singular | Plural (excl.) | Plural (incl.) |
+| --- | --- | --- |
+| _ku_ | _tuo_, _po tu_ | _lau’_ |
+
+(Luo 2008: 327)
+
+Yongbei Zhuang is coded as 1.
+
+
+## Further reading
+Cysouw, Michael. 2003. *The paradigmatic structure of person marking*. Oxford: Oxford University Press.
+
+Filimonova, Elena. 2005. *Clusivity: Typology and case studies of the inclusive exclusive distinction*. Amsterdam: John Benjamins.
+
+## References
+
+Broadbent, Sylvia M. 1964. *The Southern Sierra Miwok language.* (University of California Publications in Linguistics, 38.) Berkeley: University of California Press.
+
+Luo, Yongxian. 2008. Zhuang. In Anthony V. N. Diller, Jerold A. Edmondson & Yongxian Luo (eds), *The Tai-Kadai languages*, 317–377. London: Routledge.
+
+Macaulay, Monica A. 1996. *A grammar of Chalcatongo Mixtec.* (University of California Publications in Linguistics, 127.) Berkeley: University of California Press.
+
+## Related Features
+* [GB301 Is there an inclusory construction?](https://github.com/grambank/Grambank/wiki/GB301)
+
+## Patron
+Hannah J. Haynie
+",,HJH,GB028 Clusivity,,,,,,clusivity
+15,GB039,Is there nonphonological allomorphy of noun number markers?,"## Is there nonphonological allomorphy of noun number markers?
+
+## Summary
+Are there different number markers for a single number category? And is the choice between these markers unpredictable from the marker a noun receives in another number category? For example, are there different plural markers while there is only one (or no) singular marker? Or do two nouns receive different singular markers but the same plural marker? This feature targets bound number markers, free number markers, and clitics.
+
+## Procedure
+1. Code 1 if there are elements marking number on nouns (excluding pronouns), whether they are attached to the noun or not,
+2. And it is not entirely predictable what the plural marker will be by looking at the singular marker on the nouns and vice versa. 
+3. Code 0 if you can predict what the plural marker will be from the singular marking and vice versa. 
+
+## Examples
+
+**Siwu** (ISO 639-3: akp, Glottolog: siwu1238)
+
+Coded 1. Nouns that take on the noun class marked by _ɔ_ in the singular, are either marked by *ma* or *si* in the plural. It is not predictable from looking at the singular marking to determine what the plural marker will be. The table below is from Dingemanse (2011: 110–112).
+
+<img src=""https://user-images.githubusercontent.com/5327845/92003480-5e5c8400-ed41-11ea-9dde-bfa3b1f07a47.png"" alt=""Screenshot 2020-09-02 at 17 23 22""/>
+
+**Wolof** (ISO 639-3: wol, Glottolog: nucl1347)
+
+Coded 0. There is a one-to-one correspondence between the singular class and the plural class. It can be predicted from the singular class what the plural class will be (McLaughlin 1997:3).
+
+Table of Wolof noun class and number markers, based on McLaughlin 1997:3.
+<table class=""tg"">
+<thead>
+  <tr>
+    <th class=""tg-0pky"">Singular</th>
+    <th class=""tg-0pky"">Plural</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class=""tg-0pky"">k</td>
+    <td class=""tg-0pky"">ñ</td>
+  </tr>
+  <tr>
+    <td class=""tg-0pky"">b</td>
+    <td class=""tg-0pky"">y</td>
+  </tr>
+  <tr>
+    <td class=""tg-0pky"">g</td>
+    <td class=""tg-0pky"">y</td>
+  </tr>
+  <tr>
+    <td class=""tg-0pky"">j</td>
+    <td class=""tg-0pky"">y/ñ*</td>
+  </tr>
+  <tr>
+    <td class=""tg-0pky"">l</td>
+    <td class=""tg-0pky"">y</td>
+  </tr>
+  <tr>
+    <td class=""tg-0pky"">m</td>
+    <td class=""tg-0pky"">y</td>
+  </tr>
+  <tr>
+    <td class=""tg-0pky"">s</td>
+    <td class=""tg-0pky"">y</td>
+  </tr>
+  <tr>
+    <td class=""tg-0pky"">w</td>
+    <td class=""tg-0pky"">y</td>
+  </tr>
+</tbody>
+</table>
+
+* Nouns belonging to the _j_-glass in singular form take either _ñ_ or _y_ in plural, but this does not depend on the noun root but on the speaker (McLaughlin 1997:3).
+
+## Further reading
+
+Corbett, Greville G. 1991. *Gender* (Cambridge Textbooks in Linguistics). Cambridge: Cambridge University Press.
+
+Corbett, Greville G. 2000. *Number*. Cambridge: Cambridge University Press.
+
+## References
+
+Dingemanse, Mark. 2011. *The meaning and use of ideophones in Siwu*. Nijmegen: Radboud University. (Doctoral dissertation.)
+
+McLaughlin, Fiona. 1997. Noun classification in Wolof: When affixes are not renewed. *Studies in African linguistics* 26. 1–28.
+
+
+## Related Features
+
+**Morphological number marking**
+
+* [GB042	Is there a productive overt morphological singular marker on nouns?](https://github.com/grambank/Grambank/wiki/GB042)
+* [GB043	Is there a productive morphological dual marker on nouns?](https://github.com/grambank/Grambank/wiki/GB043)
+* [GB044	Is there a productive morphological plural marker on nouns?](https://github.com/grambank/Grambank/wiki/GB044)
+* [GB165	Is there a productive morphological trial marker on nouns?](https://github.com/grambank/Grambank/wiki/GB165)
+* [GB166	Is there a productive morphological paucal marker on nouns?](https://github.com/grambank/Grambank/wiki/GB166)
+
+**Phonologically free number marking**
+
+* [GB316	Is singular number regularly marked in the noun phrase by a phonologically free element?](https://github.com/grambank/Grambank/wiki/GB316)
+* [GB317	Is dual number regularly marked in the noun phrase by a phonologically free element?](https://github.com/grambank/Grambank/wiki/GB317)
+* [GB318	Is plural number regularly marked in the noun phrase by a phonologically free element?](https://github.com/grambank/Grambank/wiki/GB318)
+* [GB319	Is trial number regularly marked in the noun phrase by a phonologically free element?](https://github.com/grambank/Grambank/wiki/GB319)
+* [GB320	Is paucal number regularly marked in the noun phrase by a phonologically free element?](https://github.com/grambank/Grambank/wiki/GB320)
+
+**Number agreement**
+
+* [GB184	Can an adnominal property word agree with the noun in number?](https://github.com/grambank/Grambank/wiki/GB184)
+* [GB185	Can an adnominal demonstrative agree with the noun in number?](https://github.com/grambank/Grambank/wiki/GB185)
+
+**Other**
+
+* [GB041	Are there several nouns (more than three) which are suppletive for number?](https://github.com/grambank/Grambank/wiki/GB041)
+
+## Patron
+Jay Latarche and Jeremy Collins
+",,JLA JC,GB039 NounNUMAllomorph,,1.0,,,,
+30,GB059,Is the adnominal possessive construction different for alienable and inalienable nouns?,"## Is the adnominal possessive construction different for alienable and inalienable nouns?
+
+## Summary
+Is there a morpho-syntactic difference in attributive possession that can be ascribed to alienability? 
+
+This feature applies to constructions with both pronominal and nominal possessors. 
+
+Typically, inalienable possession applies to the semantic domains of body parts and kinship, but it is sometimes found in other categories that do not align perfectly with the canonical notion of 'alienability', such as part-whole relationships other than body parts, social relationships other than kinship, or things inherently linked to a person (e.g. a person's voice, mental states, or other attributes).
+
+This feature targets splits in possessive marking where different classes of possessum are associated with different constructions, and where one of those possessum classes includes body parts and/or kinship terms, and possibly other categories that have strong semantic associations with their owners, social relationships, or part-whole relationships.
+
+## Procedure
+1. If there are two or more possessive constructions which vary according to the semantic class of the noun being possessed or the nature of the relationship between possessor and possessed,
+2. And the difference in the construction does not consist solely of a difference in noun class/gender markers, or other classifier systems such as numeral classifiers that also apply to these categories of nouns in the same way in non-possessive constructions,
+3. And the 'inalienable' semantic class associated with one of these strategies contains at least body part terms or at least kinship terms, then code 1.
+4. If there are not multiple possessive constructions, or if there are multiple possessive constructions that do not vary based on semantic class of the possessum, code 0.
+5. If you code a 1 for this feature, please use the comment field to provide a very brief description of the morphosyntactic distinction between alienable and inalienable possession.
+
+## Examples
+
+**Luise&#241;o** (ISO 639-3: lui, Glottolog: luis1253)
+
+Luise&#241;o possessive constructions are formed by attaching a possessive pronominal prefix (e.g. meaning ‘my’, ‘your’, etc.) to the possessed noun. A suffix *-ki* is also attached to the possessed noun when the relationship between possessor and possessed is alienable: ‘my sinew (in my body)’ = *no-ta&#817;*; ‘my sinew (for the bow I am making)’ = *no-ta&#817;-ki* (Grune 1997: 4). Luise&#241;o would be coded 1.
+
+**Nakanai** (ISO 639-3: nak, Glottolog: naka1262)
+
+In Nakanai the inalienable possession construction requires suffixes that indicate the person and number of the possessor, while possessors are indicated only with phonologically independent forms in the alienable possession construction. Nakanai is coded 1.
+
+```
+la  luma   taku
+ART house  my
+‘my house’
+
+la   lima-gu
+ART  hand-my
+‘my hand’ (Johnston 1980: 168)
+```
+
+**Spanish** (ISO 639-3: spa, Glottolog: stan1288)
+
+Like many languages, Spanish has multiple possessive constructions, but each is compatible with the semantic classes of nouns typically associated with inalienable possession (body parts and kinship terms) as well as other nouns generally. There is no distinction that splits according to alienability. Spanish would be 0.
+
+```
+mi dedo               el  dedo   de Ana
+my finger             DET finger of Ana
+‘my finger’           ‘Ana's finger’
+
+mi hermano            el  hermano de Ana
+my brother            DET brother of Ana
+‘my brother’          ‘Ana's brother’
+
+mi libro              el  libro de Ana
+my book               DET book  of Ana
+‘my book’             ‘Ana's book’
+
+(personal knowledge)
+```
+
+## Further reading
+
+Chappell, Hilary & William McGregor. 1996. *The grammar of inalienability: A typological perspective on body part terms and the part-whole relation.* Berlin: Mouton de Gruyter.
+
+Haspelmath, Martin. 2017. Explaining alienability contrasts in adpossessive constructions: Predictability vs. iconicity. *Zeitschrift Für Sprachwissenschaft* 36. 193–231.
+
+Nichols, Johanna. 1988. On alienable and inalienable possession. In William Shipley (ed.), *In honor of Mary Haas: From the Haas festival conference on native American linguistics*, 557–609. Berlin: Walter de Gruyter.
+
+## References
+
+Grune, Dick. 1997. *[A survey of the Uto-Aztecan language Luiseño](http://www.few.vu.nl/~dick/Summaries/Languages/Luiseno.pdf)*. (Unpublished manuscript.)
+
+Johnston, Raymond L. 1980. [Nakani of New Britain: The grammar of an Oceanic language](https://openresearch-repository.anu.edu.au/bitstream/1885/148444/1/PL-B70.pdf). (*Pacific Linguistics B*, 70.) Canberra: Australian National University.
+
+## Related Features
+
+* [GB058 Are there possessive classifiers?](https://github.com/grambank/Grambank/wiki/GB058)
+* [GB313 Are there special adnominal possessive pronouns that are not formed by an otherwise regular process?](https://github.com/grambank/Grambank/wiki/GB313)
+* [GB430 Can adnominal possession be marked by a prefix on the possessor?](https://github.com/grambank/Grambank/wiki/GB430)
+* [GB431 Can adnominal possession be marked by a prefix on the possessed noun?](https://github.com/grambank/Grambank/wiki/GB431)
+* [GB432 Can adnominal possession be marked by a suffix on the possessor?](https://github.com/grambank/Grambank/wiki/GB432)
+* [GB433 Can adnominal possession be marked by a suffix on the possessed noun?](https://github.com/grambank/Grambank/wiki/GB433)
+
+
+## Patron
+Hannah J. Haynie
+",,HJH,GB059 POSSAlienability,,,,,,alienability
+45,GB084,Is there overt morphological marking on the verb dedicated to future tense?,"## Is there overt morphological marking on the verb dedicated to future tense?
+
+## Summary
+This question aims to capture [productive](https://github.com/grambank/grambank/wiki/Productivity) paradigms of overt tense marking. 'Morphological marking on the verb' means that the marker has to form a [phonological unit](https://github.com/grambank/grambank/wiki/Wordhood-and-phonological-boundness-or-independence) with the verb. The marking of tense can involve affixes, clitics, suppletion, tonal marking and/or reduplication. This feature aims to capture overt marking of future tense on the verb. Lack of other marking is not enough. There are instances where TAM can be expressed by a combination of an affix and an auxiliary or particle. For example, some grammarians state that future tense is expressed by a certain marker on the verbal root and an auxiliary. If this is a [productive](https://github.com/grambank/grambank/wiki/Productivity) and [obligatory](https://github.com/grambank/grambank/wiki/Obligatoriness) way of expressing future tense then this construction triggers 1 for both this feature (GB084) and the feature on tense auxiliaries ([GB121](https://github.com/grambank/Grambank/wiki/GB121)). If not all parts of the discontinuous marking are necessary for expressing future tense, only consider the marking that is obligatory.
+
+Sometimes a language will be described as having a past/non-past distinction. In this case, if there is an overt marker of non-past code the language as 1 for the feature on present tense ([GB082](https://github.com/grambank/Grambank/wiki/GB082)), but 0 for this feature (GB084). Future tense needs to be more dedicated to actual future reference, whereas present tense has less strict demands on the scope of its function.
+
+It can be hard to distinguish future tense from different modal categories, after all if something is in the future it has not yet occurred and can be construed as something wished for, planned, intended, etc. For this reason, it is necessary to pay particular attention to sections on mood, especially irrealis, when coding for future tense.
+
+If a language only has future tense under negation, this does not count for this feature. It needs to be present for affirmation as well. The reason for this is that conditions such as 'only under negation' are likely to give rise to quite different analysis by different linguists (hence it is hard to ensure comparability) and might also be overlooked. If we were to treat such marginal cases as triggering 1 we would most likely have to go back to a lot of the cases that were coded as 0 and re-evaluate their coding more thoroughly.
+
+## Procedure
+
+1. Find the section discussing tense in the grammatical description.
+2. If future tense is not explicitly defined, check the description of the other tenses and moods (if there are any).
+3. Code 1 if future tense can be marked on the verb by an affix or clitic, suppletion, tonal marking or reduplication.
+4. Code 1 if future tense can be marked by a combination of morphology and an auxiliary or particle. In these cases, also code 1 for [GB121](https://github.com/grambank/grambank/wiki/GB121) on tense auxiliaries and/or [GB521](https://github.com/grambank/grambank/wiki/GB521) on tense particles.
+4. If future tense is only marked by the absence of other markers, code 0.
+5. If the language is described as having a non-past tense and it is overtly marked, code it as 0 for this feature (GB084) but as 1 for [GB082](https://github.com/grambank/Grambank/wiki/GB082). 
+
+## Examples
+
+**Acholi** (ISO 639-3: ach, Glottolog: acol1236)
+
+In Acholi, future tense is marked by an infix _bí_ which derives from the verb 'to come' _bino_. Acholi is coded as 1 for this feature. Malandra (1952: 78–79) gives the following examples:
+
+| past | present | future |
+| ---- | ----------- |-- |
+| _àyecò_ I tore | _àyécò_ I tear |_ábíyecò_ I will (shall) tear| 
+| _àkayò_ I reaped | _àkáyò_ I reap |_àbíkayò_ I will (shall) reap| 
+
+
+## Further reading
+
+Comrie, Bernard. 1985. *Tense.* Cambridge: Cambridge University Press.
+
+Dahl, Östen. 1985. *[Tense and aspect systems.](https://www2.ling.su.se/staff/oesten/recycled/Tense&aspectsystems.pdf)* Oxford: Blackwell.
+
+Dahl, Östen & Viveka Velupillai. 2013. [The future tense](http://wals.info/chapter/67). In Matthew S. Dryer & Martin Haspelmath (eds), *The world atlas of language structures online*. Leipzig: Max Planck Institute for Evolutionary Anthropology.
+
+## References
+
+Malandra, Alfred. 1952. *A new Acholi grammar.* (Eagle language study serie, gle language study series.) Nairobi, Kampala & Dar es Salaam: Eagle Press.
+
+## Related Features
+
+
+* [GB082 Is there overt morphological marking of present tense on verbs?](https://github.com/grambank/Grambank/wiki/GB082)
+* [GB083 Is there overt morphological marking on the verb dedicated to past tense?](https://github.com/grambank/Grambank/wiki/GB083)
+* [GB084 Is there overt morphological marking on the verb dedicated to future tense?](https://github.com/grambank/Grambank/wiki/GB084)
+* [GB086 Is a morphological distinction between perfective and imperfective aspect available on verbs?](https://github.com/grambank/Grambank/wiki/GB086)
+* [GB110 Is there verb suppletion for tense or aspect?](https://github.com/grambank/Grambank/wiki/GB110)
+* [GB120 Can aspect be marked by an inflecting word ('auxiliary verb')?](https://github.com/grambank/Grambank/wiki/GB120)
+* [GB121 Can tense be marked by an inflecting word ('auxiliary verb')?](https://github.com/grambank/Grambank/wiki/GB121)
+* [GB309 Are there multiple past or multiple future tenses, distinguishing distance from Time of Reference?](https://github.com/grambank/Grambank/wiki/GB309)
+* [GB520 Can aspect be marked by a non-inflecting word ('auxiliary particle')?](https://github.com/grambank/Grambank/wiki/GB520)
+* [GB521 Can tense be marked by a non-inflecting word ('auxiliary particle')?](https://github.com/grambank/Grambank/wiki/GB521)
+
+## Patron
+Hedvig Skirgård
+",,HS,GB084 FutureBoundV,1.0,,,,,tense
+49,GB091,Can the A argument be indexed by a suffix/enclitic on the verb in the simple main clause?,"## Can the A argument be indexed by a suffix/enclitic on the verb in the simple independent clause?
+
+
+## Summary
+Is there a [phonologically bound](https://github.com/grambank/grambank/wiki/Wordhood-and-phonological-boundness-or-independence) [A argument](https://github.com/grambank/grambank/wiki/Core-arguments-(S,-A-and-P)) [index](https://github.com/grambank/grambank/wiki/Indexing-vs.-pronouns) that follows its verbal host (i.e. attaches to it as a [suffix or an enclitic](https://github.com/grambank/grambank/wiki/Affixes-and-clitics))?
+
+## Procedure
+1. Consider the section in the grammar that deals with verbal morphology, specifically the subsections on (pronominal) agreement or argument cross-referencing.
+2. Code 1 if there is a phonologically bound element that indexes the A argument on the verb or auxiliary. The index needs to follow the verbal host it is bound to.
+3. If there is some variation in the position of the A index conditioned by the verb (e.g. most verbs code the A argument with a suffix, but a couple use a prefix), consider only the patterns which occur with large classes of verbs.
+4. If the verb shows overt indexing only with some arguments (e.g. only with animate arguments or only with first person singular arguments, the situation known as differential argument indexing), this still counts as 1.
+5. If the A argument is indexed but not by a suffix or enclitic, code 0.
+6. If there is no indexing of the A argument, code 0.
+7. If only a small set of verbs (fewer than a dozen) indexes A arguments, code 0.
+8. Ignore all other ways of indexing arguments (e.g. via a stem alternation, stress or tone), they are not covered by any of the Grambank features.
+
+## Examples
+**English** (ISO 639-3: eng, Glottolog: stan1293)
+
+The verb shows overt indexing only with third person singular arguments in present, as in _he eat-s_ vs. _we eat_. The suffix attaches to all verbs. This is sufficient to code English as 1.
+
+**Korowai** (ISO 639-3: khe, Glottolog: koro1312)
+
+Independent verb forms express status, subject person-number, mood, and aspect. They are used in independent (final) clauses, subordinate clauses, and chained (medial) clauses. Dependent verb forms do not express subject person and number. Code as 1 (the fact that there are zero morphemes and syncretism of second and third person do no matter). See de Vries & van Enk (1997: 87-90, 183).
+
+The person-number suffixes in the realis are as follows:
+* 1SG _-le_/_-nde_
+* 1PL _-le_/_-te_/_-nde_
+* 2/3SG zero/_-l_
+* 2/3PL _-te(l)_
+
+This same set is used with small variations for the other statuses, moods, and aspects. Intentional and imperative mood take an entirely different set of person-number suffixes, distinguishing second from third person in both singular and plural. The zero form (stem-only form) is the usual non-1SG realis form.
+
+```
+nu	maun	mi-p
+I	water	drink-1SG.INTEN
+‘I want to drink water.’ (van Enk & de Vries 1997: 67)
+```
+
+**Cashinahua** (ISO 639-3: cbs, Glottolog: cash1254)
+
+There is no person indexing in Cashinahua. The verb indexes only the number of the subject (S/A), agreement in the singular being zero marked. Moreover, there is no indexing on the verb if the subject is the 1PL or 2PL pronoun (Camargo 2007: 1876). Code as 1.
+
+```
+a. kaman-an baka  ʂau  pi-mis-bu.
+   dog-ERG  fish  bone eat-HAB-PL
+   ‘The dogs eat fish bones.’ (Camargo 2007: 1877)
+
+b. paku-n    nam-ɨ-Ø   pi-mis.
+   Paku-ERG  meat-OBJ  eat-HAB
+   ‘Paco always eats meat.’ (Camargo 2007: 1873)
+
+c. ɨa, ɨn  daja-mis-ki.
+   me  I   work-HAB-ASS
+   ‘As for me, I work.’ (Camargo 2007: 1875)
+
+d. nun tsaka-mis-ki.
+   we hunt-HAB-ASS
+   ‘We always hunt.’ (Montag 2005: 6)
+```
+
+**Bukiyip** (ISO 639-3: ape, Glottolog: buki1249)
+
+Code as 0 (see Conrad & Wogiga 1991: 25–33).
+
+The verb in Bukiyip indexes S, A, and P arguments. The A argument is always expressed as a prefix.
+
+```
+Monoken  da         wo   ny-ú-klipw-e              ye?
+why      therefore  NEG  2SG.SBJ-IRR-tell-1SG.OBJ  NEG
+‘Why didn't you tell me?’ (Conrad & Wogiga 1991: 42)
+```
+
+**Makasae-Makalero** (ISO 639-3: mkz, Glottolog: maka1316)
+
+In Makasae-Makalero most verbs do not index core arguments, as in (a)-(d). 
+A set of five verbs index the number of S and A arguments via suppletive stem allomorphs (Huber 2011: 130). This set is not sufficient for coding as 1: it is a small set of verbs and the respective indexes are not suffixes. Makasae-Makalero is coded as 0. 
+
+```
+a. Ani hai  mu’a-li’an. 
+   1SG NSIT ground-fall
+   ‘I already fell down.’ (Huber 2011: 146)
+
+b. Ani  ei  pase.
+   1SG  2SG beat
+   ‘I beat you.’ (Huber 2011: 218)
+
+c. Ei  ani pase.
+   2SG 1SG beat
+   ‘You beat me.’ (Huber 2011: 218)
+
+d. Ina-uai	ni-mata	     uaro
+   mother-HON	REFL-child   wash
+   ‘The mother is washing her child’ (Huber 2011: 391)
+(Abbreviations: NSIT new situation)
+```
+
+## Further reading
+Haspelmath, Martin. 2013. Argument indexing: a conceptual framework for the syntactic status of bound person forms. In Dik Bakker & Martin Haspelmath (eds), *Languages across boundaries: Studies in memory of Anna Siewierska*, 198–226. Berlin: de Gruyter.
+
+Siewierska, Anna. 2013. [Alignment of verbal person marking](http://wals.info/chapter/100). In Matthew S. Dryer & Martin Haspelmath (eds), *The world atlas of language structures online*. Leipzig: Max Planck Institute for Evolutionary Anthropology.
+
+## References
+
+Camargo, Eliane. 2007. Reciprocal, response reciprocal, and distributive constructions in Cashinahua. In Vladimir P. Nedjalkov, Emma Š. Geniušienė & Zlatka Guentchéva (eds), *Reciprocal constructions*, 1865–1912. Amsterdam: John Benjamins.
+
+Conrad, Robert J. & Kepas Wogiga. 1991. *An outline of Bukiyip grammar*. (Pacific Linguistics: Series C, 113.) Canberra: Research School of Pacific and Asian Studies, Australian National University.
+
+de Vries, Lourens & Gerrit J. van Enk. 1997. *The Korowai of Irian Jaya: Their language and its cultural context*. (Oxford Studies in Anthropological Linguistics, 9.) Oxford: Oxford University Press.
+
+Huber, Juliette. 2011. *A grammar of Makalero: A Papuan language of East Timor*. Amsterdam: Vrije Universiteit Amsterdam. (Doctoral dissertation.)
+
+Montag, Richard. 2005. *Participant referencing in Cashinahua*. SIL Electronic Working Papers (SILEWP 2005-013). SIL International. 
+
+## Related Features
+* [GB089 Can the S argument be indexed by a suffix/enclitic on the verb in the simple independent clause?](https://github.com/grambank/Grambank/wiki/GB089)
+* [GB090 Can the S argument be indexed by a prefix/proclitic on the verb in the simple independent clause?](https://github.com/grambank/Grambank/wiki/GB090)
+* [GB092 Can the A argument be indexed by a prefix/proclitic on the verb in the simple independent clause?](https://github.com/grambank/Grambank/wiki/GB092)
+* [GB093 Can the P argument be indexed by a suffix/enclitic on the verb in the simple independent clause?](https://github.com/grambank/Grambank/wiki/GB093)
+* [GB094 Can the P argument be indexed by a prefix/proclitic on the verb in the simple independent clause?](https://github.com/grambank/Grambank/wiki/GB094)
+
+## Patron
+Alena Witzlack-Makarevich
+",,AWM,GB091 A-ArgSfxV,1.0,,,1.0,,
+51,GB093,Can the P argument be indexed by a suffix/enclitic on the verb in the simple main clause?,"## Can the P argument be indexed by a suffix/enclitic on the verb in the simple independent clause?
+
+
+## Summary
+Is there a [phonologically bound](https://github.com/grambank/grambank/wiki/Wordhood-and-phonological-boundness-or-independence) [P argument](https://github.com/grambank/grambank/wiki/Core-arguments-(S,-A-and-P)) [index](https://github.com/grambank/grambank/wiki/Indexing-vs.-pronouns) that follows its verbal host (i.e. attaches to it as a [suffix or an enclitic](https://github.com/grambank/grambank/wiki/Affixes-and-clitics))?
+
+## Procedure
+1. Consider the section in the grammar that deals with verbal morphology, specifically the subsections on (pronominal) agreement or argument cross-referencing.
+2. Code 1 if there is a phonologically bound element that indexes the P argument on the verb or auxiliary. The index needs to follow the verbal host it is bound to.
+3. If there is some variation in the position of the P index conditioned by the verb (e.g. most verbs code the A argument with a suffix, but a couple use a prefix), consider only the patterns which occur with large classes of verbs.
+4. If the verb shows overt indexing only with some arguments (e.g. only with animate arguments or only with first person singular arguments, the situation known as differential argument indexing), this still counts as 1.
+5. If the P argument is indexed but not by a suffix or enclitic, code 0.
+6. If there is no indexing of the P argument, code 0.
+7. If only a small set of verbs (fewer than a dozen) indexes P arguments, code 0.
+8. Ignore all other ways of indexing arguments (e.g. via a stem alternation, stress or tone), they are not covered by any of the Grambank features.
+
+## Examples
+
+**Bukiyip** (ISO 639-3: ape, Glottolog: buki1249) 
+
+The verb in Bukiyip indexes S, A, and P arguments. The position of indexes varies depending on the verb class (Conrad and Wogiga 1991: 25–33). The following transitive classes are distinguished:
+* Class 1 (transitive, small in number): SBJ-OBJ-V
+* Class 2 (transitive, large in number): SBJ-V-OBJ
+* Class 3 (transitive, large in number): SBJ-(OBJ)-V
+* Class 4 (transitive, relatively large in number): SBJ-V-(OBJ)
+* Class 7 (transitive, one verb, obligatory subject NP): SBJ-V-(OBJ)
+
+It is impossible to identify one major position of P indexes, as both class 2 and 4 (suffixes), as well as class 3 (prefixes) are large in number, so code as 1 for both GB093 and [GB094](https://github.com/grambank/grambank/wiki/GB094).
+
+```
+Monoken  da         wo   ny-ú-klipw-e              ye?
+why      therefore  NEG  2SG.SBJ-IRR-tell-1SG.OBJ  NEG
+‘Why didn't you tell me?’ (Conrad & Wogiga 1991: 42)
+```
+
+**Korowai** (ISO 639-3: khe, Glottolog: koro1312)
+
+Independent verb forms index subject (S and A) person-number, status, mood, and aspect. They are used in independent (final) clauses, subordinate clauses, and chained (medial) clauses. Code as 0 as there is no indexing of the P argument on the verb (see de Vries & van Enk 1997: 87–90, 183).
+
+```
+nu  maun   mi-p
+I   water  drink-1SG.INTEN
+‘I want to drink water.’ (de Vries & van Enk 1997: 67)
+(Abbreviations: INTEN intentional mood)
+```
+
+## Further reading
+Haspelmath, Martin. 2013. Argument indexing: a conceptual framework for the syntactic status of bound person forms. In Dik Bakker & Martin Haspelmath (eds), *Languages across boundaries: Studies in memory of Anna Siewierska*, 198–226. Berlin: de Gruyter.
+
+Siewierska, Anna. 2013. [Alignment of verbal person marking](http://wals.info/chapter/100). In Matthew S. Dryer & Martin Haspelmath (eds), *The world atlas of language structures online*. Leipzig: Max Planck Institute for Evolutionary Anthropology.
+
+## References
+
+Conrad, Robert J. & Kepas Wogiga. 1991. *An outline of Bukiyip grammar*. (Pacific Linguistics: Series C, 113.) Canberra: Research School of Pacific and Asian Studies, Australian National University.
+
+de Vries, Lourens & Gerrit J. van Enk. 1997. *The Korowai of Irian Jaya: Their language and its cultural context*. (Oxford Studies in Anthropological Linguistics, 9.) Oxford: Oxford University Press.
+
+## Related Features
+* [GB089 Can the S argument be indexed by a suffix/enclitic on the verb in the simple independent clause?](https://github.com/grambank/Grambank/wiki/GB089)
+* [GB090 Can the S argument be indexed by a prefix/proclitic on the verb in the simple independent clause?](https://github.com/grambank/Grambank/wiki/GB090)
+* [GB091 Can the A argument be indexed by a suffix/enclitic on the verb in the simple independent clause?](https://github.com/grambank/Grambank/wiki/GB091)
+* [GB092 Can the A argument be indexed by a prefix/proclitic on the verb in the simple independent clause?](https://github.com/grambank/Grambank/wiki/GB092)
+* [GB094 Can the P argument be indexed by a prefix/proclitic on the verb in the simple independent clause?](https://github.com/grambank/Grambank/wiki/GB094)
+
+## Patron
+Alena Witzlack-Makarevich
+",,AWM,GB093 P-ArgSfxV,1.0,,,1.0,,
+59,GB105,Can the recipient in a ditransitive construction be marked like the monotransitive patient?,"## Can the recipient in a ditransitive construction be marked like the transitive patient?
+
+## Summary
+As a ditransitive construction we consider constructions with verbs expressing a physical transfer of possession or a mental transfer of messages (*give*, *lend*, *hand*, *feed*, *send*, *bring*, *show*, *tell*, *teach*). A ditransitive construction must allow overt expression of an agent, a theme and a recipient/addressee as separate NPs. The morphological marking of these arguments (e.g. accusative case, dative case vs. adposition marking) is irrelevant for counting a construction as ditransitive.
+
+‘Marking’ for the purposes of this feature includes both flagging (i.e. case and adposition marking) and [indexing](https://github.com/grambank/grambank/wiki/Indexing-vs.-pronouns) on the verb. 1 is primarily triggered by flagging. Only if there is no overt flagging for neither the P argument nor the recipient argument, indexing is considered. 1 covers both the ‘double-object construction’ and the ‘secondary-object construction’ of Haspelmath (2013).
+
+## Procedure
+1. Consider the section in the grammar that deals with argument flagging (i.e. case and adposition marking) and indexing. Check whether it discusses ditransitive verbs or ditransitive constructions. If not, search the grammar for examples with verbs expressing a physical transfer.
+2. If the overt flagging of the P argument and the recipient argument is identical, code as 1.
+3. If the P argument and the recipient are marked with different flags, code as 0.
+4. If only the P argument or only the recipient is overtly marked, code as 0.
+5. If neither the P argument nor the recipient are overtly marked, consider the indexing patterns on the verb.
+6. Code as 1 if the two arguments are indexed identically.
+5. If the indexing of the P argument differs from the indexing of the recipient, code as 0.
+6. If there is neither overt indexing not flagging for both P and the recipient, code as 1.
+7. Various relevant verbs might have different marking patterns. As the question is about the possibility of the recipient in a ditransitive construction to be marked like the transitive patient, code as 1 even if not all verbs follow this pattern and add a comment.
+8. Even if the author of the grammar explicitly states the language has no ditransitive verbs, still consider and code the marking of the arguments of verbs of a physical transfer.  
+
+## Examples
+**Awa-Cuaiquer** (ISO 639-3: kwi, Glottolog: awac1239)
+
+Though only some Ps (pronouns and certain nouns) are overtly marked with the dative suffix in Awa-Cuaiquer (compare the marked P argument in (a) vs. the unmarked P argument in (b), this situation still counts as 1, as some P are identically marked with the recipient, as in (c).
+
+```
+a. Demetrio  na-wa    pyan-tɨ-tɨ-s
+   Demetrio  1SG-DAT  hit-TERM-PST-LOCUT.P
+   ‘Demetrio hit me.’ (Curnow 1997: 65)
+
+b. Demetrio  kuzhu  pay-t   kway-zi
+   Demetrio  pig    buy-t   PFV-NLOCUT
+   ‘Demetrio bought a pig.’ (Curnow 1997: 65)
+
+c. na=na        Santos=ta   pashu    mɨla-ta-w
+   1SG.NOM=TOP  Santos=DAT  daughter give-PST-LOCUT.SBJ
+   ‘I gave my daughter to Santos.’ (Curnow 1997: 74)
+```
+
+## Further reading
+
+Haspelmath, Martin. 2013. [Ditransitive constructions: The verb ‘give’](http://wals.info/chapter/105). In Matthew S. Dryer & Martin Haspelmath (eds), *The world atlas of language structures online*. Leipzig: Max Planck Institute for Evolutionary Anthropology.
+
+Malchukov, Andrej, Martin Haspelmath & Bernard Comrie. 2010. [Ditransitive constructions: A typological overview.](http://www.degruyter.com/view/product/176781) In Andrej Malchukov, Martin Haspelmath & Bernard Comrie (eds), *Studies in ditransitive constructions: A comparative handbook*, 1–64. Berlin: de Gruyter Mouton.
+
+## References
+
+Curnow, Timothy. 1997. *A grammar of Awa Pit (Cuaiquier): An indigenous language of south-western Colombia.* Canberra: Australian National University. (Doctoral dissertation.)
+
+## Related Features
+* [GB071 Are there morphological cases for phonologically independent personal pronominal core arguments (i.e. S, A or P)?](https://github.com/grambank/Grambank/wiki/GB071)
+* [GB073 Are there morphological cases for phonologically independent oblique personal pronouns (i.e. not S, A or P)?](https://github.com/grambank/Grambank/wiki/GB073)
+* [GB093 Can the P argument be indexed by a suffix/enclitic on the verb in the simple independent clause?](https://github.com/grambank/Grambank/wiki/GB093)
+* [GB094 Can the P argument be indexed by a prefix/proclitic on the verb in the simple independent clause?](https://github.com/grambank/Grambank/wiki/GB094)
+* [GB103 Can a verb have a benefactive marker (applicative marker or index)?](https://github.com/grambank/Grambank/wiki/GB103)
+* [GB300 Does the verb for 'give' have suppletive verb forms?](https://github.com/grambank/Grambank/wiki/GB300)
+
+## Patron
+Alena Witzlack-Makarevich",,AWM,GB105 CaseRecipientObj,,,,,,
+73,GB121,"Can tense be marked by an inflecting word (""auxiliary verb"")?","## Can tense be marked by an inflecting word (‘auxiliary verb’)?
+
+## Summary
+This feature covers all tenses (present, past, and future) and aims to capture [phonologically free](https://github.com/grambank/grambank/wiki/Wordhood-and-phonological-boundness-or-independence) elements that inflect (i.e. change form depending on person, number and other categories of the core arguments). These markers are often described as ‘auxiliary verbs’ in the literature, but are also analyzed under other labels by some authors (such as STAMP morphemes (STAM = Subject-Tense-Aspect-Mood-Polarity) or inflecting pronouns). We are interested in grammatical marking, i.e. [dedicated](https://github.com/grambank/grambank/wiki/Dedicated-marking), [productive](https://github.com/grambank/grambank/wiki/Productivity) and [obligatory](https://github.com/grambank/grambank/wiki/Obligatoriness) marking. 
+
+There are instances where TAM can be expressed by a combination of an affix and auxiliary or particle. For example, some grammarians state that tense is expressed by a certain form on the verbal root and an auxiliary. If this is a [productive](https://github.com/grambank/grambank/wiki/Productivity) and [obligatory](https://github.com/grambank/grambank/wiki/Obligatoriness) way of expressing tense then such a construction triggers 1 for both this feature (GB121) and the features on bound tense marking ([GB082](https://github.com/grambank/Grambank/wiki/GB082)/[GB083](https://github.com/grambank/Grambank/wiki/GB083)/[GB084](https://github.com/grambank/Grambank/wiki/GB084)). If not all parts of the discontinuous marking are necessary for expressing a tense, then only consider the marking that is obligatory.
+
+## Procedure
+1. Look up the section on tense marking in the grammatical description.
+2. Consider all marking of tense, e.g. not only past tense.
+3. If you do not find any inflecting words expressing tense, such as auxiliary verbs or elements analyzed as pronouns that take TAM marking, code as 0.
+4. If there is an inflecting word that clearly expresses tense, code the language as 1.
+5. If not clear whether the inflecting word marks tense, code the language as ?.
+
+## Examples
+**Swedish** (ISO 639-3: swe, Glottolog: swed1254)
+
+Swedish uses an auxiliary construction derived from the verb ‘to come’ (_kommer_) for marking future tense (Teleman et al. 1999: 244). The construction also involves the infinitive form of the main verb and the infinitive marker (_att_). Swedish is coded as 1 for this feature. 
+
+| | Present| Future | 
+|-------- | ---- | ----------- | 
+| ‘swim’ | _simma-r_ | ***kommer** att simma* | 
+| ‘dance’ | _dansa-r_ | ***kommer** att dansa* | 
+
+
+## Further reading
+
+Comrie, Bernard. 1985. *Tense*. Cambridge University Press
+
+Dahl, Östen. 1985. [*Tense and aspect systems*](https://www2.ling.su.se/staff/oesten/recycled/Tense&aspectsystems.pdf). Oxford: Blackwell.
+
+Dahl, Östen & Viveka Velupillai. 2013. [The past tense](http://wals.info/chapter/66). In Matthew S. Dryer & Martin Haspelmath (eds), *The world atlas of language structures online*. Leipzig: Max Planck Institute for Evolutionary Anthropology.
+
+## References
+
+Teleman, Ulf, Staffan Hellberg & Erik Andersson. 1999. *Svenska akademiens grammatik, vol. 4*. Stockholm: Svenska akademien.
+
+## Related Features
+
+
+* [GB082 Is there overt morphological marking of present tense on verbs?](https://github.com/grambank/Grambank/wiki/GB082)
+* [GB083 Is there overt morphological marking on the verb dedicated to past tense?](https://github.com/grambank/Grambank/wiki/GB083)
+* [GB084 Is there overt morphological marking on the verb dedicated to future tense?](https://github.com/grambank/Grambank/wiki/GB084)
+* [GB086 Is a morphological distinction between perfective and imperfective aspect available on verbs?](https://github.com/grambank/Grambank/wiki/GB086)
+* [GB110 Is there verb suppletion for tense or aspect?](https://github.com/grambank/Grambank/wiki/GB110)
+* [GB120 Can aspect be marked by an inflecting word (‘auxiliary verb’)?](https://github.com/grambank/Grambank/wiki/GB120)
+* [GB309 Are there multiple past or multiple future tenses, distinguishing distance from Time of Reference?](https://github.com/grambank/Grambank/wiki/GB309)
+* [GB520 Can aspect be marked by a non-inflecting word (‘auxiliary particle’)?](https://github.com/grambank/Grambank/wiki/GB520)
+* [GB521 Can tense be marked by a non-inflecting word (‘auxiliary particle’)?](https://github.com/grambank/Grambank/wiki/GB521)
+
+## Patron
+Hedvig Skirgård
+",,HS,GB121 AUXTense,1.0,,,,,tense
+94,GB149,Is there a morphologically marked inverse on verbs?,"## Is there a morphologically marked inverse on verbs?
+
+## Summary
+
+Inverse systems are based on an animacy, person, or topicality hierarchy. Inverse markers indicate that the patient outranks the agent on the hierarchy. In a system that has a hierarchy [speech act participants > 3SG pronouns > humans > animals, etc.], for example, ‘man INV-bite dog’ would mean ‘the dog bit the man’. Note that in some languages, there are portmanteau morphemes that both function as person [indexes](https://github.com/grambank/grambank/wiki/Indexing-vs.-pronouns) on verbs and as direct/inverse markers. They would trigger 1 for this question. This feature targets [phonologically bound](https://github.com/grambank/grambank/wiki/Wordhood-and-phonological-boundness-or-independence) inverse markers.
+
+## Procedure
+
+1. Code 1 if the grammar discusses a marker on the verb that encodes that the patient outranks the agent on an animacy or person hierarchy. Be sure to consult sections dealing with argument marking, verbal derivation and verbal morphology in general. Sometimes authors do not explicitly discuss the function of these markers or they do not present a hierarchy, but they may present a paradigm from which you can figure out the pattern.
+2. Code 1 if different indexes are used according to whether the patient outranks the agent on an animacy or person hierarchy or the reverse is true.
+3. Code 0 if there are no signs of such a system in the language.
+
+## Examples
+
+**Panare** (ISO 639-3: pbh, Glottolog: enap1235)
+
+Panare is coded 1.
+
+In Panare (Payne & Payne 2013: 24-25), the inverse marker *y-* only occurs in past-perfective verbs. It indicates that the patient of a clause outranks the agent of the clause on the following topicality hierarchy: 1SG/2 > 3/1PL. It also seems to be used when both the agent and patient are third person.
+
+```
+Kën        a-y-ïkïtï-yaj
+ANIM.INVIS 2SG-INV-cut-PST.PFV
+‘He/she cut you.’ (Payne & Payne 2013: 25)
+```
+
+**Cherokee** (ISO 639-3: chr, Glottolog: cher1273)
+
+In Cherokee, there are two sets of prefixes, a ‘direct’ one and an ‘inverse’ one. In addition to marking direct or inverse, each prefix also indexes the most animate participant (indicating its person and number). Cherokee is coded 1.
+
+```
+a. Direct
+   anii-kééhya  sookwili   tee-anii-ahyvthéeɁa 
+   3A-woman     horse      DISTR-DIRC.3PL-kick:PRS 
+   ‘The women are kicking the horses.’ (Montgomery-Anderson 2008: 197 following Scancarelli 1987: 128)
+
+b. Inverse
+   sookwili    kaa-uunii-ahyvthéeɁa    anii-kééhya 
+   horse       ANIM-INV.3PL-kick:PRS   3A-woman 
+   ‘The horses are kicking the women.’ (Montgomery-Anderson 2008: 197 following Scancarelli 1987: 128)
+```
+
+## Further reading
+
+Klaiman, M. H. 1992. [Inverse languages](http://wwwhomes.uni-bielefeld.de/rvogel/ws0809/synmorph/klaiman93inverse.pdf). *Lingua*, 88(3/4). 227–261.
+
+Zúñiga, Fernando. 2006. *Deixis and alignment: Inverse systems in indigenous languages of the Americas*. Amsterdam: John Benjamins.
+
+## References
+
+Montgomery-Anderson, Brad. 2008. [*A reference grammar of Oklahoma Cherokee*](http://hdl.handle.net/1808/4212). Lawrence, KS: University of Kansas. (Doctoral dissertation.)
+
+Payne, Thomas E. and Payne, Doris L. 2013. *A typological grammar of Panare: A Cariban language of Venezuela*. (Brill's Studies in the Indigenous Languages of the Americas.) Leiden: Brill.
+
+Scancarelli, Janine. 1987. *Grammatical relations and verb agreement in Cherokee*. Los Angeles: University of California. (Doctoral dissertation.)
+
+## Related Features
+
+* [GB089 Can the S argument be indexed by a suffix/enclitic on the verb in the simple independent clause?](https://github.com/grambank/Grambank/wiki/GB089)
+* [GB090 Can the S argument be indexed by a prefix/proclitic on the verb in the simple independent clause?](https://github.com/grambank/Grambank/wiki/GB090)
+* [GB091 Can the A argument be indexed by a suffix/enclitic on the verb in the simple independent clause?](https://github.com/grambank/Grambank/wiki/GB091)
+* [GB092 Can the A argument be indexed by a prefix/proclitic on the verb in the simple independent clause?](https://github.com/grambank/Grambank/wiki/GB092)
+* [GB093 Can the P argument be indexed by a suffix/enclitic on the verb in the simple independent clause?](https://github.com/grambank/Grambank/wiki/GB093)
+* [GB094 Can the P argument be indexed by a prefix/proclitic on the verb in the simple independent clause?](https://github.com/grambank/Grambank/wiki/GB094)
+* [GB105 Can the recipient in a ditransitive construction be marked like the transitive patient?](https://github.com/grambank/Grambank/wiki/GB105)
+
+## Patron
+Jakob Lesage
+",,JLE,GB149 InverseBoundV,1.0,,,,,inverse
+115,GB192,Is there a gender system where a noun's phonological properties are a factor in class assignment?,"## Is there a noun class/gender system where a noun’s phonological properties are a factor in class assignment?
+
+## Summary
+A noun class/gender system categorizes nouns for the purposes of grammatical [agreement](https://github.com/grambank/grambank/wiki/Agreement) with other constituents in the noun phrase or other inflectional morphology. See the [classification wiki page](https://github.com/grambank/grambank/wiki/Noun-Classes-and-Classifiers) for more information on our definition of noun class/gender. Noun class/gender assignment may be based on one or several factors. This feature focuses on whether the phonological properties of a noun constitute one of these factors for a given language. For this feature to be coded 1, there must be a clear preference for certain nouns to be classified in certain gender categories as a result of specific phonological properties. That is, some phonological property of a noun must be one relevant factor in the assignment of gender; however it does not need to be an absolute deciding factor or the only relevant factor in gender/class assignment. Examples of phonological properties that may play a role in gender/class assignment include tone, initial consonants, or root-final segments. Note that noun class/gender morphology may create phonological similarities across members of a certain noun class or gender; however, this is not sufficient for a 1 coding for this feature. Phonological properties must contribute to the categorization of nouns to classes/genders, rather than simply result from associated morphology.
+
+## Procedure
+1. If there is [a system of nominal classification](https://github.com/grambank/grambank/wiki/Noun-Classes-and-Classifiers) where some markers vary based on the category of the noun,
+2. And if these markers are **not** used only with numerals, demonstratives, and possessors (or some subset of these categories),
+3. And if these markers are involved in [agreement](https://github.com/grambank/grambank/wiki/Agreement) within the noun phrase, inflectional marking of the noun, or [indexing](https://github.com/grambank/grambank/wiki/Indexing-vs.-pronouns),
+4. And if there seems to be a correlation between a noun's noun class/gender and specific phonological properties of the noun, then code 1.
+3. Code 0 if there is no class/gender system or the assignment of nouns to classes/genders does not pattern according to phonological properties of the noun.
+
+## Examples
+**Kilen** (Glottolog: kile1243)
+
+There are two classes of nouns in Kilen: one for /n/-final stems and one for vowel-final stems. Allomorphy of nominal suffixes is determined by these two categories, which correspond to the final sound of the stem (Zhang 2013: 77).
+
+| Case | V-final | n-final |
+| --- | --- | --- |
+| --- | xas&#808;i ‘warehouse’ | jafux&#601;n ‘garden’ |
+| NOM | xas&#808;i-&#216; | jafux&#601;n-&#216; |
+| ACC | xas&#808;i-w&#601; | jafux&#601;n-m&#601; |
+| GEN | xas&#808;i-ji | jafux&#601;n-i |
+| DAT | xas&#808;i-d&#601; | jafux&#601;n-du |
+| LOC | xas&#808;i-l&#601; | jafux&#601;n-dul&#601; |
+| PROL | xas&#808;i-li | jafux&#601;n-duli |
+
+Table 5.1 Case Suffixes (Zhang 2013: 80)
+
+Kilen is coded as 1.
+
+**North Levantine Arabic** (ISO 639-3: apc, Glottolog: nort3139)
+
+For nouns that are neither names nor human designations, gender cannot be inferred from meaning but usually from form: singular nouns ending in *-e/-a/-ʔ/-t* are feminine (Cowell 1964: 209). This language is coded 1.
+
+## Further reading
+
+Corbett, Greville G. 1991. *Gender*. Cambridge: Cambridge University Press.
+
+Senft, Gunter. 2000. *Systems of nominal classification*. Cambridge: Cambridge University Press.
+
+## References
+Cowell, Mark W. 1964. *A reference grammar of Syrian Arabic (based on the dialect of Damascus)*. (Arabic Series, 7.) Washington, D.C.: Georgetown Univ. Press.
+
+Zhang, Paiyu. 2013. *The Kilen language of Manchuria: grammar of a moribund Tungusic language*. Hong Kong: University of Hong Kong. (Doctoral dissertation.)
+
+## Related Features
+
+* [GB030: Is there a gender distinction in phonologically independent third person pronouns?](https://github.com/grambank/Grambank/wiki/GB030)
+* [GB051: Is there a noun class/gender system where masculine and feminine categories are a factor in class assignment?](https://github.com/grambank/Grambank/wiki/GB051)
+* [GB052: Is there a noun class/gender system where shape is a factor in class assignment?](https://github.com/grambank/Grambank/wiki/GB052)
+* [GB053: Is there a noun class/gender system where animacy is a factor in class assignment?](https://github.com/grambank/Grambank/wiki/GB053)
+* [GB054: Is there a noun class/gender system where plant status is a factor in class assignment?](https://github.com/grambank/Grambank/wiki/GB054)
+* [GB196: Is there a masculine/feminine distinction in phonologically independent second person pronouns?](https://github.com/grambank/Grambank/wiki/GB196)
+* [GB197: Is there a masculine/feminine distinction in phonologically independent first person pronouns?](https://github.com/grambank/Grambank/wiki/GB197)
+* [GB321: Is there a large class of nouns whose noun class/gender is not phonologically or semantically predictable?](https://github.com/grambank/Grambank/wiki/GB321)
+
+## Patron
+Hannah J. Haynie
+",,HJH,GB192 GenderPhono,,1.0,1.0,,,
+123,GB252,Can predicative possession be expressed with an S-like possessum and a locative-coded possessor?,"## Can predicative possession be expressed with an S-like possessum and a locative-coded possessor?
+
+## Summary
+This question concerns predicative possession, i.e. clauses that express an ownership relation between a possessor and possessum. This feature is concerned with clauses where the possessum is the subject of an existential/locative predicate and the possessor is in an oblique form marked by an element meaning ‘at/in/on’ (e.g. *the car is on me* to mean ‘I have a car.’ or ‘The car is mine.’). The possessor-NP need not be overtly marked for location, it can be expressed in the verb itself, e.g. with a locative extension. It is necessary for the construction that the possessor is not the subject.
+
+This type of predicative possession construction is known as the ‘locational possessive’ in the work of Stassen (2001, 2013).
+
+## Procedure
+
+1. Find the section on predicative possession.
+2. If no such section exists, search for words like ‘own’, ‘possess’, ‘have’ and ‘belong’.
+3. If there is no information on how predicative possession is expressed in the language, code as ?.
+4. If it is clear that there is a finite verb where the subject is the possessum and the possessor is coded as a location, code as 1.
+5. If there are multiple constructions besides this one to express predicative possession, code 1 for this feature and verify whether any of the other constructions are relevant to [GB250](https://github.com/grambank/Grambank/wiki/GB250), [GB253](https://github.com/grambank/Grambank/wiki/GB253), [GB254](https://github.com/grambank/Grambank/wiki/GB254) or [GB256](https://github.com/grambank/Grambank/wiki/GB256).
+
+## Examples
+**Ket** (ISO 639-3: ket, Glottolog: kett1243)
+
+Ket is a language with an extensive case system. The adessive (ADESS) case is used both as a locative marker and to mark the possessor in a predicative possessive construction. The possessive verb is intransitive. Ket is coded as 1 for this feature.
+
+```
+ɔ́bdaŋt         bɔ́gdɔm  úsʲaŋ
+ob-da-ŋt       bokdom  usaŋ
+father-M-ADESS rifle   be.present
+‘The father has a rifle.’ (Nefedov 2015: 169)
+```
+
+## Further reading
+
+Stassen, Leon. 2001. Predicative Possession. In Martin Haspelmath, Wulf Oesterreicher & Wolfgang Raible (eds) *Language typology and language universals*. 954–960. Berlin: Mouton de Gruyter.
+
+Stassen, Leon. 2013. [Predicative Possession](http://wals.info/chapter/117). In Matthew S. Dryer & Martin Haspelmath (eds), *The world atlas of language structures online*. Leipzig: Max Planck Institute for Evolutionary Anthropology.
+
+## References
+
+Nefedov, Andrey. 2015. [*Clause linkage in Ket*](https://www.lotpublications.nl/Documents/408_fulltext.pdf). Doctoral dissertation. Leiden: Rijksuniversiteit te Leiden.
+
+Stassen, Leon. 2001. Predicative Possession. In Martin Haspelmath, Wulf Oesterreicher & Wolfgang Raible (eds) *Language typology and language universals*. 954–960. Berlin: Mouton de Gruyter.
+
+Stassen, Leon. 2013. [Predicative Possession](http://wals.info/chapter/117). In Matthew S. Dryer & Martin Haspelmath (eds), *The world atlas of language structures online*. Leipzig: Max Planck Institute for Evolutionary Anthropology.
+ 
+## Related Features
+* [GB250 Can predicative possession be expressed with a transitive ‘habeo’ verb?](https://github.com/grambank/Grambank/wiki/GB250)
+* [GB253 Can predicative possession be expressed with an S-like possessum and a dative-coded possessor?](https://github.com/grambank/Grambank/wiki/GB253)
+* [GB254 Can predicative possession be expressed with an S-like possessum and a possessor that is coded like an adnominal possessor?](https://github.com/grambank/Grambank/wiki/GB254)
+* [GB256 Can predicative possession be expressed with a comitative/conjunctional construction?](https://github.com/grambank/Grambank/wiki/GB256)
+
+## Patron
+Hedvig Skirgård
+",,HS,GB252 PredPOSSLoc,,,,,,
+152,GB309,"Are there multiple past or multiple future tenses, distinguishing distance from Time of Reference?","## Are there multiple past or multiple future tenses, distinguishing distance from time of reference?
+
+## Summary
+This question aims to capture productive marking of tense that makes distinctions into remoteness of time in relation to the point of reference or utterance. The actual marking can be tonal, verbal affixation, suppletion or any other means of marking. 
+
+This feature pertains to temporal marking, not aspectual. ‘Present perfect’ and ‘pluperfect’ are not included since they do not denote difference in distance of time but sequence of events.
+
+## Procedure
+1. Look up the sections in the language description that deal with tense.
+2. Check if there are markers of past or future tense at all.
+3. If more than one function of future or past tense are described, and they are marked by separate forms, investigate whether the distinctions are aspectual or modal, or indeed relate to remoteness on the temporal axis.
+4. If there is only a single past tense category and only a single future tense category, code the language as 0.
+5. If it is unclear whether the distinction is aspectual/modal or temporal, code the language as ?.
+6. If there are several function-form pairs described, but with little motivation and few examples to clearly explain what is going on, code the language as ?.
+7. If it is clearly stated that the distinction has to do with remoteness of time, code the language as 1.
+
+## Examples
+
+**Sudest** (ISO 639-3: tgo, Glottolog: sude1239)
+
+In Sudest, there are distinctions in remoteness in both past and future tenses. Anderson & Ross (2002: 335–339) outline this in a paradigm and also give the examples below. Sudest is coded as 1 for this feature.
+
+```
+a. Va        thï=utu
+   DIST.PST  3PL=talk
+   ‘They talked.’ (Anderson & Ross 2002: 339)
+
+b. Methï=wa        e    la-ma         nggolo
+   PROX.PST.3PL=go PREP POSS-1EXCL.PL house
+   ‘They went (today or yesterday) to my house.’ (Anderson & Ross 2002: 336)
+
+c. Na       ya-wa 
+   PROX.FUT 1SG=go
+   ‘They will go (today).’ (Anderson & Ross 2002: 337)
+
+d. Ne   thï=kwaio
+   FUT  3PL=work
+   ‘They will work (after today).’ (Anderson & Ross 2002: 337)
+```
+
+Below is a helpful excerpt on the typological literature on this phenomenon from Hayashi (2011: 46):
+
+""Cross-linguistically, it is not rare for a language to have multiple past (or future) tenses that cover different temporal domains (Dahl 1983, 1985, 2008; Comrie 1985; Mithun 1999; Dahl & Velupillai 2005: 269).
+
+When a language has two past tenses covering different temporal domains, the cut-off point (boundary) is most commonly placed between ‘today’ and ‘before today’, in which case the tenses can be labeled with Latinate terms as hodiernal past and pre-hodiernal past (Dahl 1983, 1985, 2008; Comrie 1985; Dahl & Velupillai 2005). Another common cut-off point is that between ‘recently’ and ‘longer ago’. When a language has more than two past tenses, additional cut-off points may be placed between ‘yesterday’ and ‘before yesterday’, between ‘a few days ago’ and ‘more than a few days ago’, between ‘this year’ and ‘before this year’, etc.
+
+Comrie (1985) also points out that tense systems across languages may contrast with one another not only with respect to how they segment the time-line, but also with respect to how rigid the boundaries between the segments are. Haya, for example, has three past tenses covering ‘today’ (the hodiernal past), ‘yesterday’ (the hesternal past), and ‘before yesterday’ (the pre-hesternal past). Their boundaries are rigid, in the sense that the hodiernal past can never be used to describe a situation in a time prior to the day of utterance. Sotho, in contrast, has the opposition of ‘recently’ vs. ‘not recently’, where the boundary is fluid in the sense that what counts as recent is left to the speaker’s subjective impression; it is possible, thus, to describe an event that took place several years or decades ago with a recent past form, as long as the speaker intends to emphasize the subjective recency.""
+
+## Further reading
+
+Bybee, Joan L. & Östen Dahl. 1989. [The creation of tense and aspect systems in the languages of the world](https://www.unm.edu/~jbybee/downloads/BybeeDahl1989TenseAspectSystems.pdf). *Studies in Language* 13. 51–103.
+
+Dahl, Östen. 1985. *[Tense and aspect systems](http://www2.ling.su.se/staff/oesten/recycled/Tense&aspectsystems.pdf)*. Oxford: Blackwell.
+
+Hayashi, Midori. 2011. *[The structure of multiple tenses in Inuktitut](http://www.semanticsarchive.net/Archive/GE1YzI1Y/Hayashi_phdthesis_2011.pdf)*. Toronto: University of Toronto. (Doctoral dissertation.)
+
+## References
+
+Anderson, Mike & Malcolm Ross. 2002. Sudest. In John Lynch, Malcolm Ross & Terry Crowley (eds), *The Oceanic languages*, 322–346. Richmond: Curzon.
+
+Comrie, Bernard. 1985. *Tense*. Cambridge: Cambridge University Press.
+
+Dahl, Östen. 1983. Temporal distance: Remoteness distinctions in tense-aspect systems. *Linguistics* 21. 105–122.
+
+Dahl, Östen. 1985. *[Tense and aspect systems](http://www2.ling.su.se/staff/oesten/recycled/Tense&aspectsystems.pdf)*. Oxford: Blackwell.
+
+Dahl, Östen. 2008. The morning is wiser than the evening. Paper presented at *Chronos 8: International conference on Tense, Aspect, Mood, and Modality.*
+
+Dahl, Östen & Viveka Velupillai. 2005. [Tense and aspect](https://wals.info/chapter/s7). In Martin Haspelmath, Matthew S. Dryer, David Gil & Bernard Comrie (eds), *World atlas of language structures*, 266–272. Oxford: Oxford University Press.
+
+Hayashi, Midori. 2011. *[The structure of multiple tenses in Inuktitut](http://www.semanticsarchive.net/Archive/GE1YzI1Y/Hayashi_phdthesis_2011.pdf)*. University of Toronto. (Doctoral dissertation.)
+
+Mithun, Marianne. 1999. *The languages of native North America*. Cambridge: Cambridge University Press.
+
+## Related Features
+
+* [GB082 Is there overt morphological marking of present tense on verbs?](https://github.com/grambank/Grambank/wiki/GB082)
+* [GB083 Is there overt morphological marking on the verb dedicated to past tense?](https://github.com/grambank/Grambank/wiki/GB083)
+* [GB084 Is there overt morphological marking on the verb dedicated to future tense?](https://github.com/grambank/Grambank/wiki/GB084)
+* [GB086 Is a morphological distinction between perfective and imperfective aspect available on verbs?](https://github.com/grambank/Grambank/wiki/GB086)
+* [GB110 Is there verb suppletion for tense or aspect?](https://github.com/grambank/Grambank/wiki/GB110)
+* [GB120 Can aspect be marked by an inflecting word (‘auxiliary verb’)?](https://github.com/grambank/Grambank/wiki/GB120)
+* [GB121 Can tense be marked by an inflecting word (‘auxiliary verb’)?](https://github.com/grambank/Grambank/wiki/GB121)
+* [GB312 Is there overt morphological marking on the verb dedicated to mood?](https://github.com/grambank/Grambank/wiki/GB312)
+* [GB520 Can aspect be marked by a non-inflecting word (‘auxiliary particle’)?](https://github.com/grambank/Grambank/wiki/GB520)
+* [GB521 Can tense be marked by a non-inflecting word (‘auxiliary particle’)?](https://github.com/grambank/Grambank/wiki/GB521)
+
+## Patron
+Hedvig Skirgård
+",,HS,GB309 MultiplePastFuture,,,,,,multipletense
+153,GB312,Is there overt morphological marking on the verb dedicated to mood?,"## Is there overt morphological marking on the verb dedicated to mood?
+
+## Summary
+This question is concerned with [phonologically bound](https://github.com/grambank/grambank/wiki/Wordhood-and-phonological-boundness-or-independence) marking on the verb that indicates grammatical mood. Grammatical mood is concerned with (1) the relationship between an event/state/action expressed in a clause and its actualization in reality (e.g. realis or irrealis) and/or (2) the speaker’s attitude towards the actualization of this event/state/action. This feature covers all grammatical moods, including declarative. The mood marker may be polysemous with other markers.
+
+There are instances where TAM can be expressed by a combination of an affix and auxiliary or particle. For example, some grammarians state that a mood is expressed by a certain form on the verbal root and an auxiliary. If this is a [productive](https://github.com/grambank/grambank/wiki/Productivity) and [obligatory](https://github.com/grambank/grambank/wiki/Obligatoriness) way of expressing mood then such a construction triggers 1 for both this feature (GB312) and the features on free-standing mood marking ([GB119](https://github.com/grambank/Grambank/wiki/GB119) and/or [GB519](https://github.com/grambank/Grambank/wiki/GB519)). If not all parts of the discontinuous marking are necessary for expressing a mood, then only consider the marking that is obligatory.
+
+While negation or interrogation can be considered grammatical moods, they are not covered by this feature.
+
+## Procedure
+1. Code 1 if mood is marked on the verb or on auxiliaries by an affix, suppletion, tonal marking or reduplication.
+2. Code ? if mood is not described at all and the grammatical description is not comprehensive.
+3. Code 0 if mood is not described at all and the grammatical description is comprehensive.
+					
+## Examples
+**Martuthunira** (ISO 639-3: vma, Glottolog: mart1255)
+
+Martuthunira has a suffix that denotes unrealized events, also known as irrealis. Martuthunira is coded as 1.
+
+```
+Ngawu, ngayu    puni-lha   nyina-lu    ngurrinyu-tha, kurnta-yaangu
+Yes    1SG.NOM  go-PST     sit-PURP    swag-LOC       shame-IRR
+‘Yes I went to sit on that swag, [I] ought to have felt shame.’ (Dench 1994: 151)
+```
+
+## Further reading
+
+Bybee, Joan, Revere Perkins & William Pagliuca. 1994. *The evolution of grammar*. Chicago: University of Chicago Press.
+
+Dahl, Östen. 1985. [*Tense and aspect systems*](https://www2.ling.su.se/staff/oesten/recycled/Tense&aspectsystems.pdf). Oxford: Blackwell.
+
+Palmer, Frank R. 2001. *Mood and modality*. Cambridge Univ. Press.
+
+Narrog, Heiko. 2012. *Modality, subjectivity, and semantic change: A cross-linguistic perspective*. Oxford: Oxford University Press.
+
+## References
+
+Dench, Alan. 1994. *Martuthunira: A language of the Pilbara region of Western Australia.* (Pacific Linguistics: Series C, 125.) Canberra: Research School of Pacific and Asian Studies, Australian National University.
+
+## Related Features
+
+* [GB082	Is there overt morphological marking of present tense on verbs?](https://github.com/grambank/Grambank/wiki/GB082)
+* [GB083	Is there overt morphological marking on the verb dedicated to past tense?](https://github.com/grambank/Grambank/wiki/GB083)
+* [GB084	Is there overt morphological marking on the verb dedicated to future tense?](https://github.com/grambank/Grambank/wiki/GB084)
+* [GB119	Can mood be marked by an inflecting word (‘auxiliary verb’)?](https://github.com/grambank/Grambank/wiki/GB119)
+* [GB120	Can aspect be marked by an inflecting word (‘auxiliary verb’)?](https://github.com/grambank/Grambank/wiki/GB120)
+* [GB121	Can tense be marked by an inflecting word (‘auxiliary verb’)?](https://github.com/grambank/Grambank/wiki/GB121)
+* [GB519	Can mood be marked by a non-inflecting word (‘auxiliary particle’)?](https://github.com/grambank/Grambank/wiki/GB519)
+* [GB520	Can aspect be marked by a non-inflecting word (‘auxiliary particle’)?](https://github.com/grambank/Grambank/wiki/GB520)
+* [GB521	Can tense be marked by a non-inflecting word (‘auxiliary particle’)?](https://github.com/grambank/Grambank/wiki/GB521)
+
+## Patron
+Hedvig Skirgård
+",,HS,GB312 MoodBoundV,1.0,,,,,mood
+155,GB314,Can augmentative meaning be expressed productively by a shift of gender/noun class?,"## Can augmentative meaning be expressed productively by a shift of noun class/gender?
+
+## Summary
+Can augmentative function be marked by a shift of [noun class?](https://github.com/grambank/grambank/wiki/Noun-classes-and-classifiers) This needs to be a [productive](https://github.com/grambank/grambank/wiki/Productivity) pattern. Augmentative marking generally intensifies the noun (in size as well as various other properties). Here the augmentative construction must minimally be used to encode augmented size.
+
+## Procedure
+
+1. Code 1 if there are morphemes in the sentence which vary depend depending on the noun used, and these morphemes are a closed class of under about 30 (our definition of a gender system),
+2. And one of these morphemes can be used to change the meaning of a noun by adding the meaning ‘big’.
+3. Code 0 if the author is explicit that the language does not have gender/noun classes.
+4. Code 0 if the augmentative can be expressed by a shift of gender/noun class but the pattern is not productive.
+5. Code 0 if there are no augmentative markers in the language.
+6. Code ? if it is not clear from the data whether augmentatives can be expressed with a shift in gender/noun class.
+ 
+## Examples
+
+**Lunda** (ISO 639-3: lun, Glottolog: lund1266)
+
+Coded 1. ""Classes 6, 7, and 11 noun prefixes *ma-*. *chi-* and *lu-* respectively may also be used derivationally with nouns from other classes to denote augmentative or derogation and command concords instead of the inherent noun class prefix... The prefix *lu-* replaces the original class prefix of noun to express enormity or large quantity."" (Kawasha 2003: 92–93)
+
+```
+ñombi     lu-ñombi
+‘cow’     CL.11-cow
+          ‘a big ox’ (Kawasha 2003: 93)
+``` 
+
+**Hixkaryana** (ISO 639-3: hix, Glottolog: hixk1239) 
+
+Coded 0. There is a phonologically bound augmentative marker on the noun marking larger size. This marker is unrelated to any noun class system (Derbyshire 1979: 83–84).
+```
+toto-ymo
+person-AUG
+‘the big man’ (Derbyshire 1979: 84)
+```
+
+## Further reading
+
+Dahl, Östen. 2006. Diminutives and augmentatives. In Keith Brown (ed.), *Encyclopedia of Language and Linguistics*, 594–595. Second edition. Oxford: Elsevier.
+
+## References
+
+Derbyshire, Desmond C. 1979. *Hixkaryana syntax. London: University of London. (Doctoral dissertation.)
+
+Kawasha, Boniface Kaumba. 2003. *Lunda grammar: A morphosyntactic and semantic analysis*. Eugene: University of Oregon. (Doctoral dissertation.)
+
+## Related Features
+
+* [GB039 Is there nonphonological allomorphy of noun number markers?](https://github.com/grambank/Grambank/wiki/GB039)
+* [GB051 Is there a noun class/gender system where masculine and feminine categories are a factor in class assignment?](https://github.com/grambank/Grambank/wiki/GB051)
+* [GB052 Is there a noun class/gender system where shape is a factor in class assignment?](https://github.com/grambank/Grambank/wiki/GB052)
+* [GB053 Is there a noun class/gender system where animacy is a factor in class assignment?](https://github.com/grambank/Grambank/wiki/GB053)
+* [GB054 Is there a noun class/gender system where plant status is a factor in class assignment?](https://github.com/grambank/Grambank/wiki/GB054)
+* [GB187 Is there any productive diminutive marking on the noun (exclude marking by system of nominal classification only)?](https://github.com/grambank/Grambank/wiki/GB187)
+* [GB188 Is there any productive augmentative marking on the noun (exclude marking by system of nominal classification only)?](https://github.com/grambank/Grambank/wiki/GB188)
+* [GB192 Is there a noun class/gender system where a noun’s phonological properties are a factor in class assignment?](https://github.com/grambank/Grambank/wiki/GB192)
+* [GB315 Can diminutive meaning be expressed productively by a shift of gender/noun class?](https://github.com/grambank/Grambank/wiki/GB315)
+* [GB321 Is there a large class of nouns whose noun class/gender is not phonologically or semantically predictable?](https://github.com/grambank/Grambank/wiki/GB321)
+
+
+## Patron
+Jay Latarche and Jeremy Collins
+",,JLA JC,GB314 AUGgender,,,,,,augmentative
+161,GB320,Is paucal number regularly marked in the noun phrase by a dedicated phonologically free element?,"## Is paucal number regularly marked in the noun phrase by a phonologically free element?
+
+## Summary
+This question concerns regular marking of paucal number in the noun phrase by a marker that is not bound to the noun but [free-standing](https://github.com/grambank/grambank/wiki/Wordhood-and-phonological-boundness-or-independence). This marker should occur with an [open set of nouns](https://github.com/grambank/grambank/wiki/Productivity), not with a restricted set. This feature contrasts with [GB166 Is there a productive morphological paucal marker on nouns?](https://github.com/grambank/Grambank/wiki/GB166)) which focuses on bound marking of paucal number. For more on wordhood and bound marking, please see [this page](https://github.com/grambank/Grambank/wiki/%27on-the-verb-noun%27-or-%27by-morphology%27). 
+
+Number marking is often fused with marking of other categories, such as definiteness/specificity or gender/noun class. It is possible for the number marker to also signal other functions and still be coded as 1, as long as these other functions do not interfere with the number distinctions and as long as number marking is productive and regular.
+
+It can be difficult to determine how [obligatory](https://github.com/grambank/grambank/wiki/Obligatoriness) markers of dual, trial and paucal number are since they can often be replaced by plural number marking. If the grammar writers describe the marker as denoting grammatical number and there are several examples, this suffices.
+
+## Procedure
+
+1. Consider the section in the grammar that deals with number or noun phrases.
+2. If the author describes an overt free-standing marker of paucal number that occurs regularly, code 1.
+3. If the grammar describes paucal number as not marked productively or as only expressed with a bound marker, code as 0.
+4. If the grammar does not describe number marking at all and you have a reason to believe that the author may have missed it, code ?.
+5. If the grammar does not describe number, you encounter no examples of number marking, and the grammar is otherwise comprehensive, code 0.
+
+## Examples
+**Iaai** (ISO 639-3: iai, Glottolog: iaai1238)
+
+In Iaai, number is marked on articles and there is a paucal distinction. Iaai is coded as 1 for GB320.
+
+Lynch (2000: 870)
+
+""Articles mark the following contrasts_ [..] specific number: singular (zero), dual (*li*), paucal/plural (*jee*)""
+
+| | SG | DU | PAU | PL | 
+|-------- | ---- | ----------- | ----------- | ----------- | 
+| definite |  | _li_ |_jee_|_ta_, _ta jee_| 
+| indefinite | _ke_ | _ke li_| _ke jee_ | _ke ta jee_ | 
+
+## Further reading
+
+Corbett, Greville G. 2000. *Number*. Cambridge: Cambridge University Press.
+
+## References
+
+Lynch, John. 2002. Iaai. In John Lynch, Malcolm Ross & Terry Crowley (eds), *The Oceanic Languages*, 776-791. Richmond: Curzon.
+
+## Related Features
+**Morphological number marking**
+
+* [GB042 Is there a productive overt morphological singular marker on nouns?](https://github.com/grambank/Grambank/wiki/GB042)
+* [GB043 Is there a productive morphological dual marker on nouns?](https://github.com/grambank/Grambank/wiki/GB043)
+* [GB044 Is there a productive morphological plural marker on nouns?](https://github.com/grambank/Grambank/wiki/GB044)
+* [GB165 Is there a productive morphological trial marker on nouns?](https://github.com/grambank/Grambank/wiki/GB165)
+* [GB166 Is there a productive morphological paucal marker on nouns?](https://github.com/grambank/Grambank/wiki/GB166)
+
+**Phonologically free number marking**
+
+* [GB316 Is singular number regularly marked in the noun phrase by a phonologically free element?](https://github.com/grambank/Grambank/wiki/GB316)
+* [GB317 Is dual number regularly marked in the noun phrase by a phonologically free element?](https://github.com/grambank/Grambank/wiki/GB317)
+* [GB318 Is plural number regularly marked in the noun phrase by a phonologically free element?](https://github.com/grambank/Grambank/wiki/GB318)
+* [GB319 Is trial number regularly marked in the noun phrase by a phonologically free element?](https://github.com/grambank/Grambank/wiki/GB319)
+
+**Number agreement within the noun phrase**
+
+* [GB184 Can an adnominal property word agree with the noun in number?](https://github.com/grambank/Grambank/wiki/GB184)
+* [GB185 Can an adnominal demonstrative agree with the noun in number?](https://github.com/grambank/Grambank/wiki/GB185)
+
+**Other**
+
+* [GB041 Are there several nouns (more than three) which are suppletive for number?](https://github.com/grambank/Grambank/wiki/GB041)
+* [GB039 Is there nonphonological allomorphy of noun number markers?](https://github.com/grambank/Grambank/wiki/GB039)
+* [GB046 Is there an associative plural marker for nouns?](https://github.com/grambank/Grambank/wiki/GB046)
+
+## Patron
+Hedvig Skirgård
+",,HS,GB320 PaucalFree,0.0,,,,,paucal
+170,GB329,Are there internally-headed relative clauses?,"## Are there internally-headed relative clauses that are not correlative relative clauses?
+
+## Summary
+
+Can a relativized noun be morphosyntactically part of the relative clause? This could mean different things in different languages. In some languages, the relativized noun may literally be inside the relative clause, in terms of placement, for example *[A green hat **[the woman]** has] is tall* to mean ‘The woman who has a green hat is tall’. In other languages, the noun may receive case marking for its function inside the relative clause rather than its function inside the main clause, for example *the man-SBJ greeted [**[the woman-SBJ]** who has a green hat]* as opposed to *the man-SBJ greeted [**[the woman-OBJ]** who has a green hat]*. Do not consider correlative relative clauses here (see [GB330](https://github.com/grambank/Grambank/wiki/GB330)). It must be possible for the head noun to be any noun, not only an unspecific (pro)noun (e.g. *whoever*).
+
+## Procedure
+
+1. Consider only non-correlative clauses: disregard relative clauses that have an anaphoric pronoun in the main clause.
+2. Code 1 if a source mentions that relative clauses are or can be internally headed.
+3. Code 1 if you find examples of relative clauses where the noun is located inside the relative clause.
+4. Code 1 if you find examples of head nouns case-marked for the function they have in the relative clause rather than the main clause.
+5. Code 1 if you find other arguments for considering a relative clause internally headed.
+6. Code 0 if a source mentions that relative clauses cannot be internally headed.
+7. Code 0 if a source comprehensively describes relative clauses but does not discuss internally headed relative clauses.
+8. Code ? if there are examples that contain potential internally headed relative clauses but the analysis is inconclusive.
+9. Code ? if the source does not treat relative clauses in much detail and may have missed internally headed relative clauses.
+
+## Examples
+
+**Seediq** (ISO 629-3: trv, Glottolog: taro1264) and **Tagalog** (ISO 629-3: tgl, Glottolog: taga1270)
+
+Seediq and Tagalog feature structurally similar internally headed relative clauses, where the head noun that is relativized is positioned within the relative clause, between an agent and a patient (Aldridge 2004: 100). Seesiq and Tagalog would be coded 1 in our dataset.
+
+Seediq example:
+
+```
+s-n-malu     sapah  na	 tama
+?-PFV-build  house  ERG  father
+‘the house Father built’ (Aldridge 2004: 100)
+```
+
+Tagalog example:
+
+```
+b-in-ili-ng    libro  ni   Maria
+?-PFV-buy-LK   book   ERG  Maria
+‘the book Maria bought’ (Aldridge 2004: 100)
+```
+
+**Hidatsa** (ISO 629-3: hid, Glottolog: hida1246)
+
+Hidatsa has a similar construction:
+
+```
+a. Mary  uuwáki  aku-híri-š          wa-rúci-c
+   Mary  quilt   REL.S-make-DET.DEF  1SG.A-buy-DECL
+   ‘I bought the quilt that Mary made.’ (Boyle 2016: 259)
+```
+
+Hidatsa also has **intransitive** internally headed relative clauses. These may be considered head-internal because relativized nouns do not carry their own determiner (-š): the determiner that usually comes on individual nouns may be carried by the relative clause, effectively encapsulating the head noun inside the relative clause (Boyle 2016: 256-257).
+
+Simple main clause with individual nouns marked with the determiner *-š*:
+
+```
+b. wía-š         wacée-š     íkaa-c
+   woman-DET.DEF man-DET.DEF see-DECL
+   ‘The woman saw the man.’ (Boyle 2016: 256)
+```
+Internally headed relative clause taking the determiner *-š*:
+
+``` 
+c. wacée  aku-waapáahi-š     wía    íkaa-c
+   man    REL.S-sing-DET.DEF woman  see-DECL
+   ‘The man that sang saw the woman.’ (Boyle 2016: 257)
+```
+
+Hidatsa is coded 1 in Grambank.
+
+**Korean** (ISO 629-3: kor, Glottolog: kore1280)
+
+In Korean, there is an internally headed relative clause construction where the relativized noun takes case marking according to its function within the relative clause (here: _-ka_, NOM), not according to its function within the main clause. The case marker indicating the function of the noun in the main clause comes at the end of the full relative clause (here: _-ul_, ACC):
+
+```
+Tom-un  sakwa-ka   cayngpan-wi-ey  iss-nun    kes-ul    mekessta.
+Tom-TOP apple-NOM  tray-TOP-LOC    exist-PLN  REL-ACC   ate
+‘Tom ate an apple, which was on the tray.’ (Chung & Kim 2002: 43)
+
+(Abbreviations: PLN plain speech level)
+```
+Korean is coded 1 in Grambank.
+
+## Further reading
+
+Much research on internally headed relative clauses focuses on specific theoretical frameworks (e.g. Aldridge 2004; Boyle 2016; Chung & Kim 2003). They contain valuable insights within those frameworks and extra examples which are helpful for the purpose of Grambank. Dryer (2013) includes internally headed relative clauses in a survey of word order, but discusses these less extensively. Lehmann (1986) is a classic overview of relative clauses. See also the special section on the Grambank wiki on [relative clauses](https://github.com/grambank/Grambank/wiki/Relative-Clauses).
+
+Aldridge, Edith. 2004. [Internally headed relative clauses in Austronesian languages](https://faculty.washington.edu/aldr/pdf/GLOW.pdf). *Language and Linguistics* 5(1). 99–129.
+
+Boyle, John. 2016. [The syntax and semantics of internally headed relative clauses in Hidatsa](https://langsci-press.org/catalog/view/94/174/443-1). In Catherine Rudin & Bryan J. Gordon (eds.), *Advances in the study of Siouan languages and linguistics*, 255–287. Berlin: Language Science Press.
+
+Chung, Chan & Kim, Jong-Bok. 2003. [Differences between externally and internally headed relative clause constructions](http://web.stanford.edu/group/cslipublications/cslipublications/HPSG/3/chungkim.pdf). *On-line Proceedings of HPSG 2002* 3–25.
+
+Dryer, Matthew S. 2013. [Order of relative clause and noun.](http://wals.info/chapter/90) In Matthew S. Dryer & Martin Haspelmath (eds), *The world atlas of language structures online*. Leipzig: Max Planck Institute for Evolutionary Anthropology.
+
+Lehmann, Christian. 1986. On the typology of relative clauses. *Linguistics* 24(4). 663–680.
+
+## References
+
+Aldridge, Edith. 2004. [Internally headed relative clauses in Austronesian languages](https://faculty.washington.edu/aldr/pdf/GLOW.pdf). *Language and Linguistics* 5(1). 99–129.
+
+Boyle, John. 2016. [The syntax and semantics of internally headed relative clauses in Hidatsa](https://langsci-press.org/catalog/view/94/174/443-1). In Catherine Rudin & Bryan J. Gordon (eds), *Advances in the study of Siouan languages and linguistics*, 255–287. Berlin: Language Science Press.
+
+Chung, Chan & Kim, Jong-Bok. 2003. [Differences between externally and internally headed relative clause Constructions](http://web.stanford.edu/group/cslipublications/cslipublications/HPSG/3/chungkim.pdf). *On-line Proceedings of HPSG 2002* 3–25.
+
+## Related Features
+
+* [GB327 Can the relative clause follow the noun?](https://github.com/grambank/Grambank/wiki/GB327)
+* [GB328 Can the relative clause precede the noun?](https://github.com/grambank/Grambank/wiki/GB328)
+* [GB330 Are there correlative relative clauses?](https://github.com/grambank/Grambank/wiki/GB330)
+* [GB331 Are there non-adjacent relative clauses?](https://github.com/grambank/Grambank/wiki/GB331)
+
+## Patron
+Jakob Lesage
+",,JLE,GB329 RELInternalHead,,,,,,
+181,GB408,Is there any accusative alignment of flagging?,"## Is there any accusative alignment of flagging?
+
+## Summary
+Are [P](https://github.com/grambank/grambank/wiki/Core-arguments-(S,-A-and-P)) arguments flagged differently from  [S](https://github.com/grambank/grambank/wiki/Core-arguments-(S,-A-and-P)) arguments (i.e. do they show accusative alignment)? Flagging covers any kind of argument marking on the argument itself (e.g. by case or adposition marking). The marking can be phonologically free or bound. The marking of [A](https://github.com/grambank/grambank/wiki/Core-arguments-(S,-A-and-P)) arguments is not relevant for establishing whether there is any accusative flagging or not, it is the difference between S and P flagging that results in 1. 
+In case of split flagging systems (specifically, differential object marking), code as 1 if any of the subsystems (e.g. only nouns or only pronouns, or a particular group of nouns) shows accusative alignment. Note that although alignment types are occasionally associated with entire languages (e.g. when one says that ""Dyirbal is an ergative language""), they in fact apply only to individual constructions. This question asks only about the alignment of flagging, the alignment of [indexing](https://github.com/grambank/grambank/wiki/Indexing-vs.-pronouns) or of any other construction is irrelevant for this question.
+
+## Procedure
+1. Consider the section in the grammar that deals with nominal morphology, argument marking and/or basic clause structure. If no such section exists, consider examples of transitive and intransitive clauses, identify overt arguments in different roles (S, A, and P) and study their marking. The special P flag is often called accusative, but it can be labeled differently (e.g. dative or oblique).
+2. Check whether any of the S, A or P arguments are flagged in any context. Consider only the major predicate class, ignore any verbs with non-canonical/special flagging (e.g. the so-called ‘dative-subject’ or experiencer verbs). Consider only independent clauses.
+3. Code 0 if there is never overt flagging of any of the three arguments S, A, and P.
+4. Code 0 if S and P are always flagged identically, this includes cases with no overt flagging (i.e. zero marking).
+5. If there is a special flag for P, check whether it is used in all contexts. In particular, be aware of differences in flagging conditioned by a pronoun vs. noun distinction, person, animacy, definiteness, etc. (this situation is generally known as differential object marking or DOM). Code 1 even if only some pronouns or only some nouns (e.g. the inanimate ones) are flagged differently when they are P arguments. If, however, a small random class of nouns does not take a particular flagging for phonological or morphological reasons, ignore this class.
+6. If there are differences in flagging conditioned by TAM distinctions, consider the distribution in individual TAM contexts. Code 1 if P is flagged differently from A in some TAM categories.
+7. The so-called tripartite flagging pattern (S flagged differently from A and differently from P) receives 1 for both GB408 and [GB409](https://github.com/grambank/Grambank/wiki/GB409).
+
+## Examples
+
+**Imonda** (ISO 639-3: imn, Glottolog: imon1245)
+
+Imonda flags only animate P arguments with a special suffix glossed as -GL, as in (c). 
+Inanimate Ps are unmarked, as in (d). This is sufficient to code Imonda as having accusative alignment of flagging, though this alignment type is restricted to animate arguments. Imonda is coded as 1 for both GB408 and [GB410](https://github.com/grambank/grambank/wiki/GB410).
+
+```
+a. aia-l      agõ-l-i       e-uagl-ual-n
+   father-NOM woman-NOM-CO  DU-go-DU-PST
+   ‘His father and his wife went away.’ (Seiler 1985: 180)
+
+b. ti   ed    he-li-f
+   tree PROX  CL-lie-PRS
+   ‘The tree lies over there.’ (Seiler 1985: 159)
+   
+c. aia-l       edel-m    ue-ne-uõl  fe-f
+   father-NOM  human-GL  CL-eat-PL  do-PRS
+   ‘Her father habitually eats humans.’ (Seiler 1985: 165)
+      
+d. ti    he-ual-n
+   three cut-DU-PST
+   ‘He chopped down two trees.’ (Seiler 1985: 81)
+(Abbreviations: CO coordinator, GL goal)
+```
+
+**Makasae-Makalero** (ISO 639-3: mkz, Glottolog: maka1316)
+
+In Makasae-Makalero the core arguments are not flagged. This is true for both pronominal (a-c) and nominal (d) arguments. Makasae-Makalero is coded as 0.
+```
+a. Ani hai mu’a-li’an. 
+   1SG NSIT ground-fall
+   ‘I already fell down.’ (Huber 2011: 146)
+
+b. Ani ei  pase.
+   1SG 2SG beat
+   ‘I beat you.’ (Huber 2011: 218)
+
+c. Ei  ani pase.
+   2SG 1SG beat
+   ‘You beat me.’ (Huber 2011: 218)
+
+d. Ina-uai	ni-mata	     uaro
+   mother-HON	REFL-child   wash
+   ‘The mother is washing her child’ (Huber 2011: 391)
+(Abbreviations: NSIT new situation)
+```
+
+## Further reading
+
+Comrie, Bernard. 2013. [Alignment of Case Marking of Full Noun Phrases](http://wals.info/chapter/98). In Matthew S. Dryer & Martin Haspelmath (eds), *The world atlas of language structures online*. Leipzig: Max Planck Institute for Evolutionary Anthropology.
+
+Haspelmath, Martin. 2005. [Argument marking in ditransitive alignment types](http://journals.dartmouth.edu/cgi-bin/WebObjects/Journals.woa/xmlpage/1/article/280). *Linguistic Discovery* 3(1).
+
+Haspelmath, Martin. 2019. Indexing and flagging, and head and dependent marking. *Te Reo (The Journal of the Linguistic Society of New Zealand)* 62(1). 93–115.
+
+## References
+Huber, Juliette. 2011. *A grammar of Makalero: A Papuan language of East Timor*. Amsterdam: Vrije Universiteit Amsterdam. (Doctoral dissertation.)
+
+Seiler, Walter. 1985. *Imonda, a Papuan Language*. (Pacific Linguistics: Series B, 93.) Canberra: Research School of Pacific and Asian Studies, Australian National University.
+
+## Related Features
+**Other alignment of flagging questions**
+* [GB409 Is there any ergative alignment of flagging?](https://github.com/grambank/Grambank/wiki/GB409)
+* [GB410 Is there any neutral alignment of flagging?](https://github.com/grambank/Grambank/wiki/GB410)
+
+**General questions about case marking**
+* [GB070 Are there morphological cases for non-pronominal core arguments (i.e. S, A or P)?](https://github.com/grambank/Grambank/wiki/GB070)
+* [GB071 Are there morphological cases for phonologically independent personal pronominal core arguments (i.e. S, A or P)?](https://github.com/grambank/Grambank/wiki/GB071)
+* [GB095 Are variations in marking strategies of core participants based on TAM distinctions?](https://github.com/grambank/Grambank/wiki/GB095)
+
+## Patron
+Alena Witzlack-Makarevich
+",,AWM,GB408 Accusative,,,,0.0,,
+193,GB521,"Can tense be marked by a non-inflecting word (""auxiliary particle"")?","## Can tense be marked by a non-inflecting word (‘auxiliary particle’)?
+
+## Summary
+This feature covers all tenses (present, past and future) and aims to capture [phonologically free](https://github.com/grambank/grambank/wiki/Wordhood-and-phonological-boundness-or-independence) elements that do no inflect (i.e. do not change form depending on person, number and other categories of the core arguments). These markers are often described as ‘[particles](https://github.com/grambank/grambank/wiki/Particles)’ in the literature, but are also analyzed under other labels. We are interested in grammatical marking, i.e. [dedicated](https://github.com/grambank/grambank/wiki/Dedicated-marking), [productive](https://github.com/grambank/grambank/wiki/Productivity) and [obligatory](https://github.com/grambank/grambank/wiki/Obligatoriness) marking. This means that words such as ‘tomorrow’ and ‘yesterday’ do not qualify as productively marking future and hesternal past.
+
+There are instances where TAM can be expressed by a combination of an affix and auxiliary or particle. For example, some grammarians state that tense is expressed by a certain form on the verbal root and an auxiliary. If this is a [productive](https://github.com/grambank/grambank/wiki/Productivity) and [obligatory](https://github.com/grambank/grambank/wiki/Obligatoriness) way of expressing mood then such a construction triggers 1 for both this feature (GB521) and the features on bound mood marking ([GB082](https://github.com/grambank/Grambank/wiki/GB082)/[GB083](https://github.com/grambank/Grambank/wiki/GB083)/[GB084](https://github.com/grambank/Grambank/wiki/GB084)). If not all parts of the discontinuous marking are necessary for expressing a tense, then only consider the marking that is obligatory.
+
+## Procedure
+1. Look up the sections on tense marking in the grammatical description.
+2. Consider all marking of tense, e.g. not only past.
+3. If you do not find any non-inflecting phonologically free tense markers, code as 0.
+4. If there is a non-inflecting phonologically free marker that clearly marks tense, code the language as 1.
+5. If it is not clear whether the marker marks tense, code the language as ?.
+
+## Examples
+
+**Samoan** (ISO 639-3: smo, Glottolog: samo1305)
+
+Samoan has particles for tense and aspect. They distinguish present, past and future tense, as well as different aspects. Samoan is coded as 1 for this feature. The examples below are taken from Mosel & So'o (1997: 21).
+
+```
+Sā   siva   le   teine
+PST  dance  DEF  girl
+‘The girl danced.’ (Mosel & So'o 1997: 21)
+
+'Ole'ā siva  le  teine
+INCH   dance DEF girl
+‘The girl is going to dance.’ (Mosel & So'o 1997: 21)
+
+'Olo'o  siva   le   teine
+PROG    dance  DEF  girl
+‘The girl is dancing.’ (Mosel & So'o 1997: 21)
+
+'Ua   alu  le   teine
+PRF   go   DEF  girl
+‘The girl has gone.’ (Mosel & So'o 1997: 21)
+```
+
+## Further reading
+
+Bybee, Joan, Revere Perkins & Pagliuca, William. 1994. *The evolution of grammar*. Chicago: University of Chicago Press.
+
+Comrie, Bernard. 1976. *[Aspect](https://user.phil-fak.uni-duesseldorf.de/~filip/Comrie.Aspect.pdf)*. Cambridge: Cambridge University Press.
+
+Comrie, Bernard. 1985. *Tense*. Cambridge University Press.
+
+Dahl, Östen. 1985. *[Tense and aspect systems](https://www2.ling.su.se/staff/oesten/recycled/Tense&aspectsystems.pdf)*. Oxford: Blackwell.
+
+## References
+
+Mosel, Ulrike & So'o, Ainslie. 1997. *Say it in Samoan.* (Pacific Linguistics: Series D, 88.) Canberra: Research School of Pacific and Asian Studies, Australian National University.
+
+## Related Features
+
+* [GB082	Is there overt morphological marking of present tense on verbs?](https://github.com/grambank/Grambank/wiki/GB082)
+* [GB083	Is there overt morphological marking on the verb dedicated to past tense?](https://github.com/grambank/Grambank/wiki/GB083)
+* [GB084	Is there overt morphological marking on the verb dedicated to future tense?](https://github.com/grambank/Grambank/wiki/GB084)
+* [GB086	Is a morphological distinction between perfective and imperfective aspect available on verbs?](https://github.com/grambank/Grambank/wiki/GB086)
+* [GB110	Is there verb suppletion for tense or aspect?](https://github.com/grambank/Grambank/wiki/GB110)
+* [GB120	Can aspect be marked by an inflecting word (‘auxiliary verb’)?](https://github.com/grambank/Grambank/wiki/GB120)
+* [GB121	Can tense be marked by an inflecting word (‘auxiliary verb’)?](https://github.com/grambank/Grambank/wiki/GB121)
+* [GB309	Are there multiple past or multiple future tenses, distinguishing distance from Time of Reference?](https://github.com/grambank/Grambank/wiki/GB309)
+* [GB520	Can aspect be marked by a non-inflecting word (‘auxiliary particle’)?](https://github.com/grambank/Grambank/wiki/GB520)
+
+## Patron
+Hedvig Skirgård
+",,HS,GB521 TenseAuxPart,0.0,,,,,tense

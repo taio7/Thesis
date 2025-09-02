@@ -32,13 +32,23 @@ def no_fill(cols, df):
 
 def imputer(cols, df): #modeling each feature with missing values as a function of other features 
     x= df[cols].astype("float")
-    imputer= IterativeImputer(estimator=RandomForestRegressor(), random_state=42)
+    imputer= IterativeImputer(estimator=RandomForestRegressor(n_estimators=20,
+                                                              max_depth=5,
+                                                              max_samples=0.3,
+                                                              random_state=42),
+                                                               max_iter=5,
+                                                                tol=0.01,
+                                                                 verbose=2,
+                                                                  n_nearest_features=50,
+                                                                   skip_complete=True,
+                                                                     random_state=42)
     x_imputed= imputer.fit_transform(x)
     df[cols] = pd.DataFrame(x_imputed, columns=cols).round().astype(bool)
     return df
 
 def fill_strat(strategy, df_train, gb_columns):
-    #fills the selected gb columns with specified strategy RETURN entire df 
+    #fills the selected gb columns with specified strategy RETURN entire df
+    gb_columns = [col for col in df_train.columns if col.startswith("GB")] 
     if strategy== "mode":
         df_train= mode_gap_fill(gb_columns, df_train, df_train)
     elif strategy== "all False":

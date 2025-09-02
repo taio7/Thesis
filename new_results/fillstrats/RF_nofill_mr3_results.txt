@@ -1,0 +1,2493 @@
+Subset accuracy:0.297
+Macro-average precision::0.489
+Macro-average recall:0.222
+Weighted F1 score:0.409
+Macro-average F1 score:0.284
+Micro-average F1 score:0.297
+feature: GB302_PassiveFree
+              precision    recall  f1-score   support
+
+           0       0.75      0.18      0.29        17
+           1       0.00      0.00      0.00         3
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.15        20
+   macro avg       0.25      0.06      0.10        20
+weighted avg       0.64      0.15      0.24        20
+
+----------------------------------------
+feature: GB422_ComplThinkKnowPost
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      13.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      13.0
+   macro avg       0.00      0.00      0.00      13.0
+weighted avg       0.00      0.00      0.00      13.0
+
+----------------------------------------
+feature: GB285_QPartVMorph
+              precision    recall  f1-score   support
+
+           0       1.00      0.50      0.67        20
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.50        20
+   macro avg       0.50      0.25      0.33        20
+weighted avg       1.00      0.50      0.67        20
+
+----------------------------------------
+feature: GB030_PRO3PGender
+              precision    recall  f1-score   support
+
+           0       0.86      0.27      0.41        22
+           1       0.24      0.83      0.37         6
+
+    accuracy                           0.39        28
+   macro avg       0.55      0.55      0.39        28
+weighted avg       0.72      0.39      0.40        28
+
+----------------------------------------
+feature: GB129_FewVerbs
+              precision    recall  f1-score   support
+
+           0       1.00      0.38      0.55        24
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.38        24
+   macro avg       0.50      0.19      0.27        24
+weighted avg       1.00      0.38      0.55        24
+
+----------------------------------------
+feature: GB306_PROReciproc
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      13.0
+           1       0.00      0.00      0.00       6.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      19.0
+   macro avg       0.00      0.00      0.00      19.0
+weighted avg       0.00      0.00      0.00      19.0
+
+----------------------------------------
+feature: GB320_PaucalFree
+              precision    recall  f1-score   support
+
+           0       1.00      0.57      0.72        23
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.57        23
+   macro avg       0.50      0.28      0.36        23
+weighted avg       1.00      0.57      0.72        23
+
+----------------------------------------
+feature: GB327_RELPost
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         2
+           1       0.92      0.67      0.77        18
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.60        20
+   macro avg       0.31      0.22      0.26        20
+weighted avg       0.83      0.60      0.70        20
+
+----------------------------------------
+feature: GB025_DEMOrder_3
+              precision    recall  f1-score   support
+
+           0       1.00      0.69      0.82        26
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.69        26
+   macro avg       0.50      0.35      0.41        26
+weighted avg       1.00      0.69      0.82        26
+
+----------------------------------------
+feature: GB053_GenderAnimacy
+              precision    recall  f1-score   support
+
+           0       1.00      0.05      0.10        19
+           1       0.32      0.86      0.46         7
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.27        26
+   macro avg       0.44      0.30      0.19        26
+weighted avg       0.82      0.27      0.20        26
+
+----------------------------------------
+feature: GB086_AspectBoundV
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        12
+           1       0.53      0.75      0.62        12
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.38        24
+   macro avg       0.18      0.25      0.21        24
+weighted avg       0.26      0.38      0.31        24
+
+----------------------------------------
+feature: GB058_POSSClassifier
+              precision    recall  f1-score   support
+
+           0       1.00      0.50      0.67        24
+           1       0.00      0.00      0.00         2
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.46        26
+   macro avg       0.33      0.17      0.22        26
+weighted avg       0.92      0.46      0.62        26
+
+----------------------------------------
+feature: GB321_GenderUnpredict
+              precision    recall  f1-score   support
+
+           0       0.83      0.48      0.61        21
+           1       0.00      0.00      0.00         2
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.43        23
+   macro avg       0.28      0.16      0.20        23
+weighted avg       0.76      0.43      0.55        23
+
+----------------------------------------
+feature: GB297_QVNotV
+              precision    recall  f1-score   support
+
+           0       1.00      0.07      0.12        15
+           1       0.00      0.00      0.00         4
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.05        19
+   macro avg       0.33      0.02      0.04        19
+weighted avg       0.79      0.05      0.10        19
+
+----------------------------------------
+feature: GB521_TenseAuxPart
+              precision    recall  f1-score   support
+
+           0       1.00      0.19      0.32        16
+           1       0.25      0.20      0.22         5
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.19        21
+   macro avg       0.42      0.13      0.18        21
+weighted avg       0.82      0.19      0.29        21
+
+----------------------------------------
+feature: GB039_NounNUMAllomorph
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        22
+           1       0.18      0.67      0.29         3
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.08        25
+   macro avg       0.06      0.22      0.10        25
+weighted avg       0.02      0.08      0.03        25
+
+----------------------------------------
+feature: GB121_AUXTense
+              precision    recall  f1-score   support
+
+           0       1.00      0.45      0.62        20
+           1       0.00      0.00      0.00         4
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.38        24
+   macro avg       0.33      0.15      0.21        24
+weighted avg       0.83      0.38      0.52        24
+
+----------------------------------------
+feature: GB135_SUBClauseInOPosition
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       3.0
+           1       0.00      0.00      0.00      14.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      17.0
+   macro avg       0.00      0.00      0.00      17.0
+weighted avg       0.00      0.00      0.00      17.0
+
+----------------------------------------
+feature: GB314_AUGgender
+              precision    recall  f1-score   support
+
+           0       1.00      0.14      0.24        22
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.14        22
+   macro avg       0.50      0.07      0.12        22
+weighted avg       1.00      0.14      0.24        22
+
+----------------------------------------
+feature: GB116_VClassifiers
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      20.0
+           1       0.00      0.00      0.00       1.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      21.0
+   macro avg       0.00      0.00      0.00      21.0
+weighted avg       0.00      0.00      0.00      21.0
+
+----------------------------------------
+feature: GB065_POSSPosdPosrOrder_1
+              precision    recall  f1-score   support
+
+           0       0.80      0.33      0.47        12
+           1       0.87      0.81      0.84        16
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.61        28
+   macro avg       0.56      0.38      0.44        28
+weighted avg       0.84      0.61      0.68        28
+
+----------------------------------------
+feature: GB313_PROPoss
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        16
+           1       0.38      0.43      0.40         7
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.13        23
+   macro avg       0.12      0.14      0.13        23
+weighted avg       0.11      0.13      0.12        23
+
+----------------------------------------
+feature: GB028_Clusivity
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        13
+           1       0.52      1.00      0.68        14
+
+    accuracy                           0.52        27
+   macro avg       0.26      0.50      0.34        27
+weighted avg       0.27      0.52      0.35        27
+
+----------------------------------------
+feature: GB038_DEMClassifier
+              precision    recall  f1-score   support
+
+           0       1.00      0.64      0.78        22
+           1       0.00      0.00      0.00         1
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.61        23
+   macro avg       0.33      0.21      0.26        23
+weighted avg       0.96      0.61      0.74        23
+
+----------------------------------------
+feature: GB117_CopulaPredNom
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         7
+           1       0.88      0.47      0.61        15
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.32        22
+   macro avg       0.29      0.16      0.20        22
+weighted avg       0.60      0.32      0.42        22
+
+----------------------------------------
+feature: GB131_TransVInitOrder
+              precision    recall  f1-score   support
+
+           0       1.00      0.55      0.71        20
+           1       0.45      0.71      0.56         7
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.59        27
+   macro avg       0.48      0.42      0.42        27
+weighted avg       0.86      0.59      0.67        27
+
+----------------------------------------
+feature: GB134_MainSubSameOrder
+              precision    recall  f1-score   support
+
+           1       0.00      0.00      0.00      19.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      19.0
+   macro avg       0.00      0.00      0.00      19.0
+weighted avg       0.00      0.00      0.00      19.0
+
+----------------------------------------
+feature: GB046_AssocPlural
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      14.0
+           1       0.00      0.00      0.00       3.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      17.0
+   macro avg       0.00      0.00      0.00      17.0
+weighted avg       0.00      0.00      0.00      17.0
+
+----------------------------------------
+feature: GB020_ARTDef
+              precision    recall  f1-score   support
+
+           0       1.00      0.22      0.36        18
+           1       0.38      0.67      0.48         9
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.37        27
+   macro avg       0.46      0.30      0.28        27
+weighted avg       0.79      0.37      0.40        27
+
+----------------------------------------
+feature: GB263_QPartFinal
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        11
+           1       0.40      0.40      0.40        10
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.19        21
+   macro avg       0.13      0.13      0.13        21
+weighted avg       0.19      0.19      0.19        21
+
+----------------------------------------
+feature: GB262_QPartInitial
+              precision    recall  f1-score   support
+
+           0       1.00      0.39      0.56        18
+           1       0.00      0.00      0.00         2
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.35        20
+   macro avg       0.33      0.13      0.19        20
+weighted avg       0.90      0.35      0.50        20
+
+----------------------------------------
+feature: GB082_PresentBoundV
+              precision    recall  f1-score   support
+
+           0       1.00      0.53      0.70        15
+           1       0.77      0.91      0.83        11
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.69        26
+   macro avg       0.59      0.48      0.51        26
+weighted avg       0.90      0.69      0.75        26
+
+----------------------------------------
+feature: GB118_SerialV
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       8.0
+           1       0.00      0.00      0.00      10.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      18.0
+   macro avg       0.00      0.00      0.00      18.0
+weighted avg       0.00      0.00      0.00      18.0
+
+----------------------------------------
+feature: GB022_ARTPre
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        17
+           1       0.43      0.75      0.55         8
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.24        25
+   macro avg       0.14      0.25      0.18        25
+weighted avg       0.14      0.24      0.17        25
+
+----------------------------------------
+feature: GB172_ARTGender
+              precision    recall  f1-score   support
+
+           0       0.95      0.79      0.86        24
+           1       0.00      0.00      0.00         2
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.73        26
+   macro avg       0.32      0.26      0.29        26
+weighted avg       0.88      0.73      0.80        26
+
+----------------------------------------
+feature: GB072_ObliqueCaseNoun
+              precision    recall  f1-score   support
+
+           0       1.00      0.23      0.38        13
+           1       0.56      0.69      0.62        13
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.46        26
+   macro avg       0.52      0.31      0.33        26
+weighted avg       0.78      0.46      0.50        26
+
+----------------------------------------
+feature: GB024_NUMOrder_3
+              precision    recall  f1-score   support
+
+           0       1.00      0.55      0.71        22
+           1       0.00      0.00      0.00         2
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.50        24
+   macro avg       0.33      0.18      0.24        24
+weighted avg       0.92      0.50      0.65        24
+
+----------------------------------------
+feature: GB150_ClauseChain
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      15.0
+           1       0.00      0.00      0.00       3.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      18.0
+   macro avg       0.00      0.00      0.00      18.0
+weighted avg       0.00      0.00      0.00      18.0
+
+----------------------------------------
+feature: GB193_OrderADJ_3
+              precision    recall  f1-score   support
+
+           0       0.86      0.57      0.69        21
+           1       1.00      0.20      0.33         5
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.50        26
+   macro avg       0.62      0.26      0.34        26
+weighted avg       0.88      0.50      0.62        26
+
+----------------------------------------
+feature: GB296_Ideophones
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       9.0
+           1       0.00      0.00      0.00       2.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      11.0
+   macro avg       0.00      0.00      0.00      11.0
+weighted avg       0.00      0.00      0.00      11.0
+
+----------------------------------------
+feature: GB073_ObliqueCasePRO
+              precision    recall  f1-score   support
+
+           0       1.00      0.08      0.15        12
+           1       0.46      0.50      0.48        12
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.29        24
+   macro avg       0.49      0.19      0.21        24
+weighted avg       0.73      0.29      0.32        24
+
+----------------------------------------
+feature: GB091_A-ArgSfxV
+              precision    recall  f1-score   support
+
+           0       1.00      0.31      0.48        16
+           1       0.50      0.91      0.65        11
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.56        27
+   macro avg       0.50      0.41      0.37        27
+weighted avg       0.80      0.56      0.55        27
+
+----------------------------------------
+feature: GB098_CaseSplitPerson
+              precision    recall  f1-score   support
+
+           0       1.00      0.24      0.38        21
+           1       0.00      0.00      0.00         2
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.22        23
+   macro avg       0.33      0.08      0.13        23
+weighted avg       0.91      0.22      0.35        23
+
+----------------------------------------
+feature: GB126_ExistentialV
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         9
+           1       1.00      0.15      0.27        13
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.09        22
+   macro avg       0.33      0.05      0.09        22
+weighted avg       0.59      0.09      0.16        22
+
+----------------------------------------
+feature: GB171_DEMGender
+              precision    recall  f1-score   support
+
+           0       1.00      0.47      0.64        19
+           1       0.33      0.80      0.47         5
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.54        24
+   macro avg       0.44      0.42      0.37        24
+weighted avg       0.86      0.54      0.61        24
+
+----------------------------------------
+feature: GB165_TrialBound
+              precision    recall  f1-score   support
+
+           0       1.00      0.80      0.89        25
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.80        25
+   macro avg       0.50      0.40      0.44        25
+weighted avg       1.00      0.80      0.89        25
+
+----------------------------------------
+feature: GB193_OrderADJ_0
+              precision    recall  f1-score   support
+
+           0       1.00      0.62      0.76        26
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.62        26
+   macro avg       0.50      0.31      0.38        26
+weighted avg       1.00      0.62      0.76        26
+
+----------------------------------------
+feature: GB120_AspectAUX
+              precision    recall  f1-score   support
+
+           0       1.00      0.07      0.12        15
+           1       0.67      0.25      0.36         8
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.13        23
+   macro avg       0.56      0.11      0.16        23
+weighted avg       0.88      0.13      0.21        23
+
+----------------------------------------
+feature: GB197_PRO1PMascFem
+              precision    recall  f1-score   support
+
+           0       0.96      1.00      0.98        24
+           1       0.00      0.00      0.00         1
+
+    accuracy                           0.96        25
+   macro avg       0.48      0.50      0.49        25
+weighted avg       0.92      0.96      0.94        25
+
+----------------------------------------
+feature: GB270_COMPARConjoin
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      12.0
+           1       0.00      0.00      0.00       1.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      13.0
+   macro avg       0.00      0.00      0.00      13.0
+weighted avg       0.00      0.00      0.00      13.0
+
+----------------------------------------
+feature: GB421_ComplThinkKnowPre
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       4.0
+           1       0.00      0.00      0.00       9.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      13.0
+   macro avg       0.00      0.00      0.00      13.0
+weighted avg       0.00      0.00      0.00      13.0
+
+----------------------------------------
+feature: GB114_ReflBoundV
+              precision    recall  f1-score   support
+
+           0       1.00      0.07      0.13        14
+           1       0.29      0.22      0.25         9
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.13        23
+   macro avg       0.43      0.10      0.13        23
+weighted avg       0.72      0.13      0.18        23
+
+----------------------------------------
+feature: GB065_POSSPosdPosrOrder_2
+              precision    recall  f1-score   support
+
+           0       1.00      0.47      0.64        17
+           1       0.56      0.82      0.67        11
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.61        28
+   macro avg       0.52      0.43      0.44        28
+weighted avg       0.83      0.61      0.65        28
+
+----------------------------------------
+feature: GB286_QVMorph
+              precision    recall  f1-score   support
+
+           0       1.00      0.33      0.50        18
+           1       0.50      0.25      0.33         4
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.32        22
+   macro avg       0.50      0.19      0.28        22
+weighted avg       0.91      0.32      0.47        22
+
+----------------------------------------
+feature: GB094_P-ArgPfxV
+              precision    recall  f1-score   support
+
+           0       0.86      0.25      0.39        24
+           1       0.18      0.50      0.27         4
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.29        28
+   macro avg       0.35      0.25      0.22        28
+weighted avg       0.76      0.29      0.37        28
+
+----------------------------------------
+feature: GB079_VPrefixing
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        10
+           1       0.55      0.73      0.63        15
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.44        25
+   macro avg       0.18      0.24      0.21        25
+weighted avg       0.33      0.44      0.38        25
+
+----------------------------------------
+feature: GB300_VSupplGive
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      15.0
+           1       0.00      0.00      0.00       1.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      16.0
+   macro avg       0.00      0.00      0.00      16.0
+weighted avg       0.00      0.00      0.00      16.0
+
+----------------------------------------
+feature: GB203_QUANTOrder_2
+              precision    recall  f1-score   support
+
+           0       1.00      0.20      0.33        10
+           1       0.60      0.43      0.50         7
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.29        17
+   macro avg       0.53      0.21      0.28        17
+weighted avg       0.84      0.29      0.40        17
+
+----------------------------------------
+feature: GB333_NUMDecimal
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         2
+           1       0.88      0.37      0.52        19
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.33        21
+   macro avg       0.29      0.12      0.17        21
+weighted avg       0.79      0.33      0.47        21
+
+----------------------------------------
+feature: GB160_RedupOther
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       4.0
+           1       0.00      0.00      0.00      14.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      18.0
+   macro avg       0.00      0.00      0.00      18.0
+weighted avg       0.00      0.00      0.00      18.0
+
+----------------------------------------
+feature: GB107_NEGBoundV
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        15
+           1       0.42      0.92      0.58        12
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.41        27
+   macro avg       0.14      0.31      0.19        27
+weighted avg       0.19      0.41      0.26        27
+
+----------------------------------------
+feature: GB265_COMPARExceed
+              precision    recall  f1-score   support
+
+           0       1.00      0.08      0.15        12
+           1       0.00      0.00      0.00         2
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.07        14
+   macro avg       0.33      0.03      0.05        14
+weighted avg       0.86      0.07      0.13        14
+
+----------------------------------------
+feature: GB193_OrderADJ_2
+              precision    recall  f1-score   support
+
+           0       1.00      0.08      0.14        13
+           1       0.47      0.62      0.53        13
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.35        26
+   macro avg       0.49      0.23      0.23        26
+weighted avg       0.74      0.35      0.34        26
+
+----------------------------------------
+feature: GB093_P-ArgSfxV
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        21
+           1       0.32      1.00      0.48         7
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.25        28
+   macro avg       0.11      0.33      0.16        28
+weighted avg       0.08      0.25      0.12        28
+
+----------------------------------------
+feature: GB329_RELInternalHead
+              precision    recall  f1-score   support
+
+           0       1.00      0.12      0.21        17
+           1       0.00      0.00      0.00         1
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.11        18
+   macro avg       0.33      0.04      0.07        18
+weighted avg       0.94      0.11      0.20        18
+
+----------------------------------------
+feature: GB319_TrialFree
+              precision    recall  f1-score   support
+
+           0       1.00      0.83      0.90        23
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.83        23
+   macro avg       0.50      0.41      0.45        23
+weighted avg       1.00      0.83      0.90        23
+
+----------------------------------------
+feature: GB124_NounIncorpIntrans
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      12.0
+           1       0.00      0.00      0.00       9.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      21.0
+   macro avg       0.00      0.00      0.00      21.0
+weighted avg       0.00      0.00      0.00      21.0
+
+----------------------------------------
+feature: GB275_COMPDegreeBound
+              precision    recall  f1-score   support
+
+           0       1.00      0.18      0.31        11
+           1       1.00      0.25      0.40         4
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.20        15
+   macro avg       0.67      0.14      0.24        15
+weighted avg       1.00      0.20      0.33        15
+
+----------------------------------------
+feature: GB334_NUMQuinary
+              precision    recall  f1-score   support
+
+           0       1.00      0.07      0.12        15
+           1       0.25      0.17      0.20         6
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.10        21
+   macro avg       0.42      0.08      0.11        21
+weighted avg       0.79      0.10      0.15        21
+
+----------------------------------------
+feature: GB059_POSSAlienability
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        13
+           1       0.75      0.27      0.40        11
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.12        24
+   macro avg       0.25      0.09      0.13        24
+weighted avg       0.34      0.12      0.18        24
+
+----------------------------------------
+feature: GB156_CAUSSay
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      20.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      20.0
+   macro avg       0.00      0.00      0.00      20.0
+weighted avg       0.00      0.00      0.00      20.0
+
+----------------------------------------
+feature: GB276_COMPDegreeFree
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       8.0
+           1       0.00      0.00      0.00       5.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      13.0
+   macro avg       0.00      0.00      0.00      13.0
+weighted avg       0.00      0.00      0.00      13.0
+
+----------------------------------------
+feature: GB122_VCompounding
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       9.0
+           1       0.00      0.00      0.00      11.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      20.0
+   macro avg       0.00      0.00      0.00      20.0
+weighted avg       0.00      0.00      0.00      20.0
+
+----------------------------------------
+feature: GB084_FutureBoundV
+              precision    recall  f1-score   support
+
+           0       1.00      0.16      0.27        19
+           1       0.29      0.75      0.41         8
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.33        27
+   macro avg       0.43      0.30      0.23        27
+weighted avg       0.79      0.33      0.31        27
+
+----------------------------------------
+feature: GB316_SingularFree
+              precision    recall  f1-score   support
+
+           0       0.87      0.65      0.74        20
+           1       0.00      0.00      0.00         3
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.57        23
+   macro avg       0.29      0.22      0.25        23
+weighted avg       0.75      0.57      0.65        23
+
+----------------------------------------
+feature: GB400_PersonNeutralized
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      17.0
+           1       0.00      0.00      0.00       1.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      18.0
+   macro avg       0.00      0.00      0.00      18.0
+weighted avg       0.00      0.00      0.00      18.0
+
+----------------------------------------
+feature: GB083_PastBoundV
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         9
+           1       0.68      0.83      0.75        18
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.56        27
+   macro avg       0.23      0.28      0.25        27
+weighted avg       0.45      0.56      0.50        27
+
+----------------------------------------
+feature: GB198_NUMGender
+              precision    recall  f1-score   support
+
+           0       1.00      0.45      0.62        20
+           1       0.00      0.00      0.00         3
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.39        23
+   macro avg       0.33      0.15      0.21        23
+weighted avg       0.87      0.39      0.54        23
+
+----------------------------------------
+feature: GB130_OrderSVIntrans_3
+              precision    recall  f1-score   support
+
+           0       0.92      0.46      0.61        24
+           1       1.00      0.50      0.67         2
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.46        26
+   macro avg       0.64      0.32      0.43        26
+weighted avg       0.92      0.46      0.62        26
+
+----------------------------------------
+feature: GB096_CaseSplitVerbClass
+              precision    recall  f1-score   support
+
+           0       0.89      0.36      0.52        22
+           1       0.00      0.00      0.00         1
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.35        23
+   macro avg       0.30      0.12      0.17        23
+weighted avg       0.85      0.35      0.49        23
+
+----------------------------------------
+feature: GB158_RedupV
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         2
+           1       1.00      0.47      0.64        17
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.42        19
+   macro avg       0.33      0.16      0.21        19
+weighted avg       0.89      0.42      0.57        19
+
+----------------------------------------
+feature: GB196_PRO2PMascFem
+              precision    recall  f1-score   support
+
+           0       0.96      0.96      0.96        24
+           1       0.00      0.00      0.00         1
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.92        25
+   macro avg       0.32      0.32      0.32        25
+weighted avg       0.92      0.92      0.92        25
+
+----------------------------------------
+feature: GB052_GenderShape
+              precision    recall  f1-score   support
+
+           0       1.00      0.75      0.86        24
+           1       0.00      0.00      0.00         3
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.67        27
+   macro avg       0.33      0.25      0.29        27
+weighted avg       0.89      0.67      0.76        27
+
+----------------------------------------
+feature: GB108_DirLocBoundV
+              precision    recall  f1-score   support
+
+           0       1.00      0.17      0.29        18
+           1       0.17      0.14      0.15         7
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.16        25
+   macro avg       0.39      0.10      0.15        25
+weighted avg       0.77      0.16      0.25        25
+
+----------------------------------------
+feature: GB401_PatientLabile
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       4.0
+           1       0.00      0.00      0.00       6.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      10.0
+   macro avg       0.00      0.00      0.00      10.0
+weighted avg       0.00      0.00      0.00      10.0
+
+----------------------------------------
+feature: GB430_POSSPfxPosr
+              precision    recall  f1-score   support
+
+           0       0.90      0.41      0.56        22
+           1       0.00      0.00      0.00         1
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.39        23
+   macro avg       0.30      0.14      0.19        23
+weighted avg       0.86      0.39      0.54        23
+
+----------------------------------------
+feature: GB204_QUANTUniversal
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       5.0
+           1       0.00      0.00      0.00       9.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      14.0
+   macro avg       0.00      0.00      0.00      14.0
+weighted avg       0.00      0.00      0.00      14.0
+
+----------------------------------------
+feature: GB113_TransitivizingBound
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      11.0
+           1       0.00      0.00      0.00      11.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      22.0
+   macro avg       0.00      0.00      0.00      22.0
+weighted avg       0.00      0.00      0.00      22.0
+
+----------------------------------------
+feature: GB335_NUMVigesimal
+              precision    recall  f1-score   support
+
+           0       0.50      0.12      0.19        17
+           1       0.00      0.00      0.00         2
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.11        19
+   macro avg       0.17      0.04      0.06        19
+weighted avg       0.45      0.11      0.17        19
+
+----------------------------------------
+feature: GB167_PROLogophore
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      18.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      18.0
+   macro avg       0.00      0.00      0.00      18.0
+weighted avg       0.00      0.00      0.00      18.0
+
+----------------------------------------
+feature: GB048_NMZAgent
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         3
+           1       1.00      0.06      0.12        16
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.05        19
+   macro avg       0.33      0.02      0.04        19
+weighted avg       0.84      0.05      0.10        19
+
+----------------------------------------
+feature: GB155_CAUSBound
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         9
+           1       0.69      0.79      0.73        14
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.48        23
+   macro avg       0.23      0.26      0.24        23
+weighted avg       0.42      0.48      0.45        23
+
+----------------------------------------
+feature: GB273_COMPAROtherMarker
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         7
+           1       1.00      0.17      0.29         6
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.08        13
+   macro avg       0.33      0.06      0.10        13
+weighted avg       0.46      0.08      0.13        13
+
+----------------------------------------
+feature: GB021_ARTIndef
+              precision    recall  f1-score   support
+
+           0       1.00      0.35      0.52        23
+           1       0.00      0.00      0.00         3
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.31        26
+   macro avg       0.33      0.12      0.17        26
+weighted avg       0.88      0.31      0.46        26
+
+----------------------------------------
+feature: GB325_QCountMass
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      13.0
+           1       0.00      0.00      0.00       3.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      16.0
+   macro avg       0.00      0.00      0.00      16.0
+weighted avg       0.00      0.00      0.00      16.0
+
+----------------------------------------
+feature: GB193_OrderADJ_1
+              precision    recall  f1-score   support
+
+           0       1.00      0.67      0.80        18
+           1       0.80      0.50      0.62         8
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.62        26
+   macro avg       0.60      0.39      0.47        26
+weighted avg       0.94      0.62      0.74        26
+
+----------------------------------------
+feature: GB309_MultiplePastFuture
+              precision    recall  f1-score   support
+
+           0       0.75      0.18      0.29        17
+           1       0.33      0.17      0.22         6
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.17        23
+   macro avg       0.36      0.11      0.17        23
+weighted avg       0.64      0.17      0.27        23
+
+----------------------------------------
+feature: GB159_RedupNoun
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        12
+           1       1.00      0.14      0.25         7
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.05        19
+   macro avg       0.33      0.05      0.08        19
+weighted avg       0.37      0.05      0.09        19
+
+----------------------------------------
+feature: GB147_PassiveBoundV
+              precision    recall  f1-score   support
+
+           0       1.00      0.09      0.17        11
+           1       0.50      0.62      0.55        13
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.38        24
+   macro avg       0.50      0.24      0.24        24
+weighted avg       0.73      0.38      0.38        24
+
+----------------------------------------
+feature: GB026_ADJDiscont
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      19.0
+           1       0.00      0.00      0.00       1.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      20.0
+   macro avg       0.00      0.00      0.00      20.0
+weighted avg       0.00      0.00      0.00      20.0
+
+----------------------------------------
+feature: GB148_AntipassiveBoundV
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      22.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      22.0
+   macro avg       0.00      0.00      0.00      22.0
+weighted avg       0.00      0.00      0.00      22.0
+
+----------------------------------------
+feature: GB257_QIntonation
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         9
+           1       0.33      0.09      0.14        11
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.05        20
+   macro avg       0.11      0.03      0.05        20
+weighted avg       0.18      0.05      0.08        20
+
+----------------------------------------
+feature: GB336_NUMBodyTally
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      18.0
+           1       0.00      0.00      0.00       1.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      19.0
+   macro avg       0.00      0.00      0.00      19.0
+weighted avg       0.00      0.00      0.00      19.0
+
+----------------------------------------
+feature: GB043_DualBound
+              precision    recall  f1-score   support
+
+           0       0.94      0.71      0.81        24
+           1       0.33      0.50      0.40         2
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.69        26
+   macro avg       0.43      0.40      0.40        26
+weighted avg       0.90      0.69      0.78        26
+
+----------------------------------------
+feature: GB024_NUMOrder_2
+              precision    recall  f1-score   support
+
+           0       0.75      0.46      0.57        13
+           1       0.56      0.45      0.50        11
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.46        24
+   macro avg       0.44      0.31      0.36        24
+weighted avg       0.66      0.46      0.54        24
+
+----------------------------------------
+feature: GB130_OrderSVIntrans_1
+              precision    recall  f1-score   support
+
+           0       1.00      0.12      0.22         8
+           1       0.83      0.83      0.83        18
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.62        26
+   macro avg       0.61      0.32      0.35        26
+weighted avg       0.88      0.62      0.65        26
+
+----------------------------------------
+feature: GB104_AppInstrBoundV
+              precision    recall  f1-score   support
+
+           0       1.00      0.22      0.36        18
+           1       0.00      0.00      0.00         5
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.17        23
+   macro avg       0.33      0.07      0.12        23
+weighted avg       0.78      0.17      0.28        23
+
+----------------------------------------
+feature: GB152_SimulSeqBound
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      16.0
+           1       0.00      0.00      0.00       5.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      21.0
+   macro avg       0.00      0.00      0.00      21.0
+weighted avg       0.00      0.00      0.00      21.0
+
+----------------------------------------
+feature: GB298_NEGAux
+              precision    recall  f1-score   support
+
+           0       0.86      0.55      0.67        22
+           1       1.00      0.33      0.50         3
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.52        25
+   macro avg       0.62      0.29      0.39        25
+weighted avg       0.87      0.52      0.65        25
+
+----------------------------------------
+feature: GB203_QUANTOrder_0
+              precision    recall  f1-score   support
+
+           0       1.00      0.53      0.69        17
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.53        17
+   macro avg       0.50      0.26      0.35        17
+weighted avg       1.00      0.53      0.69        17
+
+----------------------------------------
+feature: GB330_RELCorr
+              precision    recall  f1-score   support
+
+           0       1.00      0.07      0.12        15
+           1       0.00      0.00      0.00         2
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.06        17
+   macro avg       0.33      0.02      0.04        17
+weighted avg       0.88      0.06      0.11        17
+
+----------------------------------------
+feature: GB037_DEMVisNonvis
+              precision    recall  f1-score   support
+
+           0       0.90      0.43      0.58        21
+           1       0.00      0.00      0.00         3
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.38        24
+   macro avg       0.30      0.14      0.19        24
+weighted avg       0.79      0.38      0.51        24
+
+----------------------------------------
+feature: GB080_VSuffixing
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         3
+           1       0.86      0.90      0.88        21
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.79        24
+   macro avg       0.29      0.30      0.29        24
+weighted avg       0.76      0.79      0.77        24
+
+----------------------------------------
+feature: GB266_COMPARLoc
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         8
+           1       0.50      0.20      0.29         5
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.08        13
+   macro avg       0.17      0.07      0.10        13
+weighted avg       0.19      0.08      0.11        13
+
+----------------------------------------
+feature: GB132_TransVMedOrder
+              precision    recall  f1-score   support
+
+           0       0.50      0.07      0.12        14
+           1       0.58      0.85      0.69        13
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.44        27
+   macro avg       0.36      0.31      0.27        27
+weighted avg       0.54      0.44      0.40        27
+
+----------------------------------------
+feature: GB074_Prepositions
+              precision    recall  f1-score   support
+
+           0       1.00      0.06      0.12        16
+           1       0.65      1.00      0.79        11
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.44        27
+   macro avg       0.55      0.35      0.30        27
+weighted avg       0.86      0.44      0.39        27
+
+----------------------------------------
+feature: GB103_BenefApplBoundV
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        19
+           1       1.00      0.33      0.50         6
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.08        25
+   macro avg       0.33      0.11      0.17        25
+weighted avg       0.24      0.08      0.12        25
+
+----------------------------------------
+feature: GB192_GenderPhono
+              precision    recall  f1-score   support
+
+           0       1.00      0.64      0.78        25
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.64        25
+   macro avg       0.50      0.32      0.39        25
+weighted avg       1.00      0.64      0.78        25
+
+----------------------------------------
+feature: GB305_PRORefl
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         8
+           1       1.00      0.14      0.25        14
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.09        22
+   macro avg       0.33      0.05      0.08        22
+weighted avg       0.64      0.09      0.16        22
+
+----------------------------------------
+feature: GB203_QUANTOrder_1
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         8
+           1       0.25      0.11      0.15         9
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.06        17
+   macro avg       0.08      0.04      0.05        17
+weighted avg       0.13      0.06      0.08        17
+
+----------------------------------------
+feature: GB432_POSSSfxPosr
+              precision    recall  f1-score   support
+
+           0       0.80      0.22      0.35        18
+           1       0.22      0.40      0.29         5
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.26        23
+   macro avg       0.34      0.21      0.21        23
+weighted avg       0.67      0.26      0.33        23
+
+----------------------------------------
+feature: GB326_QInSitu
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        10
+           1       1.00      0.18      0.31        11
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.10        21
+   macro avg       0.33      0.06      0.10        21
+weighted avg       0.52      0.10      0.16        21
+
+----------------------------------------
+feature: GB253_PredPOSSDat
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      14.0
+           1       0.00      0.00      0.00       1.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      15.0
+   macro avg       0.00      0.00      0.00      15.0
+weighted avg       0.00      0.00      0.00      15.0
+
+----------------------------------------
+feature: GB115_RecipBoundV
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         3
+           1       0.89      0.38      0.53        21
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.33        24
+   macro avg       0.30      0.13      0.18        24
+weighted avg       0.78      0.33      0.47        24
+
+----------------------------------------
+feature: GB149_InverseBoundV
+              precision    recall  f1-score   support
+
+           0       1.00      0.14      0.24        22
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.14        22
+   macro avg       0.50      0.07      0.12        22
+weighted avg       1.00      0.14      0.24        22
+
+----------------------------------------
+feature: GB146_VControl
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       9.0
+           1       0.00      0.00      0.00       7.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      16.0
+   macro avg       0.00      0.00      0.00      16.0
+weighted avg       0.00      0.00      0.00      16.0
+
+----------------------------------------
+feature: GB304_PassiveA-ArgOvert
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      10.0
+           1       0.00      0.00      0.00       8.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      18.0
+   macro avg       0.00      0.00      0.00      18.0
+weighted avg       0.00      0.00      0.00      18.0
+
+----------------------------------------
+feature: GB203_QUANTOrder_3
+              precision    recall  f1-score   support
+
+           0       0.83      0.36      0.50        14
+           1       0.00      0.00      0.00         3
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.29        17
+   macro avg       0.28      0.12      0.17        17
+weighted avg       0.69      0.29      0.41        17
+
+----------------------------------------
+feature: GB522_PRODrop
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       2.0
+           1       0.00      0.00      0.00      16.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      18.0
+   macro avg       0.00      0.00      0.00      18.0
+weighted avg       0.00      0.00      0.00      18.0
+
+----------------------------------------
+feature: GB187_DIMBound
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         8
+           1       1.00      0.10      0.18        10
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.06        18
+   macro avg       0.33      0.03      0.06        18
+weighted avg       0.56      0.06      0.10        18
+
+----------------------------------------
+feature: GB177_AnimacyBoundV
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      20.0
+           1       0.00      0.00      0.00       3.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      23.0
+   macro avg       0.00      0.00      0.00      23.0
+weighted avg       0.00      0.00      0.00      23.0
+
+----------------------------------------
+feature: GB027_ComitConjDifferent
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       8.0
+           1       0.00      0.00      0.00      13.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      21.0
+   macro avg       0.00      0.00      0.00      21.0
+weighted avg       0.00      0.00      0.00      21.0
+
+----------------------------------------
+feature: GB312_MoodBoundV
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         8
+           1       0.69      0.79      0.73        14
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.50        22
+   macro avg       0.23      0.26      0.24        22
+weighted avg       0.44      0.50      0.47        22
+
+----------------------------------------
+feature: GB057_NUMClassif
+              precision    recall  f1-score   support
+
+           0       1.00      0.17      0.29        18
+           1       0.33      0.33      0.33         6
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.21        24
+   macro avg       0.44      0.17      0.21        24
+weighted avg       0.83      0.21      0.30        24
+
+----------------------------------------
+feature: GB186_ARTNum
+              precision    recall  f1-score   support
+
+           0       1.00      0.19      0.32        21
+           1       1.00      0.67      0.80         3
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.25        24
+   macro avg       0.67      0.29      0.37        24
+weighted avg       1.00      0.25      0.38        24
+
+----------------------------------------
+feature: GB403_VSupplCome
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      12.0
+           1       0.00      0.00      0.00       3.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      15.0
+   macro avg       0.00      0.00      0.00      15.0
+weighted avg       0.00      0.00      0.00      15.0
+
+----------------------------------------
+feature: GB184_AdjNUM
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        13
+           1       1.00      0.12      0.22         8
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.05        21
+   macro avg       0.33      0.04      0.07        21
+weighted avg       0.38      0.05      0.08        21
+
+----------------------------------------
+feature: GB099_VSupplPerson
+              precision    recall  f1-score   support
+
+           0       1.00      0.05      0.10        19
+           1       0.00      0.00      0.00         1
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.05        20
+   macro avg       0.33      0.02      0.03        20
+weighted avg       0.95      0.05      0.10        20
+
+----------------------------------------
+feature: GB119_MoodAUX
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        15
+           1       0.40      0.25      0.31         8
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.09        23
+   macro avg       0.13      0.08      0.10        23
+weighted avg       0.14      0.09      0.11        23
+
+----------------------------------------
+feature: GB041_NUMSupplNoun
+              precision    recall  f1-score   support
+
+           0       1.00      0.05      0.10        19
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.05        19
+   macro avg       0.50      0.03      0.05        19
+weighted avg       1.00      0.05      0.10        19
+
+----------------------------------------
+feature: GB068_PredAdjLikeV
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        10
+           1       1.00      0.23      0.38        13
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.13        23
+   macro avg       0.33      0.08      0.12        23
+weighted avg       0.57      0.13      0.21        23
+
+----------------------------------------
+feature: GB136_WordOrderFixed
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        14
+           1       0.67      0.40      0.50        10
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.17        24
+   macro avg       0.22      0.13      0.17        24
+weighted avg       0.28      0.17      0.21        24
+
+----------------------------------------
+feature: GB089_S-ArgSfxV
+              precision    recall  f1-score   support
+
+           0       1.00      0.07      0.12        15
+           1       0.41      0.75      0.53        12
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.37        27
+   macro avg       0.47      0.27      0.22        27
+weighted avg       0.74      0.37      0.30        27
+
+----------------------------------------
+feature: GB318_PluralFree
+              precision    recall  f1-score   support
+
+           0       1.00      0.48      0.65        21
+           1       0.00      0.00      0.00         3
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.42        24
+   macro avg       0.33      0.16      0.22        24
+weighted avg       0.88      0.42      0.56        24
+
+----------------------------------------
+feature: GB044_PluralBound
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        12
+           1       0.58      1.00      0.73        15
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.56        27
+   macro avg       0.19      0.33      0.24        27
+weighted avg       0.32      0.56      0.41        27
+
+----------------------------------------
+feature: GB315_DIMGender
+              precision    recall  f1-score   support
+
+           0       1.00      0.14      0.25        21
+           1       0.00      0.00      0.00         1
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.14        22
+   macro avg       0.33      0.05      0.08        22
+weighted avg       0.95      0.14      0.24        22
+
+----------------------------------------
+feature: GB323_EvidIndirect
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      10.0
+           1       0.00      0.00      0.00       8.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      18.0
+   macro avg       0.00      0.00      0.00      18.0
+weighted avg       0.00      0.00      0.00      18.0
+
+----------------------------------------
+feature: GB415_PRO2PPoliteness
+              precision    recall  f1-score   support
+
+           0       1.00      0.17      0.29        18
+           1       0.00      0.00      0.00         3
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.14        21
+   macro avg       0.33      0.06      0.10        21
+weighted avg       0.86      0.14      0.24        21
+
+----------------------------------------
+feature: GB328_RELPre
+              precision    recall  f1-score   support
+
+           0       1.00      0.08      0.15        12
+           1       1.00      0.14      0.25         7
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.11        19
+   macro avg       0.67      0.08      0.13        19
+weighted avg       1.00      0.11      0.19        19
+
+----------------------------------------
+feature: GB170_ADJGender
+              precision    recall  f1-score   support
+
+           0       1.00      0.43      0.60        21
+           1       0.33      0.50      0.40         4
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.44        25
+   macro avg       0.44      0.31      0.33        25
+weighted avg       0.89      0.44      0.57        25
+
+----------------------------------------
+feature: GB110_VSupplTA
+              precision    recall  f1-score   support
+
+           0       1.00      0.16      0.27        19
+           1       0.00      0.00      0.00         2
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.14        21
+   macro avg       0.33      0.05      0.09        21
+weighted avg       0.90      0.14      0.25        21
+
+----------------------------------------
+feature: GB299_NEGPart
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         5
+           1       0.77      0.85      0.81        20
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.68        25
+   macro avg       0.26      0.28      0.27        25
+weighted avg       0.62      0.68      0.65        25
+
+----------------------------------------
+feature: GB127_PostureVerbs
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      11.0
+           1       0.00      0.00      0.00       1.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      12.0
+   macro avg       0.00      0.00      0.00      12.0
+weighted avg       0.00      0.00      0.00      12.0
+
+----------------------------------------
+feature: GB025_DEMOrder_2
+              precision    recall  f1-score   support
+
+           0       0.83      0.56      0.67         9
+           1       0.88      0.82      0.85        17
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.73        26
+   macro avg       0.57      0.46      0.51        26
+weighted avg       0.86      0.73      0.79        26
+
+----------------------------------------
+feature: GB140_SameNEGLocExistNom
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       5.0
+           1       0.00      0.00      0.00      13.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      18.0
+   macro avg       0.00      0.00      0.00      18.0
+weighted avg       0.00      0.00      0.00      18.0
+
+----------------------------------------
+feature: GB024_NUMOrder_1
+              precision    recall  f1-score   support
+
+           0       0.60      0.30      0.40        10
+           1       0.69      0.64      0.67        14
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.50        24
+   macro avg       0.43      0.31      0.36        24
+weighted avg       0.65      0.50      0.56        24
+
+----------------------------------------
+feature: GB252_PredPOSSLoc
+              precision    recall  f1-score   support
+
+           0       1.00      0.33      0.50        12
+           1       0.00      0.00      0.00         3
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.27        15
+   macro avg       0.33      0.11      0.17        15
+weighted avg       0.80      0.27      0.40        15
+
+----------------------------------------
+feature: GB069_AttrAdjLikeV
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      18.0
+           1       0.00      0.00      0.00       3.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      21.0
+   macro avg       0.00      0.00      0.00      21.0
+weighted avg       0.00      0.00      0.00      21.0
+
+----------------------------------------
+feature: GB081_VInfix
+              precision    recall  f1-score   support
+
+           0       1.00      0.17      0.30        23
+           1       0.17      0.50      0.25         2
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.20        25
+   macro avg       0.39      0.22      0.18        25
+weighted avg       0.93      0.20      0.29        25
+
+----------------------------------------
+feature: GB331_RELAdjoined
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      15.0
+           1       0.00      0.00      0.00       3.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      18.0
+   macro avg       0.00      0.00      0.00      18.0
+weighted avg       0.00      0.00      0.00      18.0
+
+----------------------------------------
+feature: GB291_QTone
+              precision    recall  f1-score   support
+
+           0       1.00      0.05      0.10        19
+           1       0.00      0.00      0.00         1
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.05        20
+   macro avg       0.33      0.02      0.03        20
+weighted avg       0.95      0.05      0.10        20
+
+----------------------------------------
+feature: GB054_GenderPlants
+              precision    recall  f1-score   support
+
+           0       0.92      0.42      0.58        26
+           1       0.00      0.00      0.00         1
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.41        27
+   macro avg       0.31      0.14      0.19        27
+weighted avg       0.88      0.41      0.56        27
+
+----------------------------------------
+feature: GB095_CaseSplitTAM
+              precision    recall  f1-score   support
+
+           0       0.80      0.20      0.32        20
+           1       0.00      0.00      0.00         2
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.18        22
+   macro avg       0.27      0.07      0.11        22
+weighted avg       0.73      0.18      0.29        22
+
+----------------------------------------
+feature: GB025_DEMOrder_1
+              precision    recall  f1-score   support
+
+           0       0.75      0.27      0.40        11
+           1       0.69      0.73      0.71        15
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.54        26
+   macro avg       0.48      0.34      0.37        26
+weighted avg       0.71      0.54      0.58        26
+
+----------------------------------------
+feature: GB256_PredPOSSComitative
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      14.0
+           1       0.00      0.00      0.00       1.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      15.0
+   macro avg       0.00      0.00      0.00      15.0
+weighted avg       0.00      0.00      0.00      15.0
+
+----------------------------------------
+feature: GB049_NMZObject
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       6.0
+           1       0.00      0.00      0.00      13.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      19.0
+   macro avg       0.00      0.00      0.00      19.0
+weighted avg       0.00      0.00      0.00      19.0
+
+----------------------------------------
+feature: GB075_Postpositions
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        12
+           1       0.71      0.77      0.74        13
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.40        25
+   macro avg       0.24      0.26      0.25        25
+weighted avg       0.37      0.40      0.39        25
+
+----------------------------------------
+feature: GB433_POSSSfxPosd
+              precision    recall  f1-score   support
+
+           0       1.00      0.07      0.12        15
+           1       0.31      0.62      0.42         8
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.26        23
+   macro avg       0.44      0.23      0.18        23
+weighted avg       0.76      0.26      0.23        23
+
+----------------------------------------
+feature: GB138_NEGInitial
+              precision    recall  f1-score   support
+
+           0       1.00      0.07      0.13        14
+           1       0.47      0.73      0.57        11
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.36        25
+   macro avg       0.49      0.27      0.23        25
+weighted avg       0.77      0.36      0.33        25
+
+----------------------------------------
+feature: GB322_EvidSense
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      14.0
+           1       0.00      0.00      0.00       4.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      18.0
+   macro avg       0.00      0.00      0.00      18.0
+weighted avg       0.00      0.00      0.00      18.0
+
+----------------------------------------
+feature: GB042_SingularNoun
+              precision    recall  f1-score   support
+
+           0       0.73      0.55      0.63        20
+           1       0.11      0.17      0.13         6
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.46        26
+   macro avg       0.28      0.24      0.25        26
+weighted avg       0.59      0.46      0.51        26
+
+----------------------------------------
+feature: GB264_QPartMedial
+              precision    recall  f1-score   support
+
+           0       0.71      0.28      0.40        18
+           1       0.50      0.33      0.40         3
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.29        21
+   macro avg       0.40      0.20      0.27        21
+weighted avg       0.68      0.29      0.40        21
+
+----------------------------------------
+feature: GB520_AspectAuxPart
+              precision    recall  f1-score   support
+
+           0       1.00      0.08      0.15        12
+           1       1.00      0.22      0.36         9
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.14        21
+   macro avg       0.67      0.10      0.17        21
+weighted avg       1.00      0.14      0.24        21
+
+----------------------------------------
+feature: GB070_CoreCaseNoun
+              precision    recall  f1-score   support
+
+           0       1.00      0.42      0.59        12
+           1       0.59      0.77      0.67        13
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.60        25
+   macro avg       0.53      0.40      0.42        25
+weighted avg       0.79      0.60      0.63        25
+
+----------------------------------------
+feature: GB188_AUGBound
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      11.0
+           1       0.00      0.00      0.00       4.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      15.0
+   macro avg       0.00      0.00      0.00      15.0
+weighted avg       0.00      0.00      0.00      15.0
+
+----------------------------------------
+feature: GB303_AntipassiveFree
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      19.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      19.0
+   macro avg       0.00      0.00      0.00      19.0
+weighted avg       0.00      0.00      0.00      19.0
+
+----------------------------------------
+feature: GB130_OrderSVIntrans_2
+              precision    recall  f1-score   support
+
+           0       1.00      0.38      0.55        21
+           1       0.50      0.80      0.62         5
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.46        26
+   macro avg       0.50      0.39      0.39        26
+weighted avg       0.90      0.46      0.56        26
+
+----------------------------------------
+feature: GB047_NMZActionState
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       5.0
+           1       0.00      0.00      0.00      15.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      20.0
+   macro avg       0.00      0.00      0.00      20.0
+weighted avg       0.00      0.00      0.00      20.0
+
+----------------------------------------
+feature: GB090_S-ArgPfxV
+              precision    recall  f1-score   support
+
+           0       1.00      0.25      0.40        20
+           1       0.32      0.86      0.46         7
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.41        27
+   macro avg       0.44      0.37      0.29        27
+weighted avg       0.82      0.41      0.42        27
+
+----------------------------------------
+feature: GB185_DEMNum
+              precision    recall  f1-score   support
+
+           0       1.00      0.07      0.12        15
+           1       0.57      0.50      0.53         8
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.22        23
+   macro avg       0.52      0.19      0.22        23
+weighted avg       0.85      0.22      0.27        23
+
+----------------------------------------
+feature: GB410_NeutralAlign
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         9
+           1       0.67      0.83      0.74        12
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.48        21
+   macro avg       0.22      0.28      0.25        21
+weighted avg       0.38      0.48      0.42        21
+
+----------------------------------------
+feature: GB065_POSSPosdPosrOrder_3
+              precision    recall  f1-score   support
+
+           0       1.00      0.61      0.76        23
+           1       0.50      0.80      0.62         5
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.64        28
+   macro avg       0.50      0.47      0.46        28
+weighted avg       0.91      0.64      0.73        28
+
+----------------------------------------
+feature: GB023_ARTPost
+              precision    recall  f1-score   support
+
+           0       1.00      0.23      0.37        22
+           1       0.25      0.50      0.33         4
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.27        26
+   macro avg       0.42      0.24      0.23        26
+weighted avg       0.88      0.27      0.36        26
+
+----------------------------------------
+feature: GB402_VSupplSee
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      14.0
+           1       0.00      0.00      0.00       1.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      15.0
+   macro avg       0.00      0.00      0.00      15.0
+weighted avg       0.00      0.00      0.00      15.0
+
+----------------------------------------
+feature: GB071_CoreCasePRO
+              precision    recall  f1-score   support
+
+           0       1.00      0.23      0.38        13
+           1       0.61      0.92      0.73        12
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.56        25
+   macro avg       0.54      0.38      0.37        25
+weighted avg       0.81      0.56      0.55        25
+
+----------------------------------------
+feature: GB139_NEGProhibitive
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         3
+           1       0.70      0.37      0.48        19
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.32        22
+   macro avg       0.23      0.12      0.16        22
+weighted avg       0.60      0.32      0.42        22
+
+----------------------------------------
+feature: GB051_GenderSex
+              precision    recall  f1-score   support
+
+           0       1.00      0.30      0.47        23
+           1       0.23      1.00      0.38         3
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.38        26
+   macro avg       0.41      0.43      0.28        26
+weighted avg       0.91      0.38      0.46        26
+
+----------------------------------------
+feature: GB133_TransVFinalOrder
+              precision    recall  f1-score   support
+
+           0       1.00      0.40      0.57        15
+           1       0.62      0.91      0.74        11
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.62        26
+   macro avg       0.54      0.44      0.44        26
+weighted avg       0.84      0.62      0.64        26
+
+----------------------------------------
+feature: GB151_SwitchReference
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      18.0
+           1       0.00      0.00      0.00       2.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      20.0
+   macro avg       0.00      0.00      0.00      20.0
+weighted avg       0.00      0.00      0.00      20.0
+
+----------------------------------------
+feature: GB036_DEMElevation
+              precision    recall  f1-score   support
+
+           0       1.00      0.39      0.56        23
+           1       0.00      0.00      0.00         1
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.38        24
+   macro avg       0.33      0.13      0.19        24
+weighted avg       0.96      0.38      0.54        24
+
+----------------------------------------
+feature: GB324_QV
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        19
+           1       1.00      0.33      0.50         3
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.05        22
+   macro avg       0.33      0.11      0.17        22
+weighted avg       0.14      0.05      0.07        22
+
+----------------------------------------
+feature: GB408_Accusative
+              precision    recall  f1-score   support
+
+           0       1.00      0.12      0.21        17
+           1       0.14      0.25      0.18         4
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.14        21
+   macro avg       0.38      0.12      0.13        21
+weighted avg       0.84      0.14      0.21        21
+
+----------------------------------------
+feature: GB409_Ergative
+              precision    recall  f1-score   support
+
+           0       1.00      0.41      0.58        17
+           1       0.33      0.20      0.25         5
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.36        22
+   macro avg       0.44      0.20      0.28        22
+weighted avg       0.85      0.36      0.51        22
+
+----------------------------------------
+feature: GB035_DEMDistContrast
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        13
+           1       0.57      0.62      0.59        13
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.31        26
+   macro avg       0.19      0.21      0.20        26
+weighted avg       0.29      0.31      0.30        26
+
+----------------------------------------
+feature: GB317_DualFree
+              precision    recall  f1-score   support
+
+           0       0.93      0.64      0.76        22
+           1       0.00      0.00      0.00         1
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.61        23
+   macro avg       0.31      0.21      0.25        23
+weighted avg       0.89      0.61      0.72        23
+
+----------------------------------------
+feature: GB111_VerbClass
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        13
+           1       0.64      0.64      0.64        11
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.29        24
+   macro avg       0.21      0.21      0.21        24
+weighted avg       0.29      0.29      0.29        24
+
+----------------------------------------
+feature: GB254_PredPOSSAdnom
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         9
+           1       0.50      0.33      0.40         6
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.13        15
+   macro avg       0.17      0.11      0.13        15
+weighted avg       0.20      0.13      0.16        15
+
+----------------------------------------
+feature: GB301_Inclusory
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       9.0
+           1       0.00      0.00      0.00       4.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      13.0
+   macro avg       0.00      0.00      0.00      13.0
+weighted avg       0.00      0.00      0.00      13.0
+
+----------------------------------------
+feature: GB166_PaucalBound
+              precision    recall  f1-score   support
+
+           0       0.94      0.71      0.81        24
+           1       0.00      0.00      0.00         1
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.68        25
+   macro avg       0.31      0.24      0.27        25
+weighted avg       0.91      0.68      0.78        25
+
+----------------------------------------
+feature: GB519_MoodAuxPart
+              precision    recall  f1-score   support
+
+           0       1.00      0.06      0.12        16
+           1       0.50      0.25      0.33         4
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.10        20
+   macro avg       0.50      0.10      0.15        20
+weighted avg       0.90      0.10      0.16        20
+
+----------------------------------------
+feature: GB123_LightVerb
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      12.0
+           1       0.00      0.00      0.00       3.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      15.0
+   macro avg       0.00      0.00      0.00      15.0
+weighted avg       0.00      0.00      0.00      15.0
+
+----------------------------------------
+feature: GB260_QWordOrder
+              precision    recall  f1-score   support
+
+           0       0.67      0.10      0.17        20
+           1       0.00      0.00      0.00         1
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.10        21
+   macro avg       0.22      0.03      0.06        21
+weighted avg       0.63      0.10      0.17        21
+
+----------------------------------------
+feature: GB431_POSSPfxPosd
+              precision    recall  f1-score   support
+
+           0       1.00      0.33      0.50        21
+           1       0.11      0.50      0.18         2
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.35        23
+   macro avg       0.37      0.28      0.23        23
+weighted avg       0.92      0.35      0.47        23
+
+----------------------------------------
+feature: GB092_A-ArgPfxV
+              precision    recall  f1-score   support
+
+           0       1.00      0.33      0.50        18
+           1       0.44      0.89      0.59         9
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.52        27
+   macro avg       0.48      0.41      0.36        27
+weighted avg       0.81      0.52      0.53        27
+
+----------------------------------------
+feature: GB105_CaseRecipientObj
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      12.0
+           1       0.00      0.00      0.00      10.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      22.0
+   macro avg       0.00      0.00      0.00      22.0
+weighted avg       0.00      0.00      0.00      22.0
+
+----------------------------------------
+feature: GB137_NEGFinal
+              precision    recall  f1-score   support
+
+           0       1.00      0.33      0.50        15
+           1       0.64      0.70      0.67        10
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.48        25
+   macro avg       0.55      0.34      0.39        25
+weighted avg       0.85      0.48      0.57        25
+
+----------------------------------------
+feature: GB109_VSupplNUM
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      19.0
+           1       0.00      0.00      0.00       2.0
+           2       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00      21.0
+   macro avg       0.00      0.00      0.00      21.0
+weighted avg       0.00      0.00      0.00      21.0
+
+----------------------------------------
+feature: GB250_PredPOSSHabeo
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         7
+           1       0.50      0.20      0.29        10
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.12        17
+   macro avg       0.17      0.07      0.10        17
+weighted avg       0.29      0.12      0.17        17
+
+----------------------------------------
+feature: GB031_PRODualAug
+              precision    recall  f1-score   support
+
+           0       1.00      0.25      0.40        16
+           1       0.50      1.00      0.67        11
+           2       0.00      0.00      0.00         0
+
+    accuracy                           0.56        27
+   macro avg       0.50      0.42      0.36        27
+weighted avg       0.80      0.56      0.51        27
+
+----------------------------------------

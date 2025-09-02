@@ -2,14 +2,85 @@ import pandas as pd
 import numpy as np
 from sklearn.inspection import permutation_importance
 import time 
-
+import matplotlib.pyplot as plt
 from sklearn.metrics import classification_report
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+import pickle
+from pathlib import Path
 
-"""makes mask_df= meta+gb(f/t/masked as <NA> in selected indx)
-    and masked_rec_for_eval= gb(all Fasle except masked positions=True)"""
-                                            #masked_positions=masked_rec_for_eval
-def masked_eval(gb_columns, y_dev, y_pred_df, masked_positions, output_file):
+
+
+def family_eval(gb_columns, y_dev, y_pred_df, masked_positions, language_families, encoder_path=Path("final_dfs") / "no_nans" / "label_encoders.pkl", output_dir="evaluation"):
+    """per family metrics and blanking ratios for test evaluation"""
+    target_families = ['Mayan', 'Tucanoan', 'Sepik', 'Worrorran', 'Tungusic', 'Nilotic']
+
+    #decode since all tests no nans
+    with open(encoder_path, "rb") as f:
+        label_encoders = pickle.load(f)
+        
+
+        language_families = language_families.map(lambda x: label_encoders["language_family"].inverse_transform([x])[0])
+        
+    #if not in targets, name OTHER
+    family_series = language_families.reindex(y_pred_df.index).fillna("Other")
+    family_series = family_series.where(family_series.isin(target_families), "Other")
+
+    fam_results = ["\n Per Family Evaluation\n"]
+    fam_data= []
+    blanking_ratios= {}
+
+    #see counts of all families and other
+    print("family counts in test run:\n", family_series.value_counts())
+    masked_counts = (masked_positions.sum(axis=1)).groupby(family_series).sum()
+    print("masked counts per family:", masked_counts.to_dict())
+
+    for fam in target_families + ["Other"]:
+        fam_mask = family_series == fam
+        fam_y_true = y_dev.loc[fam_mask, gb_columns] #ground truth vals
+        fam_y_pred = y_pred_df.loc[fam_mask, gb_columns] #predicted
+        fam_masked = masked_positions.loc[fam_mask, gb_columns] #masked matrix for that family
+
+        mask_flat = fam_masked.values.flatten().astype(bool) #flatten to bool array to mark masked pos
+        if mask_flat.sum() == 0:
+            fam_results.append(f"Family: {fam} has 0 masked positions")
+            fam_data.append({"Family": fam, "Accuracy": None, "Macro F1": None, "Blanking Ratio": None})
+            continue
+
+        y_true_flat = fam_y_true.values.flatten()[mask_flat].astype(int)
+        y_pred_flat = fam_y_pred.values.flatten()[mask_flat].astype(int)
+
+        fam_acc = accuracy_score(y_true_flat, y_pred_flat)
+        fam_f1 = f1_score(y_true_flat, y_pred_flat, average="macro", zero_division=0)
+        #ratio of not nan values to masked encoded as 2
+        non_unknown_count = (fam_y_true.values != 2).sum()
+
+        blank_ratio = mask_flat.sum() / non_unknown_count if non_unknown_count > 0 else 0
+        blanking_ratios[fam] = blank_ratio
+
+
+        fam_results.append(
+            f"Family: {fam}\n"
+            f"  Accuracy: {fam_acc:.3f}\n"
+            f"  Macro F1: {fam_f1:.3f}\n"
+            f"  Blanking ratio: {blank_ratio:.3f}\n"
+            + "-" * 40 + "\n"
+        )
+        fam_data.append({
+            "Family": fam,
+            "Accuracy": fam_acc,
+            "Macro F1": fam_f1,
+            "Blanking Ratio": blank_ratio
+        })
+    print("\n".join(fam_results))
+    print("Blanking Ratios:", blanking_ratios)
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    metrics_path = output_dir / "family_metrics.csv"
+    pd.DataFrame(fam_data).to_csv(metrics_path, index=False)
+    print(f"✅ Family metrics saved to: {metrics_path}")
+    
+
+def masked_eval(gb_columns, y_dev, y_pred_df, masked_positions, output_file, test_run=True, language_families=None):
     results=[]
 # evaluation 
     masked_positions = masked_positions.reindex(y_pred_df.index)
@@ -64,38 +135,13 @@ def masked_eval(gb_columns, y_dev, y_pred_df, masked_positions, output_file):
         f.write(res)
         f.writelines(results)
     print(f"eval file saved to {output_file}")
+    if test_run:
+        assert language_families is not None, "language_families must be provided for test_run"
+        # Ensure alignment before calling family_eval
+        if not language_families.index.equals(y_pred_df.index):
+            language_families = language_families.reindex(y_pred_df.index)
+        family_eval(gb_columns, y_dev, y_pred_df, masked_positions, language_families, output_dir="evaluation")
 
-def see_feature_importance(multi_model, X_dev, y_dev, gb_columns, masked_positions):
-    """feature importance looped for each gb feature=column"""
-    start_time = time.time()
-    for i, col in enumerate(gb_columns):
-        print(f"for feature {col}")
-
-        #need to remove nan from ytrue for it to compute
-        mask = masked_positions[col]
-        X_dev_masked = X_dev[mask]
-        y_dev_masked = y_dev[col][mask]
-
-        #see if too many values are skipped 
-        if len(y_dev_masked) < 10:
-            print("skipping: too few non-nan values")
-            continue
-
-        result= permutation_importance(
-            multi_model.estimators_[i], X_dev_masked, y_dev_masked, 
-            n_repeats=5, random_state=42, n_jobs=1,scoring="accuracy"
-        )
-        importances = pd.Series(result.importances_mean, index=X_dev.columns)
-        importances = importances.sort_values(ascending=False)
-        print(importances.head(10).to_string())
-
-        fam_feat= [c for c in X_dev.columns if "fam_" in c or "top_fams_" in c or c == "language_family"]
-        for fcol in fam_feat:
-            if fcol in importances:
-                print(f"{fcol}: {importances[fcol]:.6f}")
-
-    elapsed_time = time.time() - start_time
-    print(f"Elapsed time to compute the importances: {elapsed_time:.3f} seconds")
 
 
 def eval(gb_columns, y_dev, y_pred_df, output_file):
@@ -133,5 +179,4 @@ def eval(gb_columns, y_dev, y_pred_df, output_file):
         f.write(res)
         f.writelines(results)
     print(f"eval file saved to {output_file}")
-
 

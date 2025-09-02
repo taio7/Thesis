@@ -54,12 +54,16 @@ def geo_clustering(df, method="kmeans", **kwargs):
         # Default parameters for DBSCAN
         eps = kwargs.get("eps", 0.5)
         min_samples = kwargs.get("min_samples", 5)
+        metric= kwargs.get("metric", "euclidean")
 
+        if metric=="haversine":  #to use haversina, convert lat lon to radians
+            X=np.radians(X)
         # Create and fit the DBSCAN model
         dbscan = DBSCAN(
             eps=eps,
             min_samples=min_samples,
-            **{k: v for k, v in kwargs.items() if k not in ["eps", "min_samples"]},
+            metric=metric,
+            **{k: v for k, v in kwargs.items() if k not in ["eps", "min_samples", "metric"]},
         )
         clusters = dbscan.fit_predict(X)
     
@@ -82,9 +86,6 @@ def geo_clustering(df, method="kmeans", **kwargs):
     result_df = df.copy()
     result_df[f"{method}_cluster"] = clusters
     
-    if method=="kmeans":
-        model=kmeans
-        return result_df, model
 
     return result_df
 
@@ -155,6 +156,7 @@ def plot_geo_clusters(df, title="Geographical Clusters", cluster_col="cluster"):
     @param df: DataFrame with 'latitude', 'longitude', and 'cluster' columns
     @param title: Title for the plot
     """
+
     plt.figure(figsize=(12, 8))
     m = Basemap(
         projection="mill", llcrnrlat=-60, urcrnrlat=85, llcrnrlon=-180, urcrnrlon=180
@@ -165,10 +167,10 @@ def plot_geo_clusters(df, title="Geographical Clusters", cluster_col="cluster"):
     m.fillcontinents(color="white", lake_color="aqua")
 
     # Convert lat/lon to map coordinates
-    x, y = m(df["language_longitude"].values, df["language_latitude"].values)
+    x, y = m(df["language_longitude"], df["language_latitude"].values)
 
     # Plot points colored by cluster
-    scatter = m.scatter(x, y, c=df[cluster_col], cmap="viridis", s=50, alpha=0.7)
+    scatter = m.scatter(x, y, c=df[cluster_col].values , cmap="viridis", s=50, alpha=0.7)
 
     plt.colorbar(scatter, label="Cluster")
     plt.title(title)

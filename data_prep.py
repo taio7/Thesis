@@ -7,8 +7,9 @@ save train, dev_gold and test parquet files
 in preped dir."""
 
 BASE_PATH = Path(__file__).parent
-DATA_PATH = BASE_PATH / "data"
+DATA_PATH = BASE_PATH / "make_data_scripts"/"data"
 OUTPUT_PATH= BASE_PATH/ "preped"
+OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
 
 def data_load():
     df_train = pd.read_csv(DATA_PATH / "train.tsv", sep="\t")
@@ -18,9 +19,6 @@ def data_load():
     fam_cols= ["language_family"] 
     lat_lon_cols= ["language_latitude", "language_longitude"]
     return df_train, df_dev, df_test, gb_columns, fam_cols, lat_lon_cols
-
-
-
 
 def main():
     df_train, df_dev, df_test, gb_columns, fam_cols, lat_lon_cols = data_load()
@@ -35,20 +33,6 @@ def main():
     df_train[fam_cols] = df_train[fam_cols].astype("category")
     df_dev[fam_cols] = df_dev[fam_cols].astype("category")
 
-#"mode"  "all False"  "none" "all True"  "impute"
-
-    #strategy= "mode"
-    #
-    #print(set(df_train['id']).intersection(df_dev['id'])) #check for data leak
-    
-    #assert not df_dev[gb_columns].isnull().values.any()
-    #assert not df_train[gb_columns].isnull().values.any()
-    #
-    # print(df_dev.head())
-#dont mask here so i do it in the model script, and save the files there?
-    #masked_dev, masked_positions= mask_dev(df_dev, gb_columns, mask_ratio= 0.3, seed=30)
-    
-    #masked_df_dev.to_csv(OUTPUT_PATH / f"masked_dev.csv", sep="\t", index=False)  #save 
     
     df_train.to_parquet(OUTPUT_PATH / "train.parquet")
     df_dev.to_parquet(OUTPUT_PATH / "dev_gold.parquet")

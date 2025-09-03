@@ -9,7 +9,7 @@ from sklearn.neural_network import MLPClassifier
 import lightgbm as lgb
 from model_helper import train_pred_chain, train_pred_indiv, train_pred_multi, most_freq_baseline
 from param_search import do_grid_search, do_halving_search, hgb_grid_search, plot_feature_importance, summarize_input_feature_influence, plot_partial_dependence, explain_individual_models
-from eval import masked_eval, see_feature_importance, compute_global_permutation_importance 
+from eval import masked_eval
 from sklearn.model_selection import train_test_split
 from sklearn.feature_selection import VarianceThreshold
 
@@ -42,9 +42,9 @@ LAST_PATH= RES_OUTPUT_PATH/"last" #with optim params
 TEST_PATH= RES_OUTPUT_PATH/ "test"
 
 PRED_OUTPUT_PATH = BASE_PATH/ "new_pred_output"
-pred_file = PRED_OUTPUT_PATH/ f"{MODEL}_bbest_mr3_output.csv"
+pred_file = PRED_OUTPUT_PATH/ f"baseline_test_mr3_output.csv"
 #output_file = CLUSTERS_PATH / f"{MODEL}_results.txt"
-output_file = LAST_PATH / f"{MODEL}_bbest_mr3_results.txt"
+output_file = BASELINE_PATH / f"baseline_test_mr3_results.txt"
 
 #set model variable for base model to be fed into train pred 
 models_no_nans= ["RF", "KN", "MLP"]
@@ -66,7 +66,7 @@ X_train, y_train, X_dev, y_dev, X_test, y_test= select_cols(train, masked_df, de
                                             use_hdb_loc_clusters=USE_HDB_LOC_CLUSTERS, 
                                             use_12k_cl=USE_12K_CLUSTERS, use_12db_cl=USE_12DB_CLUSTERS, use_12hdb_cl=USE_12HDB_CLUSTERS, 
                                             use_24k_cl=USE_24K_CLUSTERS, use_24db_cl=USE_24DB_CLUSTERS, use_24hdb_cl=USE_24HDB_CLUSTERS,
-                                            MODEL=MODEL, final_run=False)
+                                            MODEL=MODEL, final_run=True)
 
 gb_columns = [col for col in y_train.columns if col.startswith("GB")]
 for col in X_train.columns:
@@ -144,23 +144,22 @@ def select_model(name):
 def main():
 #multioutput
 
-    y_pred_df, y_pred_interp, gb_columns, multi_model=train_pred_multi(X_train, y_train, X_dev, y_dev, dev, model=select_model(MODEL), model_name=MODEL)
-    #all_importances= see_feature_importance(multi_model, X_dev, y_dev, gb_columns, masked_positions)
+    #y_pred_df, y_pred_interp, gb_columns, multi_model=train_pred_multi(X_train, y_train, X_dev, y_dev, dev, model=select_model(MODEL), model_name=MODEL)
+    #y_pred_df, y_pred_interp, gb_columns, multi_model=train_pred_multi(X_train, y_train, X_test, y_test, test, model=select_model(MODEL), model_name=MODEL)
 #classifier chain
     #y_pred_df, y_pred_interp, gb_columns, multi_model=train_pred_chain(X_train, y_train, X_dev, y_dev, dev, select_model(MODEL), model_name=MODEL)
 
 #individual   
     #y_pred_df, y_pred_interp, gb_columns, indiv_model=train_pred_indiv(X_train, y_train, X_dev, y_dev, dev, select_model(MODEL), model_name=MODEL)
-    #all_importances= see_feature_importance(indiv_model, X_dev, y_dev, gb_columns, masked_positions)
 
 #baseline
 
-    #y_pred_df, y_pred_interp, gb_columns= most_freq_baseline(X_train, y_train, X_test, test, save_path=pred_file)
-    #masked_eval(gb_columns, y_test, y_pred_df, test_masked_posistions, output_file)
+    #y_pred_df, y_pred_interp, gb_columns= most_freq_baseline(X_train, y_train, X_dev, dev, save_path=pred_file)
+    y_pred_df, y_pred_interp, gb_columns= most_freq_baseline(X_train, y_train, X_test, test, save_path=pred_file)
 #RUN PRED
-    masked_eval(gb_columns, y_dev, y_pred_df, masked_positions, output_file, test_run=False, language_families=None)
-    #masked_eval(gb_columns, y_test, y_pred_df, test_masked_posistions, output_file, test_run=True, language_families=test["language_family"])
-    y_pred_interp.to_csv(pred_file, sep="\t", index=False)
+    #masked_eval(gb_columns, y_dev, y_pred_df, masked_positions, output_file, test_run=False, language_families=None)
+    masked_eval(gb_columns, y_test, y_pred_df, test_masked_posistions, output_file, test_run=True, language_families=test["language_family"])
+    #y_pred_interp.to_csv(pred_file, sep="\t", index=False)
 
 #PARAM SEARCH
     #best_model, best_params, best_score = do_grid_search(MODEL, X_train, y_train, select_model(MODEL), file_name="famlocskf")
